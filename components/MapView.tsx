@@ -10,6 +10,15 @@ interface MapViewProps {
 }
 
 export default function MapView({ clinics, selectedClinic, onClinicSelect }: MapViewProps) {
+  // 🔒 Guard: do not render or load Google Maps unless explicitly enabled
+  if (process.env.NEXT_PUBLIC_ENABLE_MAP !== 'true') {
+    return (
+      <div className="h-64 flex items-center justify-center border rounded">
+        Map disabled in dev
+      </div>
+    );
+  }
+
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<google.maps.Map | null>(null);
   const markersRef = useRef<google.maps.Marker[]>([]);
@@ -47,10 +56,10 @@ export default function MapView({ clinics, selectedClinic, onClinicSelect }: Map
         lng: selectedClinic.location.lng,
       });
       mapInstanceRef.current.setZoom(15);
-      
+
       // Find and show info window for selected clinic
       const marker = markersRef.current.find(
-        m => (m as any).clinicId === selectedClinic.place_id
+        (m) => (m as any).clinicId === selectedClinic.place_id
       );
       if (marker) {
         showInfoWindow(marker, selectedClinic);
@@ -63,9 +72,10 @@ export default function MapView({ clinics, selectedClinic, onClinicSelect }: Map
 
     // Default center (USA)
     const defaultCenter = { lat: 39.8283, lng: -98.5795 };
-    const center = clinics.length > 0
-      ? { lat: clinics[0].location.lat, lng: clinics[0].location.lng }
-      : defaultCenter;
+    const center =
+      clinics.length > 0
+        ? { lat: clinics[0].location.lat, lng: clinics[0].location.lng }
+        : defaultCenter;
 
     mapInstanceRef.current = new google.maps.Map(mapRef.current, {
       center,
@@ -87,7 +97,7 @@ export default function MapView({ clinics, selectedClinic, onClinicSelect }: Map
     if (!mapInstanceRef.current || !window.google) return;
 
     // Clear existing markers
-    markersRef.current.forEach(marker => marker.setMap(null));
+    markersRef.current.forEach((marker) => marker.setMap(null));
     markersRef.current = [];
 
     if (clinics.length === 0) return;
@@ -95,7 +105,7 @@ export default function MapView({ clinics, selectedClinic, onClinicSelect }: Map
     const bounds = new google.maps.LatLngBounds();
 
     // Create markers for each clinic
-    clinics.forEach(clinic => {
+    clinics.forEach((clinic) => {
       const marker = new google.maps.Marker({
         position: { lat: clinic.location.lat, lng: clinic.location.lng },
         map: mapInstanceRef.current,
@@ -135,49 +145,69 @@ export default function MapView({ clinics, selectedClinic, onClinicSelect }: Map
         <h3 style="font-weight: 600; font-size: 16px; margin-bottom: 8px; color: #1f2937;">
           ${clinic.display_name}
         </h3>
-        
-        ${clinic.rating ? `
+
+        ${
+          clinic.rating
+            ? `
           <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
             <span style="color: #fbbf24; font-size: 14px;">★</span>
             <span style="font-weight: 600; color: #1f2937;">${clinic.rating.toFixed(1)}</span>
-            ${clinic.user_rating_count ? `
+            ${
+              clinic.user_rating_count
+                ? `
               <span style="color: #6b7280; font-size: 13px;">(${clinic.user_rating_count} reviews)</span>
-            ` : ''}
+            `
+                : ''
+            }
           </div>
-        ` : ''}
-        
+        `
+            : ''
+        }
+
         <p style="color: #4b5563; font-size: 13px; margin-bottom: 8px; line-height: 1.4;">
           ${clinic.formatted_address}
         </p>
-        
-        ${clinic.current_open_now !== undefined ? `
+
+        ${
+          clinic.current_open_now !== undefined
+            ? `
           <div style="margin-bottom: 12px;">
             <span style="display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: 500; ${
-              clinic.current_open_now 
-                ? 'background-color: #d1fae5; color: #065f46;' 
+              clinic.current_open_now
+                ? 'background-color: #d1fae5; color: #065f46;'
                 : 'background-color: #fee2e2; color: #991b1b;'
             }">
               ${clinic.current_open_now ? '● Open Now' : '● Closed'}
             </span>
           </div>
-        ` : ''}
-        
+        `
+            : ''
+        }
+
         <div style="display: flex; gap: 8px; margin-top: 12px;">
-          ${clinic.phone ? `
+          ${
+            clinic.phone
+              ? `
             <a href="tel:${clinic.phone}" style="flex: 1; text-align: center; padding: 8px; background-color: #dbeafe; color: #1e40af; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 500;">
               📞 Call
             </a>
-          ` : ''}
-          
+          `
+              : ''
+          }
+
           <a href="${clinic.google_maps_uri}" target="_blank" rel="noopener noreferrer" style="flex: 1; text-align: center; padding: 8px; background-color: #d1fae5; color: #065f46; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 500;">
             📍 Directions
           </a>
-          
-          ${clinic.website ? `
+
+          ${
+            clinic.website
+              ? `
             <a href="${clinic.website}" target="_blank" rel="noopener noreferrer" style="flex: 1; text-align: center; padding: 8px; background-color: #e9d5ff; color: #6b21a8; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 500;">
               🌐 Website
             </a>
-          ` : ''}
+          `
+              : ''
+          }
         </div>
       </div>
     `;
@@ -200,7 +230,7 @@ export default function MapView({ clinics, selectedClinic, onClinicSelect }: Map
   return (
     <div className="relative w-full h-full">
       <div ref={mapRef} className="w-full h-full" />
-      
+
       {clinics.length === 0 && (
         <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-90">
           <div className="text-center">
