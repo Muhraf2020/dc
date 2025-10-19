@@ -56,7 +56,7 @@ export default function ClinicCard({ clinic, onClick }: ClinicCardProps) {
           alt={clinic.display_name}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           onError={(e) => {
-            e.currentTarget.src = '/placeholder-clinic.jpg';
+            e.currentTarget.src = 'https://via.placeholder.com/400x300/3b82f6/ffffff?text=Dermatology+Clinic';
           }}
         />
         <div className="absolute top-3 right-3">
