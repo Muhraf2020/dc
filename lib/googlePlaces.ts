@@ -123,18 +123,19 @@ export async function getClinicDetails(placeId: string): Promise<Clinic | null> 
  * Build a photo URL without exposing your API key to the client.
  * This hits your proxy at /api/photo (see app/api/photo/route.ts).
  */
-export function getPhotoUrl(
-  photoName: string,
-  maxWidth: number = 400,
-  maxHeight: number = 400
-): string {
-  const qs = new URLSearchParams({
-    name: photoName,
-    w: String(maxWidth),
-    h: String(maxHeight),
-  });
+/**
+ * Build a photo URL without exposing your API key to the client.
+ * - If `photoName` is already a full URL (e.g., Unsplash), just return it.
+ * - Otherwise, hit our proxy at /api/photo (see app/api/photo/route.ts).
+ */
+export function getPhotoUrl(photoName: string, maxWidth = 400, maxHeight = 400): string {
+  // If this is already a full URL (e.g., Unsplash), just return it.
+  if (/^https?:\/\//i.test(photoName)) return photoName;
+
+  const qs = new URLSearchParams({ name: photoName, w: String(maxWidth), h: String(maxHeight) });
   return `/api/photo?${qs.toString()}`;
 }
+
 
 /**
  * Transform Google Places API response array -> Clinic[]
