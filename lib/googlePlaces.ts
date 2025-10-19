@@ -25,12 +25,14 @@ export async function searchDermClinics(
           'places.id',
           'places.displayName',
           'places.formattedAddress',
+          'places.addressComponents',
           'places.location',
-          'places.types',
           'places.primaryType',
+          'places.types',
           'places.rating',
           'places.userRatingCount',
-          'places.currentOpeningHours',
+          'places.currentOpeningHours.openNow',
+          'places.regularOpeningHours.weekdayDescriptions',
           'places.nationalPhoneNumber',
           'places.internationalPhoneNumber',
           'places.websiteUri',
@@ -38,9 +40,11 @@ export async function searchDermClinics(
           'places.businessStatus',
           'places.accessibilityOptions',
           'places.parkingOptions',
-          'places.photos',
           'places.priceLevel',
           'places.paymentOptions',
+          'places.photos.name',
+          'places.photos.widthPx',
+          'places.photos.heightPx'
         ].join(','),
       },
       body: JSON.stringify({
@@ -84,12 +88,14 @@ export async function getClinicDetails(placeId: string): Promise<Clinic | null> 
           'id',
           'displayName',
           'formattedAddress',
+          'addressComponents',
           'location',
-          'types',
           'primaryType',
+          'types',
           'rating',
           'userRatingCount',
-          'currentOpeningHours',
+          'currentOpeningHours.openNow',
+          'regularOpeningHours.weekdayDescriptions',
           'nationalPhoneNumber',
           'internationalPhoneNumber',
           'websiteUri',
@@ -97,11 +103,11 @@ export async function getClinicDetails(placeId: string): Promise<Clinic | null> 
           'businessStatus',
           'accessibilityOptions',
           'parkingOptions',
-          'photos',
-          'regularOpeningHours',
           'priceLevel',
           'paymentOptions',
-          'reviews',
+          'photos.name',
+          'photos.widthPx',
+          'photos.heightPx'
         ].join(','),
       },
       cache: 'no-store',
@@ -121,10 +127,6 @@ export async function getClinicDetails(placeId: string): Promise<Clinic | null> 
 
 /**
  * Build a photo URL without exposing your API key to the client.
- * This hits your proxy at /api/photo (see app/api/photo/route.ts).
- */
-/**
- * Build a photo URL without exposing your API key to the client.
  * - If `photoName` is already a full URL (e.g., Unsplash), just return it.
  * - Otherwise, hit our proxy at /api/photo (see app/api/photo/route.ts).
  */
@@ -135,7 +137,6 @@ export function getPhotoUrl(photoName: string, maxWidth = 400, maxHeight = 400):
   const qs = new URLSearchParams({ name: photoName, w: String(maxWidth), h: String(maxHeight) });
   return `/api/photo?${qs.toString()}`;
 }
-
 
 /**
  * Transform Google Places API response array -> Clinic[]
@@ -189,15 +190,17 @@ function transformSinglePlace(place: any): Clinic | null {
       name: photo.name,
       width_px: photo.widthPx,
       height_px: photo.heightPx,
-      author_attributions: photo.authorAttributions,
+      author_attributions: photo.authorAttributions, // may be undefined (not requested in FieldMask)
     })),
-    opening_hours: place.regularOpeningHours
-      ? {
-          open_now: place.currentOpeningHours?.openNow,
-          periods: place.regularOpeningHours.periods,
-          weekday_text: place.regularOpeningHours.weekdayDescriptions,
-        }
-      : undefined,
+    // Slimmer hours object: masks only include openNow + weekdayDescriptions
+    opening_hours:
+      place.currentOpeningHours?.openNow !== undefined ||
+      (place.regularOpeningHours && place.regularOpeningHours.weekdayDescriptions)
+        ? {
+            open_now: place.currentOpeningHours?.openNow,
+            weekday_text: place.regularOpeningHours?.weekdayDescriptions,
+          }
+        : undefined,
     price_level: place.priceLevel,
     payment_options: place.paymentOptions,
     last_fetched_at: new Date().toISOString().split('T')[0],
