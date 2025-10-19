@@ -1,23 +1,26 @@
+// lib/googlePlaces.ts
 // Google Places API utilities for fetching dermatology clinic data
 
 import { Clinic, Location } from './dataTypes';
 
-const PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY || '';
 const PLACES_API_URL = 'https://places.googleapis.com/v1/places';
 
 /**
- * Search for dermatology clinics near a location
+ * Search for dermatology clinics near a location (server-side only)
  */
 export async function searchDermClinics(
   location: Location,
-  radius: number = 50000 // 50km default
+  radius: number = 50_000 // 50km default
 ): Promise<Clinic[]> {
   try {
+    const apiKey = process.env.GOOGLE_PLACES_API_KEY || '';
+    if (!apiKey) throw new Error('Missing GOOGLE_PLACES_API_KEY');
+
     const response = await fetch(`${PLACES_API_URL}:searchNearby`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-Goog-Api-Key': PLACES_API_KEY,
+        'X-Goog-Api-Key': apiKey,
         'X-Goog-FieldMask': [
           'places.id',
           'places.displayName',
@@ -37,7 +40,7 @@ export async function searchDermClinics(
           'places.parkingOptions',
           'places.photos',
           'places.priceLevel',
-          'places.paymentOptions'
+          'places.paymentOptions',
         ].join(','),
       },
       body: JSON.stringify({
@@ -45,18 +48,17 @@ export async function searchDermClinics(
         maxResultCount: 20,
         locationRestriction: {
           circle: {
-            center: {
-              latitude: location.lat,
-              longitude: location.lng,
-            },
-            radius: radius,
+            center: { latitude: location.lat, longitude: location.lng },
+            radius,
           },
         },
       }),
+      // Avoid server-side caching jitter while developing; adjust if you want ISR
+      cache: 'no-store',
     });
 
     if (!response.ok) {
-      throw new Error(`Places API error: ${response.statusText}`);
+      throw new Error(`Places API error: ${response.status} ${response.statusText}`);
     }
 
     const data = await response.json();
@@ -68,14 +70,16 @@ export async function searchDermClinics(
 }
 
 /**
- * Get detailed information about a specific clinic
+ * Get detailed information about a specific clinic (server-side only)
  */
 export async function getClinicDetails(placeId: string): Promise<Clinic | null> {
   try {
+    const apiKey = process.env.GOOGLE_PLACES_API_KEY || '';
+    if (!apiKey) throw new Error('Missing GOOGLE_PLACES_API_KEY');
+
     const response = await fetch(`${PLACES_API_URL}/${placeId}`, {
-      method: 'GET',
       headers: {
-        'X-Goog-Api-Key': PLACES_API_KEY,
+        'X-Goog-Api-Key': apiKey,
         'X-Goog-FieldMask': [
           'id',
           'displayName',
@@ -97,13 +101,14 @@ export async function getClinicDetails(placeId: string): Promise<Clinic | null> 
           'regularOpeningHours',
           'priceLevel',
           'paymentOptions',
-          'reviews'
+          'reviews',
         ].join(','),
       },
+      cache: 'no-store',
     });
 
     if (!response.ok) {
-      throw new Error(`Place details error: ${response.statusText}`);
+      throw new Error(`Place details error: ${response.status} ${response.statusText}`);
     }
 
     const place = await response.json();
@@ -115,40 +120,45 @@ export async function getClinicDetails(placeId: string): Promise<Clinic | null> 
 }
 
 /**
- * Get photo URL for a place photo
+ * Build a photo URL without exposing your API key to the client.
+ * This hits your proxy at /api/photo (see app/api/photo/route.ts).
  */
 export function getPhotoUrl(
   photoName: string,
   maxWidth: number = 400,
   maxHeight: number = 400
 ): string {
-  return `https://places.googleapis.com/v1/${photoName}/media?maxHeightPx=${maxHeight}&maxWidthPx=${maxWidth}&key=${PLACES_API_KEY}`;
+  const qs = new URLSearchParams({
+    name: photoName,
+    w: String(maxWidth),
+    h: String(maxHeight),
+  });
+  return `/api/photo?${qs.toString()}`;
 }
 
 /**
- * Transform Google Places API response to our Clinic type
+ * Transform Google Places API response array -> Clinic[]
  */
 function transformPlacesResponse(places: any[]): Clinic[] {
-  return places
-    .map(transformSinglePlace)
-    .filter((clinic): clinic is Clinic => clinic !== null);
+  return places.map(transformSinglePlace).filter((clinic): clinic is Clinic => clinic !== null);
 }
 
 /**
- * Transform a single place from API response to Clinic type
+ * Transform a single place object -> Clinic | null
  */
 function transformSinglePlace(place: any): Clinic | null {
   if (!place || !place.id) return null;
 
+  const types: string[] = place.types || [];
+  const displayName: string = place.displayName?.text || '';
+
   // Filter for dermatology-related clinics
-  const types = place.types || [];
-  const displayName = place.displayName?.text || '';
-  
-  const isDermatology = 
+  const lower = displayName.toLowerCase();
+  const isDermatology =
     types.includes('skin_care_clinic') ||
-    displayName.toLowerCase().includes('derm') ||
-    displayName.toLowerCase().includes('skin') ||
-    displayName.toLowerCase().includes('dermatology');
+    lower.includes('derm') ||
+    lower.includes('skin') ||
+    lower.includes('dermatology');
 
   if (!isDermatology && place.primaryType !== 'skin_care_clinic') {
     return null;
@@ -163,7 +173,7 @@ function transformSinglePlace(place: any): Clinic | null {
       lng: place.location?.longitude || 0,
     },
     primary_type: place.primaryType || 'skin_care_clinic',
-    types: types,
+    types,
     rating: place.rating,
     user_rating_count: place.userRatingCount,
     current_open_now: place.currentOpeningHours?.openNow,
@@ -180,11 +190,13 @@ function transformSinglePlace(place: any): Clinic | null {
       height_px: photo.heightPx,
       author_attributions: photo.authorAttributions,
     })),
-    opening_hours: place.regularOpeningHours ? {
-      open_now: place.currentOpeningHours?.openNow,
-      periods: place.regularOpeningHours.periods,
-      weekday_text: place.regularOpeningHours.weekdayDescriptions,
-    } : undefined,
+    opening_hours: place.regularOpeningHours
+      ? {
+          open_now: place.currentOpeningHours?.openNow,
+          periods: place.regularOpeningHours.periods,
+          weekday_text: place.regularOpeningHours.weekdayDescriptions,
+        }
+      : undefined,
     price_level: place.priceLevel,
     payment_options: place.paymentOptions,
     last_fetched_at: new Date().toISOString().split('T')[0],
@@ -202,21 +214,20 @@ export function needsRefresh(lastFetchedAt: string): boolean {
 }
 
 /**
- * Geocode an address to get coordinates
+ * Geocode an address to get coordinates (client-safe; uses public key)
  */
 export async function geocodeAddress(address: string): Promise<Location | null> {
   try {
-    const response = await fetch(
-      `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`
-    );
-    
+    const url =
+      `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=` +
+      (process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '');
+    const response = await fetch(url);
     const data = await response.json();
-    
+
     if (data.results && data.results.length > 0) {
-      const location = data.results[0].geometry.location;
-      return { lat: location.lat, lng: location.lng };
+      const loc = data.results[0].geometry.location;
+      return { lat: loc.lat, lng: loc.lng };
     }
-    
     return null;
   } catch (error) {
     console.error('Geocoding error:', error);
