@@ -5,6 +5,49 @@ import { Clinic, Location } from './dataTypes';
 
 const PLACES_API_URL = 'https://places.googleapis.com/v1/places';
 
+// ---- Throttle & Backoff (protect quotas/reliability) ----
+const QPS_TARGET = 3; // keep between 2–5 QPS
+const MIN_INTERVAL_MS = Math.ceil(1000 / QPS_TARGET);
+let lastCallAt = 0;
+
+function sleep(ms: number) {
+  return new Promise((res) => setTimeout(res, ms));
+}
+
+async function fetchWithBackoff(
+  url: string,
+  init: RequestInit,
+  { maxRetries = 5 }: { maxRetries?: number } = {}
+): Promise<Response> {
+  // simple client-side rate limiting
+  const now = Date.now();
+  const elapsed = now - lastCallAt;
+  if (elapsed < MIN_INTERVAL_MS) {
+    await sleep(MIN_INTERVAL_MS - elapsed);
+  }
+
+  let attempt = 0;
+  while (true) {
+    const res = await fetch(url, init);
+    lastCallAt = Date.now();
+
+    if (res.ok) return res;
+
+    // retry on rate limit or transient server errors
+    if ((res.status === 429 || (res.status >= 500 && res.status < 600)) && attempt < maxRetries) {
+      const base = 500; // ms
+      const backoff = base * Math.pow(2, attempt); // 0.5s,1s,2s,4s,8s...
+      const jitter = Math.floor(Math.random() * 250);
+      await sleep(backoff + jitter);
+      attempt += 1;
+      continue;
+    }
+
+    // give up
+    return res;
+  }
+}
+
 // ---- Simple bounds type for grid search (use per-state bounding boxes) ----
 export type Bounds = {
   minLat: number;
@@ -23,7 +66,7 @@ const DERM_TERMS = [
   'medical dermatology',
   'cosmetic dermatology',
   'laser dermatology',
-  'skin care'
+  'skin care',
 ];
 
 /**
@@ -38,7 +81,7 @@ export async function searchDermClinics(
     const apiKey = process.env.GOOGLE_PLACES_API_KEY || '';
     if (!apiKey) throw new Error('Missing GOOGLE_PLACES_API_KEY');
 
-    const response = await fetch(`${PLACES_API_URL}:searchNearby`, {
+    const response = await fetchWithBackoff(`${PLACES_API_URL}:searchNearby`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -66,7 +109,7 @@ export async function searchDermClinics(
           'places.paymentOptions',
           'places.photos.name',
           'places.photos.widthPx',
-          'places.photos.heightPx'
+          'places.photos.heightPx',
         ].join(','),
       },
       body: JSON.stringify({
@@ -114,7 +157,7 @@ export async function searchDermClinicsText(
     let pagesFetched = 0;
 
     do {
-      const resp = await fetch(`${PLACES_API_URL}:searchText`, {
+      const resp = await fetchWithBackoff(`${PLACES_API_URL}:searchText`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -142,7 +185,7 @@ export async function searchDermClinicsText(
             'places.paymentOptions',
             'places.photos.name',
             'places.photos.widthPx',
-            'places.photos.heightPx'
+            'places.photos.heightPx',
           ].join(','),
         },
         body: JSON.stringify({
@@ -182,7 +225,7 @@ export async function searchDermClinicsText(
 export async function searchDermClinicsGrid(
   bounds: Bounds,
   radiusMeters: number = 25_000, // 25 km
-  stepDeg: number = 0.3          // ~33 km latitude steps; adjust if needed
+  stepDeg: number = 0.3 // ~33 km latitude steps; adjust if needed
 ): Promise<Clinic[]> {
   const points = generateGridPoints(bounds, stepDeg);
   const all: Clinic[] = [];
@@ -208,7 +251,7 @@ export async function getClinicDetails(placeId: string): Promise<Clinic | null> 
     const apiKey = process.env.GOOGLE_PLACES_API_KEY || '';
     if (!apiKey) throw new Error('Missing GOOGLE_PLACES_API_KEY');
 
-    const response = await fetch(`${PLACES_API_URL}/${placeId}`, {
+    const response = await fetchWithBackoff(`${PLACES_API_URL}/${placeId}`, {
       headers: {
         'X-Goog-Api-Key': apiKey,
         'X-Goog-FieldMask': [
@@ -234,7 +277,7 @@ export async function getClinicDetails(placeId: string): Promise<Clinic | null> 
           'paymentOptions',
           'photos.name',
           'photos.widthPx',
-          'photos.heightPx'
+          'photos.heightPx',
         ].join(','),
       },
       cache: 'no-store',
@@ -258,7 +301,10 @@ export async function getClinicDetails(placeId: string): Promise<Clinic | null> 
  * - Otherwise, hit our proxy at /api/photo (see app/api/photo/route.ts).
  */
 export function getPhotoUrl(photoName: string, maxWidth = 400, maxHeight = 400): string {
+  // Unsplash passthrough (already a URL)
   if (/^https?:\/\//i.test(photoName)) return photoName;
+
+  // Google Photos via proxy
   const qs = new URLSearchParams({ name: photoName, w: String(maxWidth), h: String(maxHeight) });
   return `/api/photo?${qs.toString()}`;
 }
@@ -283,7 +329,7 @@ function transformSinglePlace(place: any): Clinic | null {
   const lowerSite = (place.websiteUri || '').toLowerCase();
 
   const hasDermTerm =
-    DERM_TERMS.some(t => lowerName.includes(t)) ||
+    DERM_TERMS.some((t) => lowerName.includes(t)) ||
     lowerName.includes('derm') ||
     lowerName.includes('skin') ||
     lowerSite.includes('derm') ||
@@ -340,7 +386,6 @@ function transformSinglePlace(place: any): Clinic | null {
 function generateGridPoints(bounds: Bounds, stepDeg: number): Location[] {
   const points: Location[] = [];
   for (let lat = bounds.minLat; lat <= bounds.maxLat + 1e-9; lat += stepDeg) {
-    // crude: same step for lng; good enough for broad coverage
     for (let lng = bounds.minLng; lng <= bounds.maxLng + 1e-9; lng += stepDeg) {
       points.push({ lat: round6(lat), lng: round6(lng) });
     }
