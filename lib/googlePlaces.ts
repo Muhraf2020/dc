@@ -341,14 +341,28 @@ export async function getClinicDetails(placeId: string): Promise<Clinic | null> 
  * - If `photoName` is already a full URL (e.g., Unsplash), just return it.
  * - Otherwise, hit our proxy at /api/photo (see app/api/photo/route.ts).
  */
-export function getPhotoUrl(photoName: string, maxWidth = 400, maxHeight = 400): string {
-  // Unsplash passthrough (already a URL)
-  if (/^https?:\/\//i.test(photoName)) return photoName;
+/**
+ * Build a photo URL in a client-safe way.
+ * - If NEXT_PUBLIC_USE_PLACES_PHOTOS !== 'true', we DO NOT hit Google at all.
+ * - If photoName is already a full URL (e.g., Unsplash), always return it as-is.
+ * - Otherwise (and only when enabled), proxy via /api/photo to keep the server key hidden.
+ */
+export function getPhotoUrl(photoName: string, maxWidth = 400, maxHeight = 300): string {
+  const usePlacesPhotos = process.env.NEXT_PUBLIC_USE_PLACES_PHOTOS === 'true';
 
-  // Google Photos via proxy
+  // If disabled or already a full URL (Unsplash/local CDN), don't proxy via Places.
+  if (!usePlacesPhotos) {
+    if (/^https?:\/\//i.test(photoName)) return photoName;
+    // Fallback to a local stock image so nothing hits Google.
+    return '/clinic-images/fallback.jpg';
+  }
+
+  // Places-Photo path (only when explicitly enabled)
+  if (/^https?:\/\//i.test(photoName)) return photoName;
   const qs = new URLSearchParams({ name: photoName, w: String(maxWidth), h: String(maxHeight) });
   return `/api/photo?${qs.toString()}`;
 }
+
 
 /**
  * Transform Google Places API response array -> Clinic[]
