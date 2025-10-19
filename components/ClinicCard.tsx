@@ -48,7 +48,6 @@ export default function ClinicCard({ clinic, onClick }: ClinicCardProps) {
       onClick={onClick}
       className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow cursor-pointer overflow-hidden group"
     >
-      {/* Image */}
       <div className="relative h-48 overflow-hidden bg-gray-200">
         <img
           src={photoUrl}
@@ -63,14 +62,11 @@ export default function ClinicCard({ clinic, onClick }: ClinicCardProps) {
         </div>
       </div>
 
-      {/* Content */}
       <div className="p-5">
-        {/* Title */}
         <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-1 group-hover:text-blue-600 transition-colors">
           {clinic.display_name}
         </h3>
 
-        {/* Rating */}
         {clinic.rating && (
           <div className="flex items-center gap-2 mb-3">
             <div className="flex items-center">
@@ -87,7 +83,6 @@ export default function ClinicCard({ clinic, onClick }: ClinicCardProps) {
           </div>
         )}
 
-        {/* Address */}
         <div className="flex items-start gap-2 mb-3">
           <svg
             className="w-4 h-4 text-gray-400 mt-0.5 flex-shrink-0"
@@ -113,7 +108,6 @@ export default function ClinicCard({ clinic, onClick }: ClinicCardProps) {
           </p>
         </div>
 
-        {/* Features */}
         <div className="flex flex-wrap gap-2 mb-4">
           {clinic.accessibility_options?.wheelchair_accessible_entrance && (
             <span className="inline-flex items-center px-2 py-1 text-xs font-medium text-blue-700 bg-blue-50 rounded">
@@ -132,7 +126,6 @@ export default function ClinicCard({ clinic, onClick }: ClinicCardProps) {
           )}
         </div>
 
-        {/* Actions */}
         <div className="flex gap-2 pt-3 border-t border-gray-100">
           {clinic.phone && (
             
@@ -165,7 +158,6 @@ export default function ClinicCard({ clinic, onClick }: ClinicCardProps) {
           )}
         </div>
 
-        {/* View Details Link */}
         <Link
           href={`/clinics/${clinic.place_id}`}
           className="block mt-3 text-center text-sm font-medium text-blue-600 hover:text-blue-700"
