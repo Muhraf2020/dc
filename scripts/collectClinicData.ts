@@ -2,6 +2,10 @@ import { config } from 'dotenv';
 import path from 'path';
 import { promises as fs } from 'fs';
 
+// At the top, after imports
+const MAX_DAILY_REQUESTS = 100; // Safety limit
+let requestCount = 0;
+
 // Load environment variables from .env.local
 config({ path: path.resolve(process.cwd(), '.env.local') });
 
@@ -90,6 +94,13 @@ const US_STATES: StateInfo[] = [
  * Search for dermatology clinics near a location
  */
 async function searchDermClinics(location: Location, radius: number = 50000) {
+  if (requestCount >= MAX_DAILY_REQUESTS) {
+    console.warn('⚠️ Daily request limit reached. Stop to avoid charges.');
+    return [];
+  }
+  requestCount++;
+  
+  // ... rest of function
   const response = await fetch(`${PLACES_API_URL}:searchNearby`, {
     method: 'POST',
     headers: {
