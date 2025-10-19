@@ -1,8 +1,10 @@
 import { config } from 'dotenv';
 import path from 'path';
+import { promises as fs } from 'fs';
 
 // Load environment variables from .env.local
 config({ path: path.resolve(process.cwd(), '.env.local') });
+
 /**
  * Data Collection Script for Dermatology Clinics
  * 
@@ -11,9 +13,6 @@ config({ path: path.resolve(process.cwd(), '.env.local') });
  * 
  * Usage: npm run collect-data
  */
-
-import { promises as fs } from 'fs';
-import path from 'path';
 
 // Load environment variables
 const GOOGLE_PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY || '';
@@ -85,7 +84,6 @@ const US_STATES: StateInfo[] = [
       { name: 'Springfield', location: { lat: 39.7817, lng: -89.6501 } },
     ],
   },
-  // Add more states as needed
 ];
 
 /**
