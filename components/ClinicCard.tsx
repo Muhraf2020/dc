@@ -10,10 +10,9 @@ interface ClinicCardProps {
 }
 
 export default function ClinicCard({ clinic, onClick }: ClinicCardProps) {
-  // Use placeholder image since we're not fetching photos from Google
   const photoUrl = clinic.photos?.[0]
-  ? getPhotoUrl(clinic.photos[0].name, 400, 300)
-  : 'https://via.placeholder.com/400x300/3b82f6/ffffff?text=Dermatology+Clinic';
+    ? getPhotoUrl(clinic.photos[0].name, 400, 300)
+    : 'https://via.placeholder.com/400x300/3b82f6/ffffff?text=Dermatology+Clinic';
 
   const getStatusBadge = () => {
     if (clinic.business_status === 'CLOSED_PERMANENTLY') {
@@ -136,7 +135,7 @@ export default function ClinicCard({ clinic, onClick }: ClinicCardProps) {
         {/* Actions */}
         <div className="flex gap-2 pt-3 border-t border-gray-100">
           {clinic.phone && (
-            <a
+            
               href={`tel:${clinic.phone}`}
               className="flex-1 text-center px-3 py-2 text-sm font-medium text-blue-600 bg-blue-50 rounded hover:bg-blue-100 transition-colors"
               onClick={(e) => e.stopPropagation()}
@@ -144,7 +143,7 @@ export default function ClinicCard({ clinic, onClick }: ClinicCardProps) {
               📞 Call
             </a>
           )}
-          <a
+          
             href={clinic.google_maps_uri}
             target="_blank"
             rel="noopener noreferrer"
@@ -154,7 +153,7 @@ export default function ClinicCard({ clinic, onClick }: ClinicCardProps) {
             📍 Directions
           </a>
           {clinic.website && (
-            <a
+            
               href={clinic.website}
               target="_blank"
               rel="noopener noreferrer"
