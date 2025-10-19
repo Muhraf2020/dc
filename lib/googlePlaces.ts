@@ -75,6 +75,16 @@ const DERM_TERMS = [
   'skin care',
 ];
 
+// ---- Address components helper (city/state/postal) ----
+function fromAddressComponents(components: any[]) {
+  const get = (type: string) => components?.find((c: any) => c.types?.includes(type));
+  return {
+    state_code: get('administrative_area_level_1')?.shortText ?? null,
+    city: get('locality')?.longText ?? get('postal_town')?.longText ?? null,
+    postal_code: get('postal_code')?.longText ?? null,
+  };
+}
+
 /**
  * Search for dermatology clinics near a location (server-side only)
  * Uses Places "Nearby Search" (New).
@@ -153,79 +163,94 @@ export async function searchDermClinics(
 }
 
 /**
- * Text Search for recall coverage (pagination supported).
+ * Page-level Text Search helper (returns places + nextPageToken).
+ * Use this to paginate reliably.
+ */
+export async function searchDermClinicsTextPage(
+  query: string,
+  pageToken?: string
+): Promise<{ places: any[]; nextPageToken: string | null }> {
+  const apiKey = process.env.GOOGLE_PLACES_API_KEY || '';
+  if (!apiKey) throw new Error('Missing GOOGLE_PLACES_API_KEY');
+
+  const fieldMask = [
+    'places.id',
+    'places.displayName',
+    'places.formattedAddress',
+    'places.addressComponents',
+    'places.location',
+    'places.primaryType',
+    'places.types',
+    'places.rating',
+    'places.userRatingCount',
+    'places.currentOpeningHours.openNow',
+    'places.regularOpeningHours.weekdayDescriptions',
+    'places.nationalPhoneNumber',
+    'places.internationalPhoneNumber',
+    'places.websiteUri',
+    'places.googleMapsUri',
+    'places.businessStatus',
+    'places.accessibilityOptions',
+    'places.parkingOptions',
+    'places.priceLevel',
+    'places.paymentOptions',
+    'places.photos.name',
+    'places.photos.widthPx',
+    'places.photos.heightPx',
+    'nextPageToken', // include top-level token in field mask
+  ].join(',');
+
+  const body: any = {
+    ...commonBody,
+    textQuery: query,
+    pageSize: 20,
+  };
+  if (pageToken) body.pageToken = pageToken;
+
+  const resp = await fetchWithBackoff(`${PLACES_API_URL}:searchText`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Goog-Api-Key': apiKey,
+      'X-Goog-FieldMask': fieldMask,
+    },
+    body: JSON.stringify(body),
+    cache: 'no-store',
+  });
+
+  if (!resp.ok) {
+    throw new Error(`Text Search error: ${resp.status} ${resp.statusText}`);
+  }
+
+  const data = await resp.json();
+  return { places: data.places ?? [], nextPageToken: data.nextPageToken ?? null };
+}
+
+/**
+ * Multi-query Text Search with automatic pagination.
  * Provide queries like: "dermatology clinic in Dallas TX", "dermatologist in Ohio".
  */
 export async function searchDermClinicsText(
   queries: string[],
   pageLimitPerQuery: number = 10 // defensive cap to avoid runaway pagination
 ): Promise<Clinic[]> {
-  const apiKey = process.env.GOOGLE_PLACES_API_KEY || '';
-  if (!apiKey) throw new Error('Missing GOOGLE_PLACES_API_KEY');
-
   const all: Clinic[] = [];
   const seen = new Set<string>();
 
   for (const q of queries) {
-    let pageToken: string | undefined = undefined;
+    let pageToken: string | null = null;
     let pagesFetched = 0;
 
     do {
-      const resp = await fetchWithBackoff(`${PLACES_API_URL}:searchText`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-Goog-Api-Key': apiKey,
-          'X-Goog-FieldMask': [
-            'places.id',
-            'places.displayName',
-            'places.formattedAddress',
-            'places.addressComponents',
-            'places.location',
-            'places.primaryType',
-            'places.types',
-            'places.rating',
-            'places.userRatingCount',
-            'places.currentOpeningHours.openNow',
-            'places.regularOpeningHours.weekdayDescriptions',
-            'places.nationalPhoneNumber',
-            'places.internationalPhoneNumber',
-            'places.websiteUri',
-            'places.googleMapsUri',
-            'places.businessStatus',
-            'places.accessibilityOptions',
-            'places.parkingOptions',
-            'places.priceLevel',
-            'places.paymentOptions',
-            'places.photos.name',
-            'places.photos.widthPx',
-            'places.photos.heightPx',
-          ].join(','),
-        },
-        body: JSON.stringify({
-          ...commonBody,
-          textQuery: q,
-          pageSize: 20,
-          pageToken,
-        }),
-        cache: 'no-store',
-      });
-
-      if (!resp.ok) {
-        console.error(`Text Search error for "${q}": ${resp.status} ${resp.statusText}`);
-        break;
-      }
-
-      const data = await resp.json();
-      const batch = transformPlacesResponse(data.places || []);
+      const { places, nextPageToken } = await searchDermClinicsTextPage(q, pageToken || undefined);
+      const batch = transformPlacesResponse(places || []);
       for (const c of batch) {
         if (!seen.has(c.place_id)) {
           seen.add(c.place_id);
           all.push(c);
         }
       }
-
-      pageToken = data.nextPageToken;
+      pageToken = nextPageToken;
       pagesFetched += 1;
     } while (pageToken && pagesFetched < pageLimitPerQuery);
   }
@@ -240,7 +265,7 @@ export async function searchDermClinicsText(
 export async function searchDermClinicsGrid(
   bounds: Bounds,
   radiusMeters: number = 25_000, // 25 km
-  stepDeg: number = 0.3 // ~33 km latitude steps; adjust if needed
+  stepDeg: number = 0.3 // ~33 km latitude steps; longitude spacing varies with latitude
 ): Promise<Clinic[]> {
   const points = generateGridPoints(bounds, stepDeg);
   const all: Clinic[] = [];
@@ -354,7 +379,12 @@ function transformSinglePlace(place: any): Clinic | null {
   const isDermatology = types.includes('skin_care_clinic') || hasDermTerm;
   if (!isDermatology) return null;
 
-  return {
+  // city/state/postal from addressComponents
+  const ac = fromAddressComponents(place.addressComponents ?? []);
+
+  // Build base object and add extra fields (keeps this file drop-in safe even if Clinic type
+  // hasn't been updated yet; you can later add these to your Clinic interface).
+  const base: any = {
     place_id: place.id,
     display_name: displayName,
     formatted_address: place.formattedAddress || '',
@@ -393,6 +423,13 @@ function transformSinglePlace(place: any): Clinic | null {
     payment_options: place.paymentOptions,
     last_fetched_at: new Date().toISOString().split('T')[0],
   };
+
+  // Append parsed address fields (non-breaking)
+  base.state_code = ac.state_code;
+  base.city = ac.city;
+  base.postal_code = ac.postal_code;
+
+  return base as Clinic;
 }
 
 /**
