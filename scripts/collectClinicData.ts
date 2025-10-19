@@ -109,7 +109,6 @@ async function searchDermClinics(location: Location, radius: number = 50000) {
         'places.businessStatus',
         'places.accessibilityOptions',
         'places.parkingOptions',
-        'places.photos',
         'places.priceLevel',
         'places.paymentOptions',
       ].join(','),
@@ -179,11 +178,7 @@ function transformPlacesResponse(places: any[]) {
         business_status: place.businessStatus || 'OPERATIONAL',
         accessibility_options: place.accessibilityOptions,
         parking_options: place.parkingOptions,
-        photos: place.photos?.map((photo: any) => ({
-          name: photo.name,
-          width_px: photo.widthPx,
-          height_px: photo.heightPx,
-        })),
+        photos: undefined, // Skipping photos to save API costs
         opening_hours: place.regularOpeningHours
           ? {
               open_now: place.currentOpeningHours?.openNow,
