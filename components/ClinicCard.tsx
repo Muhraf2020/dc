@@ -11,7 +11,9 @@ interface ClinicCardProps {
 
 export default function ClinicCard({ clinic, onClick }: ClinicCardProps) {
   // Use placeholder image since we're not fetching photos from Google
-  const photoUrl = 'https://via.placeholder.com/400x300/3b82f6/ffffff?text=Dermatology+Clinic';
+  const photoUrl = clinic.photos?.[0]
+  ? getPhotoUrl(clinic.photos[0].name, 400, 300)
+  : 'https://via.placeholder.com/400x300/3b82f6/ffffff?text=Dermatology+Clinic';
 
   const getStatusBadge = () => {
     if (clinic.business_status === 'CLOSED_PERMANENTLY') {
