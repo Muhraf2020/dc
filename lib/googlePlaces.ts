@@ -5,8 +5,30 @@ import { Clinic, Location } from './dataTypes';
 
 const PLACES_API_URL = 'https://places.googleapis.com/v1/places';
 
+// ---- Simple bounds type for grid search (use per-state bounding boxes) ----
+export type Bounds = {
+  minLat: number;
+  maxLat: number;
+  minLng: number;
+  maxLng: number;
+};
+
+// ---- Heuristic terms for dermatology filtering (name/website) ----
+const DERM_TERMS = [
+  'dermatology',
+  'dermatologist',
+  'derma',
+  'skin clinic',
+  'skin center',
+  'medical dermatology',
+  'cosmetic dermatology',
+  'laser dermatology',
+  'skin care'
+];
+
 /**
  * Search for dermatology clinics near a location (server-side only)
+ * Uses Places "Nearby Search" (New).
  */
 export async function searchDermClinics(
   location: Location,
@@ -48,7 +70,8 @@ export async function searchDermClinics(
         ].join(','),
       },
       body: JSON.stringify({
-        includedTypes: ['skin_care_clinic', 'doctor'],
+        // Broad recall; we’ll filter to derm in code.
+        includedPrimaryTypes: ['doctor'],
         maxResultCount: 20,
         locationRestriction: {
           circle: {
@@ -57,7 +80,6 @@ export async function searchDermClinics(
           },
         },
       }),
-      // Avoid server-side caching jitter while developing; adjust if you want ISR
       cache: 'no-store',
     });
 
@@ -71,6 +93,111 @@ export async function searchDermClinics(
     console.error('Error fetching clinics:', error);
     return [];
   }
+}
+
+/**
+ * Text Search for recall coverage (pagination supported).
+ * Provide queries like: "dermatology clinic in Dallas TX", "dermatologist in Ohio".
+ */
+export async function searchDermClinicsText(
+  queries: string[],
+  pageLimitPerQuery: number = 10 // defensive cap to avoid runaway pagination
+): Promise<Clinic[]> {
+  const apiKey = process.env.GOOGLE_PLACES_API_KEY || '';
+  if (!apiKey) throw new Error('Missing GOOGLE_PLACES_API_KEY');
+
+  const all: Clinic[] = [];
+  const seen = new Set<string>();
+
+  for (const q of queries) {
+    let pageToken: string | undefined = undefined;
+    let pagesFetched = 0;
+
+    do {
+      const resp = await fetch(`${PLACES_API_URL}:searchText`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Goog-Api-Key': apiKey,
+          'X-Goog-FieldMask': [
+            'places.id',
+            'places.displayName',
+            'places.formattedAddress',
+            'places.addressComponents',
+            'places.location',
+            'places.primaryType',
+            'places.types',
+            'places.rating',
+            'places.userRatingCount',
+            'places.currentOpeningHours.openNow',
+            'places.regularOpeningHours.weekdayDescriptions',
+            'places.nationalPhoneNumber',
+            'places.internationalPhoneNumber',
+            'places.websiteUri',
+            'places.googleMapsUri',
+            'places.businessStatus',
+            'places.accessibilityOptions',
+            'places.parkingOptions',
+            'places.priceLevel',
+            'places.paymentOptions',
+            'places.photos.name',
+            'places.photos.widthPx',
+            'places.photos.heightPx'
+          ].join(','),
+        },
+        body: JSON.stringify({
+          textQuery: q,
+          pageSize: 20,
+          pageToken: pageToken,
+        }),
+        cache: 'no-store',
+      });
+
+      if (!resp.ok) {
+        console.error(`Text Search error for "${q}": ${resp.status} ${resp.statusText}`);
+        break;
+      }
+
+      const data = await resp.json();
+      const batch = transformPlacesResponse(data.places || []);
+      for (const c of batch) {
+        if (!seen.has(c.place_id)) {
+          seen.add(c.place_id);
+          all.push(c);
+        }
+      }
+
+      pageToken = data.nextPageToken;
+      pagesFetched += 1;
+    } while (pageToken && pagesFetched < pageLimitPerQuery);
+  }
+
+  return all;
+}
+
+/**
+ * Grid-based Nearby Search for spatial coverage.
+ * Sweep a bounding box with a coarse grid; query each point with a radius.
+ */
+export async function searchDermClinicsGrid(
+  bounds: Bounds,
+  radiusMeters: number = 25_000, // 25 km
+  stepDeg: number = 0.3          // ~33 km latitude steps; adjust if needed
+): Promise<Clinic[]> {
+  const points = generateGridPoints(bounds, stepDeg);
+  const all: Clinic[] = [];
+  const seen = new Set<string>();
+
+  for (const p of points) {
+    const batch = await searchDermClinics(p, radiusMeters);
+    for (const c of batch) {
+      if (!seen.has(c.place_id)) {
+        seen.add(c.place_id);
+        all.push(c);
+      }
+    }
+  }
+  return all;
 }
 
 /**
@@ -131,9 +258,7 @@ export async function getClinicDetails(placeId: string): Promise<Clinic | null> 
  * - Otherwise, hit our proxy at /api/photo (see app/api/photo/route.ts).
  */
 export function getPhotoUrl(photoName: string, maxWidth = 400, maxHeight = 400): string {
-  // If this is already a full URL (e.g., Unsplash), just return it.
   if (/^https?:\/\//i.test(photoName)) return photoName;
-
   const qs = new URLSearchParams({ name: photoName, w: String(maxWidth), h: String(maxHeight) });
   return `/api/photo?${qs.toString()}`;
 }
@@ -147,24 +272,25 @@ function transformPlacesResponse(places: any[]): Clinic[] {
 
 /**
  * Transform a single place object -> Clinic | null
+ * (Use heuristics so we don't rely solely on Google types.)
  */
 function transformSinglePlace(place: any): Clinic | null {
   if (!place || !place.id) return null;
 
   const types: string[] = place.types || [];
   const displayName: string = place.displayName?.text || '';
+  const lowerName = displayName.toLowerCase();
+  const lowerSite = (place.websiteUri || '').toLowerCase();
 
-  // Filter for dermatology-related clinics
-  const lower = displayName.toLowerCase();
-  const isDermatology =
-    types.includes('skin_care_clinic') ||
-    lower.includes('derm') ||
-    lower.includes('skin') ||
-    lower.includes('dermatology');
+  const hasDermTerm =
+    DERM_TERMS.some(t => lowerName.includes(t)) ||
+    lowerName.includes('derm') ||
+    lowerName.includes('skin') ||
+    lowerSite.includes('derm') ||
+    lowerSite.includes('skin');
 
-  if (!isDermatology && place.primaryType !== 'skin_care_clinic') {
-    return null;
-  }
+  const isDermatology = types.includes('skin_care_clinic') || hasDermTerm;
+  if (!isDermatology) return null;
 
   return {
     place_id: place.id,
@@ -174,7 +300,7 @@ function transformSinglePlace(place: any): Clinic | null {
       lat: place.location?.latitude || 0,
       lng: place.location?.longitude || 0,
     },
-    primary_type: place.primaryType || 'skin_care_clinic',
+    primary_type: place.primaryType || 'doctor',
     types,
     rating: place.rating,
     user_rating_count: place.userRatingCount,
@@ -192,7 +318,7 @@ function transformSinglePlace(place: any): Clinic | null {
       height_px: photo.heightPx,
       author_attributions: photo.authorAttributions, // may be undefined (not requested in FieldMask)
     })),
-    // Slimmer hours object: masks only include openNow + weekdayDescriptions
+    // Masks include openNow + weekdayDescriptions (not full "periods")
     opening_hours:
       place.currentOpeningHours?.openNow !== undefined ||
       (place.regularOpeningHours && place.regularOpeningHours.weekdayDescriptions)
@@ -205,6 +331,25 @@ function transformSinglePlace(place: any): Clinic | null {
     payment_options: place.paymentOptions,
     last_fetched_at: new Date().toISOString().split('T')[0],
   };
+}
+
+/**
+ * Generate grid points over a bounding box.
+ * stepDeg ~0.3 gives ~33km lat spacing; longitude spacing varies with latitude.
+ */
+function generateGridPoints(bounds: Bounds, stepDeg: number): Location[] {
+  const points: Location[] = [];
+  for (let lat = bounds.minLat; lat <= bounds.maxLat + 1e-9; lat += stepDeg) {
+    // crude: same step for lng; good enough for broad coverage
+    for (let lng = bounds.minLng; lng <= bounds.maxLng + 1e-9; lng += stepDeg) {
+      points.push({ lat: round6(lat), lng: round6(lng) });
+    }
+  }
+  return points;
+}
+
+function round6(n: number): number {
+  return Math.round(n * 1e6) / 1e6;
 }
 
 /**
