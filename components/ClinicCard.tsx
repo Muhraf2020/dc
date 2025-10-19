@@ -11,16 +11,36 @@ interface ClinicCardProps {
   onClick?: () => void;
 }
 
+// Stable hash for picking a local fallback image (1..10)
+function hashCode(str: string) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) - hash) + str.charCodeAt(i);
+    hash |= 0; // keep 32-bit
+  }
+  return hash;
+}
+function localFallback(placeId?: string) {
+  const basis = placeId && placeId.length ? placeId : 'default';
+  const idx = (Math.abs(hashCode(basis)) % 10) + 1; // 1..10
+  return `/clinic-images/clinic-${idx}.jpg`;
+}
+
 export default function ClinicCard({ clinic, onClick }: ClinicCardProps) {
-  const placeholder =
-    'https://via.placeholder.com/400x300/3b82f6/ffffff?text=Dermatology+Clinic';
+  // Prefer remote photo if available; otherwise deterministic local fallback
+  const initialPhoto = clinic.photos?.[0]?.name
+    ? getPhotoUrl(clinic.photos[0].name, 400, 300)
+    : localFallback(clinic.place_id);
 
-  const computedPhoto =
-    clinic.photos?.[0] ? getPhotoUrl(clinic.photos[0].name, 400, 300) : placeholder;
+  // Sticky img src: if remote fails once, switch to local and stay there
+  const [imgSrc, setImgSrc] = useState(initialPhoto);
 
-  // Keep a sticky img src that falls back once on error (prevents flicker on re-renders)
-  const [imgSrc, setImgSrc] = useState(computedPhoto);
-  useEffect(() => setImgSrc(computedPhoto), [computedPhoto]);
+  useEffect(() => {
+    const next = clinic.photos?.[0]?.name
+      ? getPhotoUrl(clinic.photos[0].name, 400, 300)
+      : localFallback(clinic.place_id);
+    setImgSrc(next);
+  }, [clinic]);
 
   const getStatusBadge = () => {
     if (clinic.business_status === 'CLOSED_PERMANENTLY') {
@@ -59,13 +79,11 @@ export default function ClinicCard({ clinic, onClick }: ClinicCardProps) {
       <div className="relative h-48 overflow-hidden bg-gray-200">
         <Image
           src={imgSrc}
-          alt={
-            typeof clinic.display_name === 'string' ? clinic.display_name : 'Dermatology Clinic'
-          }
+          alt={typeof clinic.display_name === 'string' ? clinic.display_name : 'Dermatology Clinic'}
           fill
-          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+          sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
           className="object-cover transform-gpu group-hover:scale-105 transition-transform duration-300"
-          onError={() => setImgSrc(placeholder)}
+          onError={() => setImgSrc(localFallback(clinic.place_id))}
           loading="lazy"
           fetchPriority="low"
           draggable={false}
