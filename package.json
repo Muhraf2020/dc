@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "collect-data": "tsx scripts/collectClinicData.ts"
+    "collect-data": "tsx scripts/collectClinicData.ts",
+    "fetch:unsplash": "node scripts/fetch-unsplash-images.js"
   },
   "dependencies": {
     "@types/google.maps": "^3.55.0",
