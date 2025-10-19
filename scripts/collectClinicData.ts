@@ -3,7 +3,7 @@ import path from 'path';
 import { promises as fs } from 'fs';
 
 // At the top, after imports
-const MAX_DAILY_REQUESTS = 100; // Safety limit
+const MAX_DAILY_REQUESTS = 100; // Safety limit for Places
 let requestCount = 0;
 
 // Load environment variables from .env.local
@@ -11,16 +11,65 @@ config({ path: path.resolve(process.cwd(), '.env.local') });
 
 /**
  * Data Collection Script for Dermatology Clinics
- * 
- * This script collects dermatology clinic data from Google Places API
- * and saves it to JSON files organized by state.
- * 
+ *
  * Usage: npm run collect-data
  */
 
 // Load environment variables
 const GOOGLE_PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY || '';
 const PLACES_API_URL = 'https://places.googleapis.com/v1/places';
+
+// ---- Unsplash config (FREE) ----
+const UNSPLASH_ACCESS_KEY = process.env.UNSPLASH_ACCESS_KEY || '';
+const UNSPLASH_QUERY = 'dermatology,dermatologist,skin care,medical clinic,clinic';
+const UNSPLASH_POOL_SIZE = 20; // keep <= 50/hour free tier
+const unsplashPool: string[] = [];
+let unsplashIdx = 0;
+const PLACEHOLDER =
+  'https://via.placeholder.com/800x600/3b82f6/ffffff?text=Dermatology+Clinic';
+
+// Fetch one random Unsplash image URL
+async function getRandomDermImage(): Promise<string | null> {
+  if (!UNSPLASH_ACCESS_KEY) return null;
+  try {
+    const url =
+      `https://api.unsplash.com/photos/random?query=${encodeURIComponent(UNSPLASH_QUERY)}` +
+      `&orientation=landscape&content_filter=high&client_id=${UNSPLASH_ACCESS_KEY}`;
+    const res = await fetch(url);
+    if (!res.ok) {
+      console.warn(`Unsplash error: ${res.status} ${res.statusText}`);
+      return null;
+    }
+    const data = await res.json();
+    // Prefer a reasonably sized URL to avoid layout thrash
+    return data?.urls?.regular || data?.urls?.full || data?.urls?.small || null;
+  } catch (e) {
+    console.warn('Unsplash fetch failed:', e);
+    return null;
+  }
+}
+
+// Seed a small pool so we don’t call Unsplash per clinic
+async function seedUnsplashPool(target = UNSPLASH_POOL_SIZE) {
+  if (!UNSPLASH_ACCESS_KEY) {
+    console.warn('UNSPLASH_ACCESS_KEY not set; falling back to placeholder images.');
+    return;
+  }
+  while (unsplashPool.length < target) {
+    const url = await getRandomDermImage();
+    if (url) unsplashPool.push(url);
+    // gentle pacing
+    await delay(400);
+  }
+}
+
+// Get an image from pool (cycles)
+function getDermImageFromPool(): string {
+  if (unsplashPool.length === 0) return PLACEHOLDER;
+  const url = unsplashPool[unsplashIdx % unsplashPool.length];
+  unsplashIdx++;
+  return url || PLACEHOLDER;
+}
 
 interface Location {
   lat: number;
@@ -50,9 +99,9 @@ const US_STATES: StateInfo[] = [
   {
     name: 'New York',
     code: 'NY',
-    center: { lat: 40.7128, lng: -74.0060 },
+    center: { lat: 40.7128, lng: -74.006 },
     major_cities: [
-      { name: 'New York City', location: { lat: 40.7128, lng: -74.0060 } },
+      { name: 'New York City', location: { lat: 40.7128, lng: -74.006 } },
       { name: 'Buffalo', location: { lat: 42.8864, lng: -78.8784 } },
       { name: 'Rochester', location: { lat: 43.1566, lng: -77.6088 } },
     ],
@@ -63,7 +112,7 @@ const US_STATES: StateInfo[] = [
     center: { lat: 31.9686, lng: -99.9018 },
     major_cities: [
       { name: 'Houston', location: { lat: 29.7604, lng: -95.3698 } },
-      { name: 'Dallas', location: { lat: 32.7767, lng: -96.7970 } },
+      { name: 'Dallas', location: { lat: 32.7767, lng: -96.797 } },
       { name: 'Austin', location: { lat: 30.2672, lng: -97.7431 } },
       { name: 'San Antonio', location: { lat: 29.4241, lng: -98.4936 } },
     ],
@@ -95,12 +144,11 @@ const US_STATES: StateInfo[] = [
  */
 async function searchDermClinics(location: Location, radius: number = 50000) {
   if (requestCount >= MAX_DAILY_REQUESTS) {
-    console.warn('⚠️ Daily request limit reached. Stop to avoid charges.');
+    console.warn('⚠️ Daily Places request limit reached. Stop to avoid charges.');
     return [];
   }
   requestCount++;
-  
-  // ... rest of function
+
   const response = await fetch(`${PLACES_API_URL}:searchNearby`, {
     method: 'POST',
     headers: {
@@ -125,6 +173,7 @@ async function searchDermClinics(location: Location, radius: number = 50000) {
         'places.parkingOptions',
         'places.priceLevel',
         'places.paymentOptions',
+        // (we intentionally skip photos field to save Places quota)
       ].join(','),
     },
     body: JSON.stringify({
@@ -143,7 +192,7 @@ async function searchDermClinics(location: Location, radius: number = 50000) {
   });
 
   if (!response.ok) {
-    throw new Error(`Places API error: ${response.statusText}`);
+    throw new Error(`Places API error: ${response.status} ${response.statusText}`);
   }
 
   const data = await response.json();
@@ -152,6 +201,7 @@ async function searchDermClinics(location: Location, radius: number = 50000) {
 
 /**
  * Transform Google Places API response
+ * (Adds an Unsplash image URL per clinic; no Places photo usage)
  */
 function transformPlacesResponse(places: any[]) {
   return places
@@ -162,15 +212,19 @@ function transformPlacesResponse(places: any[]) {
       const displayName = place.displayName?.text || '';
 
       // Filter for dermatology-related clinics
+      const lower = displayName.toLowerCase();
       const isDermatology =
         types.includes('skin_care_clinic') ||
-        displayName.toLowerCase().includes('derm') ||
-        displayName.toLowerCase().includes('skin') ||
-        displayName.toLowerCase().includes('dermatology');
+        lower.includes('derm') ||
+        lower.includes('skin') ||
+        lower.includes('dermatology');
 
       if (!isDermatology && place.primaryType !== 'skin_care_clinic') {
         return null;
       }
+
+      // Pull one URL from the pre-fetched Unsplash pool
+      const photoUrl = getDermImageFromPool();
 
       return {
         place_id: place.id,
@@ -192,7 +246,9 @@ function transformPlacesResponse(places: any[]) {
         business_status: place.businessStatus || 'OPERATIONAL',
         accessibility_options: place.accessibilityOptions,
         parking_options: place.parkingOptions,
-        photos: undefined, // Skipping photos to save API costs
+        // We store the Unsplash URL in 'photos[0].name' so the UI can treat it as a photo source.
+        // (With a small tweak in getPhotoUrl, absolute URLs will passthrough.)
+        photos: [{ name: photoUrl }],
         opening_hours: place.regularOpeningHours
           ? {
               open_now: place.currentOpeningHours?.openNow,
@@ -235,6 +291,9 @@ async function collectData() {
     console.error('❌ Error creating data directory:', error);
     process.exit(1);
   }
+
+  // Prefetch a small Unsplash image pool (non-blocking if no key)
+  await seedUnsplashPool();
 
   let totalClinics = 0;
 
