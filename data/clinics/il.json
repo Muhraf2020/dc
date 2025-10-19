@@ -1,0 +1,89 @@
+{
+  "state": "Illinois",
+  "state_code": "IL",
+  "clinics": [
+    {
+      "place_id": "ChIJP2YFXsbSD4gRd9Gq8qEFLHw",
+      "display_name": "Dermatology + Aesthetics - Bucktown",
+      "formatted_address": "1765 N Elston Ave Suite 110, Chicago, IL 60642, USA",
+      "location": {
+        "lat": 41.914950999999995,
+        "lng": -87.6641958
+      },
+      "primary_type": "doctor",
+      "types": [
+        "skin_care_clinic",
+        "beauty_salon",
+        "hair_care",
+        "doctor",
+        "point_of_interest",
+        "health",
+        "establishment"
+      ],
+      "rating": 4.2,
+      "user_rating_count": 285,
+      "current_open_now": false,
+      "phone": "(773) 276-1100",
+      "international_phone_number": "+1 773-276-1100",
+      "website": "https://www.vitalskinderm.com/locations/chicago-il/?utm_source=gmb&utm_medium=organic&utm_campaign=chicago-il",
+      "google_maps_uri": "https://maps.google.com/?cid=8947532752797487479&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "last_fetched_at": "2025-10-19"
+    },
+    {
+      "place_id": "ChIJm3PMxO8sDogRT_BsfzvGs80",
+      "display_name": "Paul Mitchell The School Chicago",
+      "formatted_address": "1225 S Halsted St, Chicago, IL 60607, USA",
+      "location": {
+        "lat": 41.866304,
+        "lng": -87.64664599999999
+      },
+      "primary_type": "skin_care_clinic",
+      "types": [
+        "skin_care_clinic",
+        "hair_salon",
+        "makeup_artist",
+        "beauty_salon",
+        "barber_shop",
+        "hair_care",
+        "massage",
+        "spa",
+        "point_of_interest",
+        "health",
+        "establishment"
+      ],
+      "rating": 4.1,
+      "user_rating_count": 437,
+      "current_open_now": false,
+      "phone": "(312) 733-9285",
+      "international_phone_number": "+1 312-733-9285",
+      "website": "https://paulmitchell.edu/chicago?utm_source=gbp_listing&utm_medium=organic",
+      "google_maps_uri": "https://maps.google.com/?cid=14822408757449650255&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true
+      },
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "last_fetched_at": "2025-10-19"
+    }
+  ],
+  "total": 2,
+  "last_updated": "2025-10-19T15:54:10.629Z"
+}
