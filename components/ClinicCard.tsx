@@ -3,7 +3,8 @@
 import { Clinic } from '@/lib/dataTypes';
 import { getPhotoUrl } from '@/lib/googlePlaces';
 import Link from 'next/link';
-import React from 'react';
+import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
 
 interface ClinicCardProps {
   clinic: Clinic;
@@ -11,9 +12,15 @@ interface ClinicCardProps {
 }
 
 export default function ClinicCard({ clinic, onClick }: ClinicCardProps) {
-  const photoUrl = clinic.photos?.[0]
-    ? getPhotoUrl(clinic.photos[0].name, 400, 300)
-    : 'https://via.placeholder.com/400x300/3b82f6/ffffff?text=Dermatology+Clinic';
+  const placeholder =
+    'https://via.placeholder.com/400x300/3b82f6/ffffff?text=Dermatology+Clinic';
+
+  const computedPhoto =
+    clinic.photos?.[0] ? getPhotoUrl(clinic.photos[0].name, 400, 300) : placeholder;
+
+  // Keep a sticky img src that falls back once on error (prevents flicker on re-renders)
+  const [imgSrc, setImgSrc] = useState(computedPhoto);
+  useEffect(() => setImgSrc(computedPhoto), [computedPhoto]);
 
   const getStatusBadge = () => {
     if (clinic.business_status === 'CLOSED_PERMANENTLY') {
@@ -50,14 +57,18 @@ export default function ClinicCard({ clinic, onClick }: ClinicCardProps) {
       className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow cursor-pointer overflow-hidden group"
     >
       <div className="relative h-48 overflow-hidden bg-gray-200">
-        <img
-          src={photoUrl}
-          alt={typeof clinic.display_name === 'string' ? clinic.display_name : 'Dermatology Clinic'}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-          onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
-            e.currentTarget.src =
-              'https://via.placeholder.com/400x300/3b82f6/ffffff?text=Dermatology+Clinic';
-          }}
+        <Image
+          src={imgSrc}
+          alt={
+            typeof clinic.display_name === 'string' ? clinic.display_name : 'Dermatology Clinic'
+          }
+          fill
+          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+          className="object-cover transform-gpu group-hover:scale-105 transition-transform duration-300"
+          onError={() => setImgSrc(placeholder)}
+          loading="lazy"
+          fetchPriority="low"
+          draggable={false}
         />
         <div className="absolute top-3 right-3">{getStatusBadge()}</div>
       </div>
