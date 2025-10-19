@@ -2,15 +2,34 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(req: NextRequest) {
+  // Belt-and-suspenders: refuse proxying unless explicitly enabled
+  if (process.env.NEXT_PUBLIC_USE_PLACES_PHOTOS !== 'true') {
+    return new NextResponse('Places photos disabled', { status: 403 });
+  }
+
   const name = req.nextUrl.searchParams.get('name');
   const w = req.nextUrl.searchParams.get('w') ?? '400';
   const h = req.nextUrl.searchParams.get('h') ?? '300';
 
   if (!name) return new NextResponse('Missing "name"', { status: 400 });
 
-  const upstream = `https://places.googleapis.com/v1/${name}/media?maxWidthPx=${w}&maxHeightPx=${h}`;
+  // Optional sanity check: only allow the expected Places photo resource path
+  // Example name: "places/XYZ/photos/abc"
+  if (!/^places\/.+\/photos\/.+$/i.test(name)) {
+    return new NextResponse('Invalid "name" format', { status: 400 });
+  }
+
+  const apiKey = process.env.GOOGLE_PLACES_API_KEY ?? '';
+  if (!apiKey) {
+    return new NextResponse('Server misconfig: missing GOOGLE_PLACES_API_KEY', { status: 500 });
+  }
+
+  const upstream = `https://places.googleapis.com/v1/${name}/media?maxWidthPx=${encodeURIComponent(
+    w
+  )}&maxHeightPx=${encodeURIComponent(h)}`;
+
   const res = await fetch(upstream, {
-    headers: { 'X-Goog-Api-Key': process.env.GOOGLE_PLACES_API_KEY ?? '' },
+    headers: { 'X-Goog-Api-Key': apiKey },
     // Vercel/Edge: no-cache at fetch level; we’ll cache on our response
     cache: 'no-store',
   });
