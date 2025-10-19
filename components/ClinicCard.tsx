@@ -3,6 +3,7 @@
 import { Clinic } from '@/lib/dataTypes';
 import { getPhotoUrl } from '@/lib/googlePlaces';
 import Link from 'next/link';
+import React from 'react';
 
 interface ClinicCardProps {
   clinic: Clinic;
@@ -51,15 +52,14 @@ export default function ClinicCard({ clinic, onClick }: ClinicCardProps) {
       <div className="relative h-48 overflow-hidden bg-gray-200">
         <img
           src={photoUrl}
-          alt={clinic.display_name}
+          alt={typeof clinic.display_name === 'string' ? clinic.display_name : 'Dermatology Clinic'}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-          onError={(e) => {
-            e.currentTarget.src = 'https://via.placeholder.com/400x300/3b82f6/ffffff?text=Dermatology+Clinic';
+          onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
+            e.currentTarget.src =
+              'https://via.placeholder.com/400x300/3b82f6/ffffff?text=Dermatology+Clinic';
           }}
         />
-        <div className="absolute top-3 right-3">
-          {getStatusBadge()}
-        </div>
+        <div className="absolute top-3 right-3">{getStatusBadge()}</div>
       </div>
 
       <div className="p-5">
@@ -67,7 +67,7 @@ export default function ClinicCard({ clinic, onClick }: ClinicCardProps) {
           {clinic.display_name}
         </h3>
 
-        {clinic.rating && (
+        {typeof clinic.rating === 'number' && (
           <div className="flex items-center gap-2 mb-3">
             <div className="flex items-center">
               <span className="text-yellow-400 text-lg">★</span>
@@ -75,10 +75,8 @@ export default function ClinicCard({ clinic, onClick }: ClinicCardProps) {
                 {clinic.rating.toFixed(1)}
               </span>
             </div>
-            {clinic.user_rating_count && (
-              <span className="text-sm text-gray-500">
-                ({clinic.user_rating_count} reviews)
-              </span>
+            {typeof clinic.user_rating_count === 'number' && (
+              <span className="text-sm text-gray-500">({clinic.user_rating_count} reviews)</span>
             )}
           </div>
         )}
@@ -103,9 +101,7 @@ export default function ClinicCard({ clinic, onClick }: ClinicCardProps) {
               d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
             />
           </svg>
-          <p className="text-sm text-gray-600 line-clamp-2">
-            {clinic.formatted_address}
-          </p>
+          <p className="text-sm text-gray-600 line-clamp-2">{clinic.formatted_address}</p>
         </div>
 
         <div className="flex flex-wrap gap-2 mb-4">
@@ -128,30 +124,35 @@ export default function ClinicCard({ clinic, onClick }: ClinicCardProps) {
 
         <div className="flex gap-2 pt-3 border-t border-gray-100">
           {clinic.phone && (
-            
+            <a
               href={`tel:${clinic.phone}`}
               className="flex-1 text-center px-3 py-2 text-sm font-medium text-blue-600 bg-blue-50 rounded hover:bg-blue-100 transition-colors"
               onClick={(e) => e.stopPropagation()}
+              aria-label="Call clinic"
             >
               📞 Call
             </a>
           )}
-          
+
+          <a
             href={clinic.google_maps_uri}
             target="_blank"
             rel="noopener noreferrer"
             className="flex-1 text-center px-3 py-2 text-sm font-medium text-green-600 bg-green-50 rounded hover:bg-green-100 transition-colors"
             onClick={(e) => e.stopPropagation()}
+            aria-label="Get directions"
           >
             📍 Directions
           </a>
+
           {clinic.website && (
-            
+            <a
               href={clinic.website}
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 text-center px-3 py-2 text-sm font-medium text-purple-600 bg-purple-50 rounded hover:bg-purple-100 transition-colors"
               onClick={(e) => e.stopPropagation()}
+              aria-label="Open website"
             >
               🌐 Website
             </a>
