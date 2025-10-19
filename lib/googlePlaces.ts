@@ -5,6 +5,12 @@ import { Clinic, Location } from './dataTypes';
 
 const PLACES_API_URL = 'https://places.googleapis.com/v1/places';
 
+// Locale bias for results (minimal & safe)
+const commonBody = {
+  languageCode: 'en',
+  regionCode: 'US',
+};
+
 // ---- Throttle & Backoff (protect quotas/reliability) ----
 const QPS_TARGET = 3; // keep between 2–5 QPS
 const MIN_INTERVAL_MS = Math.ceil(1000 / QPS_TARGET);
@@ -72,10 +78,15 @@ const DERM_TERMS = [
 /**
  * Search for dermatology clinics near a location (server-side only)
  * Uses Places "Nearby Search" (New).
+ *
+ * @param location center point
+ * @param radius   meters
+ * @param rank     'POPULARITY' (default) or 'DISTANCE'
  */
 export async function searchDermClinics(
   location: Location,
-  radius: number = 50_000 // 50km default
+  radius: number = 50_000, // 50km default
+  rank: 'POPULARITY' | 'DISTANCE' = 'POPULARITY'
 ): Promise<Clinic[]> {
   try {
     const apiKey = process.env.GOOGLE_PLACES_API_KEY || '';
@@ -113,8 +124,10 @@ export async function searchDermClinics(
         ].join(','),
       },
       body: JSON.stringify({
+        ...commonBody,
         // Broad recall; we’ll filter to derm in code.
         includedPrimaryTypes: ['doctor'],
+        rankPreference: rank,            // POPULARITY for city recall; DISTANCE for grid
         maxResultCount: 20,
         locationRestriction: {
           circle: {
@@ -122,6 +135,7 @@ export async function searchDermClinics(
             radius,
           },
         },
+        strictTypeFiltering: false,      // keep recall broad
       }),
       cache: 'no-store',
     });
@@ -189,9 +203,10 @@ export async function searchDermClinicsText(
           ].join(','),
         },
         body: JSON.stringify({
+          ...commonBody,
           textQuery: q,
           pageSize: 20,
-          pageToken: pageToken,
+          pageToken,
         }),
         cache: 'no-store',
       });
@@ -232,7 +247,8 @@ export async function searchDermClinicsGrid(
   const seen = new Set<string>();
 
   for (const p of points) {
-    const batch = await searchDermClinics(p, radiusMeters);
+    // Prefer DISTANCE for uniform coverage across the grid
+    const batch = await searchDermClinics(p, radiusMeters, 'DISTANCE');
     for (const c of batch) {
       if (!seen.has(c.place_id)) {
         seen.add(c.place_id);
