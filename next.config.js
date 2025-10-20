@@ -5,7 +5,7 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'places.googleapis.com',
-        pathname: '/v1/places/**/photos/**',
+        pathname: '/v1/places/**/media**',
       },
       {
         protocol: 'https',
