@@ -1,0 +1,530 @@
+{
+  "state": "New York",
+  "state_code": "NY",
+  "clinics": [
+    {
+      "place_id": "ChIJq_BiKaJZwokRnj6wBp-SN7Y",
+      "display_name": "Rescue Spa",
+      "formatted_address": "29 E 19th St, New York, NY 10003, USA",
+      "location": {
+        "lat": 40.738357099999995,
+        "lng": -73.9891193
+      },
+      "primary_type": "spa",
+      "types": [
+        "spa",
+        "nail_salon",
+        "skin_care_clinic",
+        "hair_salon",
+        "beauty_salon",
+        "hair_care",
+        "massage",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 4.4,
+      "user_rating_count": 283,
+      "current_open_now": true,
+      "phone": "(866) 772-2766",
+      "international_phone_number": "+1 866-772-2766",
+      "website": "https://www.rescuespa.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=13130124450331639454&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "last_fetched_at": "2025-10-19"
+    },
+    {
+      "place_id": "ChIJlzqeZqhZwokRIiBTqRUFtko",
+      "display_name": "Bared Monkey Laser Spa",
+      "formatted_address": "38 W 32nd St #1500, New York, NY 10001, USA",
+      "location": {
+        "lat": 40.747786,
+        "lng": -73.98741199999999
+      },
+      "primary_type": "beauty_salon",
+      "types": [
+        "skin_care_clinic",
+        "body_art_service",
+        "beauty_salon",
+        "hair_care",
+        "spa",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 4.9,
+      "user_rating_count": 1255,
+      "current_open_now": true,
+      "phone": "(212) 256-9777",
+      "international_phone_number": "+1 212-256-9777",
+      "website": "https://www.baredmonkey.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=5383495995161255970&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": false,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": {
+        "paidStreetParking": true
+      },
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "last_fetched_at": "2025-10-19"
+    },
+    {
+      "place_id": "ChIJP3JVNq9ZwokRqXuwunNmwhA",
+      "display_name": "Infinity Laser Spa",
+      "formatted_address": "866 6th Ave Floor 2, New York, NY 10001, USA",
+      "location": {
+        "lat": 40.7474965,
+        "lng": -73.9891165
+      },
+      "primary_type": "beauty_salon",
+      "types": [
+        "skin_care_clinic",
+        "body_art_service",
+        "beauty_salon",
+        "hair_care",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 4.9,
+      "user_rating_count": 2104,
+      "current_open_now": true,
+      "phone": "(212) 945-8298",
+      "international_phone_number": "+1 212-945-8298",
+      "website": "https://infinitylaserspa.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=1207640297328114601&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": {
+        "paidStreetParking": true
+      },
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "last_fetched_at": "2025-10-19"
+    },
+    {
+      "place_id": "ChIJox2YKo9ZwokRhCWFiqfzk4g",
+      "display_name": "Spring Street Dermatology - SOHO",
+      "formatted_address": "75 Spring St Floor 2, New York, NY 10012, USA",
+      "location": {
+        "lat": 40.7227697,
+        "lng": -73.99767829999999
+      },
+      "primary_type": "skin_care_clinic",
+      "types": [
+        "skin_care_clinic",
+        "spa",
+        "doctor",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 4.7,
+      "user_rating_count": 1137,
+      "current_open_now": false,
+      "phone": "(646) 906-9614",
+      "international_phone_number": "+1 646-906-9614",
+      "website": "https://springstderm.com/?utm_source=seo_gmb&utm_medium=gmb&utm_campaign=home_page",
+      "google_maps_uri": "https://maps.google.com/?cid=9841477511643735428&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "last_fetched_at": "2025-10-19"
+    },
+    {
+      "place_id": "ChIJSwWZLCpZwokRIVL4srWU8Vk",
+      "display_name": "Glowbar Union Square",
+      "formatted_address": "77 5th Ave, New York, NY 10003, USA",
+      "location": {
+        "lat": 40.7368546,
+        "lng": -73.99266399999999
+      },
+      "primary_type": "beauty_salon",
+      "types": [
+        "skin_care_clinic",
+        "beauty_salon",
+        "wellness_center",
+        "spa",
+        "massage",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 4.7,
+      "user_rating_count": 276,
+      "current_open_now": true,
+      "phone": "(929) 998-4300",
+      "international_phone_number": "+1 929-998-4300",
+      "website": "https://glowbar.com/?utm_source=GoogleBusinessProfile&utm_medium=Organic&utm_campaign=Website&utm_content=Union%20Square",
+      "google_maps_uri": "https://maps.google.com/?cid=6481124846875464225&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": false,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": {
+        "paidStreetParking": true
+      },
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": false
+      },
+      "last_fetched_at": "2025-10-19"
+    },
+    {
+      "place_id": "ChIJ5cuj9IpZwokRBQ6v4sS0HLw",
+      "display_name": "Tribeca Skin Center",
+      "formatted_address": "315 Church St 2nd floor, New York, NY 10013, USA",
+      "location": {
+        "lat": 40.719729,
+        "lng": -74.003715
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 4.8,
+      "user_rating_count": 670,
+      "current_open_now": false,
+      "phone": "(212) 334-3774",
+      "international_phone_number": "+1 212-334-3774",
+      "website": "http://www.tribecaskincenter.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=13554907736188063237&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": false,
+        "wheelchairAccessibleRestroom": true
+      },
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "last_fetched_at": "2025-10-19"
+    },
+    {
+      "place_id": "ChIJA08L_-dlwokRZeW_KYQXEvU",
+      "display_name": "Aveda Arts & Sciences Institute New York",
+      "formatted_address": "21 Pearl St, Brooklyn, NY 11201, USA",
+      "location": {
+        "lat": 40.704080999999995,
+        "lng": -73.9874146
+      },
+      "primary_type": "skin_care_clinic",
+      "types": [
+        "skin_care_clinic",
+        "hair_salon",
+        "beauty_salon",
+        "hair_care",
+        "spa",
+        "massage",
+        "health",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "rating": 3.6,
+      "user_rating_count": 224,
+      "current_open_now": false,
+      "phone": "(212) 807-1492",
+      "international_phone_number": "+1 212-807-1492",
+      "website": "https://avedaarts.edu/locations/new-york/",
+      "google_maps_uri": "https://maps.google.com/?cid=17659202945276700005&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": false
+      },
+      "price_level": "PRICE_LEVEL_EXPENSIVE",
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "last_fetched_at": "2025-10-19"
+    },
+    {
+      "place_id": "ChIJB8ip595ZwokRq0QDIEVcfoM",
+      "display_name": "Aesop NoMad",
+      "formatted_address": "1165 Broadway, New York, NY 10001, USA",
+      "location": {
+        "lat": 40.744811,
+        "lng": -73.988976
+      },
+      "primary_type": "skin_care_clinic",
+      "types": [
+        "skin_care_clinic",
+        "clothing_store",
+        "health",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "rating": 4.8,
+      "user_rating_count": 29,
+      "current_open_now": true,
+      "phone": "(646) 476-7737",
+      "international_phone_number": "+1 646-476-7737",
+      "website": "https://www.aesop.com/?utm_source=Google&utm_medium=local&utm_campaign=google-local",
+      "google_maps_uri": "https://maps.google.com/?cid=9475112117993686187&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": {
+        "paidStreetParking": true
+      },
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "last_fetched_at": "2025-10-19"
+    },
+    {
+      "place_id": "ChIJOwnUSwBbwokRY5Mv9eKbJ-Y",
+      "display_name": "Glowbar Tribeca",
+      "formatted_address": "147 Duane St, New York, NY 10013, USA",
+      "location": {
+        "lat": 40.716625,
+        "lng": -74.00800679999999
+      },
+      "primary_type": "beauty_salon",
+      "types": [
+        "skin_care_clinic",
+        "beauty_salon",
+        "wellness_center",
+        "spa",
+        "massage",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 4.6,
+      "user_rating_count": 275,
+      "current_open_now": true,
+      "phone": "(929) 446-4300",
+      "international_phone_number": "+1 929-446-4300",
+      "website": "https://glowbar.com/?utm_source=GoogleBusinessProfile&utm_medium=Organic&utm_campaign=Website&utm_content=Tribeca",
+      "google_maps_uri": "https://maps.google.com/?cid=16584395551893590883&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true,
+        "wheelchairAccessibleSeating": true
+      },
+      "parking_options": {
+        "paidStreetParking": true
+      },
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": false
+      },
+      "last_fetched_at": "2025-10-19"
+    },
+    {
+      "place_id": "ChIJ7yFHw_B004kRceUOSj0LDkw",
+      "display_name": "WNY Dermatology",
+      "formatted_address": "297 Spindrift Dr, Williamsville, NY 14221, USA",
+      "location": {
+        "lat": 42.9582761,
+        "lng": -78.71510169999999
+      },
+      "primary_type": "doctor",
+      "types": [
+        "skin_care_clinic",
+        "doctor",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 4.7,
+      "user_rating_count": 3061,
+      "current_open_now": false,
+      "phone": "(716) 831-2600",
+      "international_phone_number": "+1 716-831-2600",
+      "website": "https://wnyderm.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=5480330154419873137&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "last_fetched_at": "2025-10-19"
+    },
+    {
+      "place_id": "ChIJWeVLv4l004kRBmbxMUt5jhM",
+      "display_name": "Woodhouse Spa - Buffalo",
+      "formatted_address": "5933 Main St, Williamsville, NY 14221, USA",
+      "location": {
+        "lat": 42.964594,
+        "lng": -78.73244600000001
+      },
+      "primary_type": "spa",
+      "types": [
+        "nail_salon",
+        "skin_care_clinic",
+        "beauty_salon",
+        "spa",
+        "massage",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 4.8,
+      "user_rating_count": 374,
+      "current_open_now": true,
+      "phone": "(716) 458-5700",
+      "international_phone_number": "+1 716-458-5700",
+      "website": "http://buffalo.woodhousespas.com/?utm_source=google&utm_medium=yext",
+      "google_maps_uri": "https://maps.google.com/?cid=1409197097280955910&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true,
+        "wheelchairAccessibleSeating": true
+      },
+      "parking_options": {
+        "freeParkingLot": true,
+        "freeStreetParking": true
+      },
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "last_fetched_at": "2025-10-19"
+    },
+    {
+      "place_id": "ChIJo9T8I4Ez0YkRiAuogLfvI44",
+      "display_name": "Comprehensive Dermatology of Rochester, PLLC",
+      "formatted_address": "900 S Winton Rd, Rochester, NY 14618, USA",
+      "location": {
+        "lat": 43.1280022,
+        "lng": -77.5644688
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "point_of_interest",
+        "health",
+        "establishment"
+      ],
+      "rating": 4.1,
+      "user_rating_count": 48,
+      "current_open_now": false,
+      "phone": "(585) 381-5800",
+      "international_phone_number": "+1 585-381-5800",
+      "website": "http://585derm.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=10242293548987190152&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "last_fetched_at": "2025-10-19"
+    },
+    {
+      "place_id": "ChIJOf-WmzK11okRhxlr97n7rMk",
+      "display_name": "Schweiger Dermatology Group - Brighton",
+      "formatted_address": "2150A S Clinton Ave #2140B, Rochester, NY 14618, USA",
+      "location": {
+        "lat": 43.116754199999995,
+        "lng": -77.5957955
+      },
+      "primary_type": "doctor",
+      "types": [
+        "skin_care_clinic",
+        "beauty_salon",
+        "doctor",
+        "hair_care",
+        "spa",
+        "point_of_interest",
+        "health",
+        "establishment"
+      ],
+      "rating": 4.9,
+      "user_rating_count": 562,
+      "current_open_now": false,
+      "phone": "(585) 256-0555",
+      "international_phone_number": "+1 585-256-0555",
+      "website": "https://www.schweigerderm.com/location/new-york/rochester/",
+      "google_maps_uri": "https://maps.google.com/?cid=14532266873756260743&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "last_fetched_at": "2025-10-19"
+    }
+  ],
+  "total": 13,
+  "last_updated": "2025-10-19T15:53:45.299Z"
+}

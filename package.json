@@ -12,6 +12,7 @@
     "fetch:unsplash": "node scripts/fetch-unsplash-images.js"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.75.1",
     "@types/google.maps": "^3.55.0",
     "dotenv": "^17.2.3",
     "next": "^14.2.0",

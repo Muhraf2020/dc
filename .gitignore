@@ -49,3 +49,4 @@ Thumbs.db
 # Optional: Don't commit clinic data if it's large
 # Uncomment if you want to fetch data fresh each time
 # /data/clinics/*.json
+data/clinics/

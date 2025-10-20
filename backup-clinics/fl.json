@@ -1,0 +1,88 @@
+{
+  "state": "Florida",
+  "state_code": "FL",
+  "clinics": [
+    {
+      "place_id": "ChIJR9UWSKd_54gRQuJPaQVXoe8",
+      "display_name": "Sand Lake Dermatology Center",
+      "formatted_address": "7335 W Sand Lake Rd #200, Orlando, FL 32819, USA",
+      "location": {
+        "lat": 28.451055,
+        "lng": -81.479483
+      },
+      "primary_type": "doctor",
+      "types": [
+        "skin_care_clinic",
+        "doctor",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 4.8,
+      "user_rating_count": 1415,
+      "current_open_now": false,
+      "phone": "(407) 352-8553",
+      "international_phone_number": "+1 407-352-8553",
+      "website": "http://www.sandlakedermatology.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=17267178127068488258&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "last_fetched_at": "2025-10-19"
+    },
+    {
+      "place_id": "ChIJLcU9mV3DwogRBdGVTzY7rbk",
+      "display_name": "Skin Science",
+      "formatted_address": "3822 South Dale Mabry Highway, Britton Plaza, Tampa, FL 33611, USA",
+      "location": {
+        "lat": 27.907670699999997,
+        "lng": -82.50256089999999
+      },
+      "primary_type": "spa",
+      "types": [
+        "skin_care_clinic",
+        "beauty_salon",
+        "spa",
+        "massage",
+        "hair_care",
+        "point_of_interest",
+        "health",
+        "establishment"
+      ],
+      "rating": 4.9,
+      "user_rating_count": 249,
+      "current_open_now": false,
+      "phone": "(813) 251-4829",
+      "international_phone_number": "+1 813-251-4829",
+      "website": "https://www.skinsciencebeauty.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=13379415172437102853&g_mp=Cilnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaE5lYXJieRACGAQgAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": {
+        "freeParkingLot": true
+      },
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "last_fetched_at": "2025-10-19"
+    }
+  ],
+  "total": 2,
+  "last_updated": "2025-10-19T15:54:05.236Z"
+}

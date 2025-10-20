@@ -1,0 +1,163 @@
+{
+  "state": "California",
+  "state_code": "CA",
+  "total": 3,
+  "last_updated": "2025-01-20T00:00:00.000Z",
+  "clinics": [
+    {
+      "place_id": "ChIJSampleClinic001",
+      "display_name": "Advanced Dermatology Center",
+      "formatted_address": "123 Medical Plaza, Los Angeles, CA 90001",
+      "location": {
+        "lat": 34.0522,
+        "lng": -118.2437
+      },
+      "primary_type": "skin_care_clinic",
+      "types": ["skin_care_clinic", "doctor", "health"],
+      "rating": 4.8,
+      "user_rating_count": 256,
+      "current_open_now": true,
+      "phone": "+1 (555) 123-4567",
+      "international_phone_number": "+1 555-123-4567",
+      "website": "https://example-dermatology.com",
+      "google_maps_uri": "https://maps.google.com/?cid=1234567890",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchair_accessible_entrance": true,
+        "wheelchair_accessible_parking": true
+      },
+      "parking_options": {
+        "free_parking_lot": true
+      },
+      "photos": [
+        {
+          "name": "places/ChIJSampleClinic001/photos/PhotoRef1",
+          "width_px": 4032,
+          "height_px": 3024
+        }
+      ],
+      "opening_hours": {
+        "open_now": true,
+        "weekday_text": [
+          "Monday: 9:00 AM – 5:00 PM",
+          "Tuesday: 9:00 AM – 5:00 PM",
+          "Wednesday: 9:00 AM – 5:00 PM",
+          "Thursday: 9:00 AM – 5:00 PM",
+          "Friday: 9:00 AM – 4:00 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "payment_options": {
+        "accepts_credit_cards": true,
+        "accepts_debit_cards": true
+      },
+      "last_fetched_at": "2025-01-20"
+    },
+    {
+      "place_id": "ChIJSampleClinic002",
+      "display_name": "Skin Health Medical Group",
+      "formatted_address": "456 Healthcare Blvd, San Francisco, CA 94102",
+      "location": {
+        "lat": 37.7749,
+        "lng": -122.4194
+      },
+      "primary_type": "skin_care_clinic",
+      "types": ["skin_care_clinic", "doctor", "health"],
+      "rating": 4.6,
+      "user_rating_count": 189,
+      "current_open_now": false,
+      "phone": "+1 (555) 987-6543",
+      "international_phone_number": "+1 555-987-6543",
+      "website": "https://skinhealthmg.com",
+      "google_maps_uri": "https://maps.google.com/?cid=9876543210",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchair_accessible_entrance": true
+      },
+      "parking_options": {
+        "paid_parking_lot": true,
+        "free_street_parking": false
+      },
+      "photos": [
+        {
+          "name": "places/ChIJSampleClinic002/photos/PhotoRef2",
+          "width_px": 3024,
+          "height_px": 4032
+        }
+      ],
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 8:00 AM – 6:00 PM",
+          "Tuesday: 8:00 AM – 6:00 PM",
+          "Wednesday: 8:00 AM – 6:00 PM",
+          "Thursday: 8:00 AM – 6:00 PM",
+          "Friday: 8:00 AM – 5:00 PM",
+          "Saturday: 9:00 AM – 1:00 PM",
+          "Sunday: Closed"
+        ]
+      },
+      "payment_options": {
+        "accepts_credit_cards": true,
+        "accepts_debit_cards": true,
+        "accepts_nfc": true
+      },
+      "last_fetched_at": "2025-01-20"
+    },
+    {
+      "place_id": "ChIJSampleClinic003",
+      "display_name": "Clear Skin Dermatology",
+      "formatted_address": "789 Wellness Ave, San Diego, CA 92101",
+      "location": {
+        "lat": 32.7157,
+        "lng": -117.1611
+      },
+      "primary_type": "skin_care_clinic",
+      "types": ["skin_care_clinic", "doctor", "health"],
+      "rating": 4.9,
+      "user_rating_count": 312,
+      "current_open_now": true,
+      "phone": "+1 (555) 456-7890",
+      "international_phone_number": "+1 555-456-7890",
+      "website": "https://clearskinderm.com",
+      "google_maps_uri": "https://maps.google.com/?cid=5555555555",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchair_accessible_entrance": true,
+        "wheelchair_accessible_parking": true,
+        "wheelchair_accessible_restroom": true
+      },
+      "parking_options": {
+        "free_parking_lot": true,
+        "valet_parking": true
+      },
+      "photos": [
+        {
+          "name": "places/ChIJSampleClinic003/photos/PhotoRef3",
+          "width_px": 4032,
+          "height_px": 3024
+        }
+      ],
+      "opening_hours": {
+        "open_now": true,
+        "weekday_text": [
+          "Monday: 8:00 AM – 7:00 PM",
+          "Tuesday: 8:00 AM – 7:00 PM",
+          "Wednesday: 8:00 AM – 7:00 PM",
+          "Thursday: 8:00 AM – 7:00 PM",
+          "Friday: 8:00 AM – 6:00 PM",
+          "Saturday: 9:00 AM – 3:00 PM",
+          "Sunday: Closed"
+        ]
+      },
+      "payment_options": {
+        "accepts_credit_cards": true,
+        "accepts_debit_cards": true,
+        "accepts_nfc": true,
+        "accepts_cash_only": false
+      },
+      "last_fetched_at": "2025-01-20"
+    }
+  ]
+}
