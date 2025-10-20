@@ -11,46 +11,31 @@ if (!API_KEY) {
 }
 
 const OUT_DIR = path.resolve(process.cwd(), 'data/clinics');
-await fs.mkdir(OUT_DIR, { recursive: true });
-
-// Resume/progress support
-const PROGRESS_FILE = path.join(OUT_DIR, '_progress.json');
-
-async function loadProgress() {
-  try {
-    const data = await fs.readFile(PROGRESS_FILE, 'utf-8');
-    return JSON.parse(data);
-  } catch {
-    return { completed: [], lastRequest: 0, lastGlobalCount: 0 };
-  }
-}
-
-async function saveProgress(completed: string[]) {
-  // write atomically: write temp then rename
-  const tmp = PROGRESS_FILE + '.tmp';
-  await fs.writeFile(tmp, JSON.stringify({
-    completed,
-    lastRequest: REQUESTS,
-    lastGlobalCount: GLOBAL_CLINICS,
-    timestamp: new Date().toISOString()
-  }, null, 2), 'utf-8');
-  await fs.rename(tmp, PROGRESS_FILE);
-}
-
 
 const FIELD_MASK = [
-  'places.id','places.displayName','places.formattedAddress','places.addressComponents',
-  'places.location','places.primaryType','places.types','places.rating','places.userRatingCount',
-  'places.currentOpeningHours.openNow','places.regularOpeningHours.weekdayDescriptions',
-  'places.nationalPhoneNumber','places.internationalPhoneNumber',
-  'places.websiteUri','places.googleMapsUri','places.businessStatus',
-  // ✅ fields your UI uses
+  'places.id',
+  'places.displayName',
+  'places.formattedAddress',
+  'places.addressComponents',
+  'places.location',
+  'places.primaryType',
+  'places.types',
+  'places.rating',
+  'places.userRatingCount',
+  'places.currentOpeningHours.openNow',
+  'places.regularOpeningHours.weekdayDescriptions',
+  'places.nationalPhoneNumber',
+  'places.internationalPhoneNumber',
+  'places.websiteUri',
+  'places.googleMapsUri',
+  'places.businessStatus',
   'places.accessibilityOptions',
   'places.parkingOptions',
   'places.priceLevel',
   'places.paymentOptions',
-  // photos + paging
-  'places.photos.name','places.photos.widthPx','places.photos.heightPx',
+  'places.photos.name',
+  'places.photos.widthPx',
+  'places.photos.heightPx',
   'nextPageToken'
 ].join(',');
 
@@ -61,26 +46,33 @@ const STATES = [
 ];
 
 // ---- Throttling & safety (env-driven) ----
-const QPS = Number(process.env.PLACES_QPS || 3);                          // calls/sec
+const QPS = Number(process.env.PLACES_QPS || 3);
 const NEXT_PAGE_DELAY_MS = Number(process.env.PLACES_NEXT_PAGE_DELAY_MS || 1200);
 const SLEEP = (ms: number) => new Promise(r => setTimeout(r, ms));
 
 let REQUESTS = 0;
-const MAX_REQUESTS = Number(process.env.PLACES_MAX_REQUESTS || 800);       // API call cap
+const MAX_REQUESTS = Number(process.env.PLACES_MAX_REQUESTS || 800);
 
-const MAX_CLINICS_PER_STATE = Number(process.env.PLACES_MAX_CLINICS_PER_STATE || 0); // 0 = no cap
-const MAX_CLINICS_GLOBAL = Number(process.env.PLACES_MAX_CLINICS_GLOBAL || 0);       // 0 = no cap
+const MAX_CLINICS_PER_STATE = Number(process.env.PLACES_MAX_CLINICS_PER_STATE || 0);
+const MAX_CLINICS_GLOBAL = Number(process.env.PLACES_MAX_CLINICS_GLOBAL || 0);
 let GLOBAL_CLINICS = 0;
 
 async function gate() {
   REQUESTS++;
-  if (REQUESTS > MAX_REQUESTS) throw new Error('Daily request cap hit');
   await SLEEP(Math.ceil(1000 / QPS));
 }
 
 // ---- Small utils ----
+function pick(obj: any, keys: string[]) {
+
+  const o: any = {};
+  for (const k of keys) o[k] = obj?.[k] ?? null;
+  return o;
+}
+
 function fromAddressComponents(components: any[]) {
   const get = (t: string) => components?.find((c: any) => c.types?.includes(t));
+
   return {
     state_code: get('administrative_area_level_1')?.shortText ?? null,
     city: get('locality')?.longText ?? get('postal_town')?.longText ?? null,
@@ -88,45 +80,24 @@ function fromAddressComponents(components: any[]) {
   };
 }
 
-/ Enhanced dermatology filtering for collectClinicData.ts
-// Replace the acceptByDermHeuristics function with this improved version:
 
-const DERM_KEYWORDS = {
-  // Core terms (high confidence)
-  core: [
-    'dermatology', 'dermatologist', 'dermatologic',
-    'skin clinic', 'skin center', 'skin care clinic',
-  ],
-  // Related terms (medium confidence)
-  related: [
-    'skin doctor', 'skin specialist', 'skin health',
-    'medical dermatology', 'cosmetic dermatology',
-    'laser dermatology', 'aesthetic dermatology',
-    'mohs surgery', 'skin cancer', 'melanoma',
-  ],
-  // Partial matches (need context)
-  partial: ['derm', 'skin'],
-  // Exclude terms (false positives)
-  exclude: [
-    'dental', 'dentist', 'orthodont', 'oral surgery',
-    'veterinary', 'animal clinic', 'pet clinic',
-    'massage', 'spa resort', 'day spa', 'nail salon',
-  ]
-};
+// ---- Enhanced dermatology filtering ----
+function acceptByDermHeuristics(p: any): boolean {
+  const name = (p.displayName?.text || '').toLowerCase();
+  const website = (p.websiteUri || '').toLowerCase();
+  const types = (p.types || []).join(' ').toLowerCase();
+  const searchText = `${name} ${website} ${types}`;
 
-function acceptByDermHeuristics(place: any): boolean {
-  // Extract searchable text
-  const name = (place.displayName?.text || '').toLowerCase();
-  const website = (place.websiteUri || '').toLowerCase();
-  const types = (place.types || []).map((t: string) => t.toLowerCase());
-  const address = (place.formattedAddress || '').toLowerCase();
-  
-  // Combine all searchable fields
-  const searchText = `${name} ${website} ${types.join(' ')}`;
   
   // RULE 1: Exclude obvious non-derm places first
-  for (const excludeTerm of DERM_KEYWORDS.exclude) {
-    if (searchText.includes(excludeTerm)) {
+  const excludeTerms = [
+    'dental', 'dentist', 'orthodont', 'oral surgery',
+    'veterinary', 'animal clinic', 'pet clinic',
+    'massage', 'spa resort', 'day spa', 'nail salon'
+  ];
+  
+  for (const term of excludeTerms) {
+    if (searchText.includes(term)) {
       return false;
     }
   }
@@ -137,21 +108,32 @@ function acceptByDermHeuristics(place: any): boolean {
   }
   
   // RULE 3: High confidence - core dermatology terms
-  for (const coreTerm of DERM_KEYWORDS.core) {
-    if (searchText.includes(coreTerm)) {
+  const coreTerms = [
+    'dermatology', 'dermatologist', 'dermatologic'
+  ];
+  
+  for (const term of coreTerms) {
+    if (searchText.includes(term)) {
       return true;
     }
   }
   
   // RULE 4: Medium confidence - related terms in name or website
-  for (const relatedTerm of DERM_KEYWORDS.related) {
-    if (name.includes(relatedTerm) || website.includes(relatedTerm)) {
+  const relatedTerms = [
+    'skin clinic', 'skin center', 'skin care clinic',
+    'skin doctor', 'skin specialist', 'skin health',
+    'medical dermatology', 'cosmetic dermatology',
+    'laser dermatology', 'aesthetic dermatology',
+    'mohs surgery', 'skin cancer'
+  ];
+  
+  for (const term of relatedTerms) {
+    if (name.includes(term) || website.includes(term)) {
       return true;
     }
   }
   
   // RULE 5: Partial matches - need strong context
-  // Only accept if 'derm' or 'skin' appears with medical context
   const hasDerm = searchText.includes('derm');
   const hasSkin = name.includes('skin') || website.includes('skin');
   const medicalContext = 
@@ -176,19 +158,16 @@ function acceptByDermHeuristics(place: any): boolean {
   return false;
 }
 
-// Optional: Add logging to track filtering stats
-function logFilteringStats(places: any[], filtered: any[]) {
-  console.log(`  📊 Filtering: ${places.length} → ${filtered.length} clinics`);
-  if (places.length > filtered.length) {
-    const rejected = places.length - filtered.length;
-    console.log(`  ⚠️  Rejected ${rejected} non-derm results`);
-  }
-}
-
 async function searchTextOnce(query: string, pageToken?: string) {
-  await gate(); // count + pace every API call
+  await gate();
 
-  const body: any = { textQuery: query, pageSize: 20, languageCode: 'en', regionCode: 'US' };
+  const body: any = { 
+    textQuery: query, 
+    pageSize: 20, 
+    languageCode: 'en', 
+    regionCode: 'US' 
+  };
+  
   if (pageToken) body.pageToken = pageToken;
 
   const res = await fetch('https://places.googleapis.com/v1/places:searchText', {
@@ -200,6 +179,7 @@ async function searchTextOnce(query: string, pageToken?: string) {
     },
     body: JSON.stringify(body)
   });
+  
   if (!res.ok) throw new Error(`searchText failed: ${res.status}`);
   return res.json();
 }
@@ -216,8 +196,7 @@ function toClinic(p: any) {
     types: p.types ?? [],
     rating: p.rating ?? null,
     user_rating_count: p.userRatingCount ?? null,
-
-    // Keep MapView + Detail page happy:
+    current_open_now: p.currentOpeningHours?.openNow ?? null,
     phone: p.nationalPhoneNumber ?? null,
     international_phone_number: p.internationalPhoneNumber ?? null,
     opening_hours: p.regularOpeningHours
@@ -226,50 +205,21 @@ function toClinic(p: any) {
           weekday_text: p.regularOpeningHours.weekdayDescriptions ?? [],
         }
       : null,
-
     website: p.websiteUri ?? null,
     google_maps_uri: p.googleMapsUri ?? null,
     business_status: p.businessStatus ?? null,
-
-    // 🧩 NEW: map to snake_case keys your UI reads
-    accessibility_options: p.accessibilityOptions
-      ? {
-          wheelchair_accessible_entrance: p.accessibilityOptions.wheelchairAccessibleEntrance ?? null,
-          wheelchair_accessible_parking: p.accessibilityOptions.wheelchairAccessibleParking ?? null,
-          wheelchair_accessible_restroom: p.accessibilityOptions.wheelchairAccessibleRestroom ?? null,
-        }
-      : null,
-
-    parking_options: p.parkingOptions
-      ? {
-          free_parking_lot: p.parkingOptions.freeParkingLot ?? null,
-          paid_parking_lot: p.parkingOptions.paidParkingLot ?? null,
-          street_parking: p.parkingOptions.streetParking ?? null,
-          valet_parking: p.parkingOptions.valetParking ?? null,
-        }
-      : null,
-
+    accessibility_options: p.accessibilityOptions ?? null,
+    parking_options: p.parkingOptions ?? null,
+    payment_options: p.paymentOptions ?? null,
     price_level: p.priceLevel ?? null,
-
-    payment_options: p.paymentOptions
-      ? {
-          accepts_credit_cards: p.paymentOptions.acceptsCreditCards ?? null,
-          accepts_debit_cards: p.paymentOptions.acceptsDebitCards ?? null,
-          accepts_cash_only: p.paymentOptions.acceptsCashOnly ?? null,
-          accepts_nfc: p.paymentOptions.acceptsNfc ?? null,
-        }
-      : null,
-
     city: ac.city,
     state_code: ac.state_code,
     postal_code: ac.postal_code,
-
     photos: (p.photos ?? []).map((ph: any) => ({
       name: ph.name,
       widthPx: ph.widthPx,
       heightPx: ph.heightPx,
     })),
-
     last_fetched_at: new Date().toISOString().slice(0, 10),
   };
 }
@@ -286,9 +236,12 @@ async function collectState(stateCode: string) {
 
   for (const q of queries) {
     let pageToken: string | undefined = undefined;
+    let pagesForQuery = 0;
+    
     do {
       const data = await searchTextOnce(q, pageToken);
       const places = data.places ?? [];
+      pagesForQuery++;
 
       for (const p of places) {
         if (!acceptByDermHeuristics(p)) continue;
@@ -300,8 +253,8 @@ async function collectState(stateCode: string) {
 
           // Per-state cap
           if (MAX_CLINICS_PER_STATE && clinics.length >= MAX_CLINICS_PER_STATE) {
-            pageToken = undefined; // stop paging this query
-            break;                 // move to next query
+            pageToken = undefined;
+            break;
           }
 
           // Global cap
@@ -311,9 +264,9 @@ async function collectState(stateCode: string) {
         }
       }
 
-      pageToken = pageToken ?? (data.nextPageToken || undefined);
+      pageToken = data.nextPageToken || undefined;
 
-      // Extra delay to avoid nextPageToken flakiness
+      // Extra delay between page fetches
       if (pageToken) {
         await SLEEP(NEXT_PAGE_DELAY_MS);
       }
@@ -328,37 +281,33 @@ async function collectState(stateCode: string) {
     last_updated: new Date().toISOString(),
     clinics
   };
+  
   await fs.writeFile(outPath, JSON.stringify(payload, null, 2), 'utf-8');
   console.log(`  ✅ ${stateCode}: ${clinics.length} clinics → ${path.relative(process.cwd(), outPath)}`);
 }
 
 // ---- Main ----
-// ---- Main (with resume/progress support) ----
 async function main() {
+  await fs.mkdir(OUT_DIR, { recursive: true });
   const arg = process.argv.find(a => a.startsWith('--states='));
-  const requestedStates = arg ? arg.split('=')[1].split(',').map(s => s.trim().toUpperCase()) : STATES;
+  const states = arg ? arg.split('=')[1].split(',').map(s => s.trim().toUpperCase()) : STATES;
 
-  // Load progress and resume
-  const progress = await loadProgress();
-  REQUESTS = progress.lastRequest || 0;
-  GLOBAL_CLINICS = progress.lastGlobalCount || 0;
-  const statesToProcess = requestedStates.filter(s => !progress.completed.includes(s));
-
-  console.log(`\n▶ Collecting dermatology clinics for ${statesToProcess.length} state(s) (resuming)`);
-  console.log(`   Already completed: ${progress.completed.join(', ') || '(none)'}`);
+  console.log(`\n▶ Collecting dermatology clinics for ${states.length} state(s) (Text Search, paginated)`);
   console.log(`   Rate: ~${QPS} QPS  |  nextPageDelay=${NEXT_PAGE_DELAY_MS}ms  |  max requests: ${MAX_REQUESTS}`);
   if (MAX_CLINICS_PER_STATE) console.log(`   Cap per state: ${MAX_CLINICS_PER_STATE} clinics`);
   if (MAX_CLINICS_GLOBAL)     console.log(`   Global cap:    ${MAX_CLINICS_GLOBAL} clinics`);
   console.log('');
 
-  for (const st of statesToProcess) {
+  for (const st of states) {
     process.stdout.write(`→ ${st}\n`);
     try {
       await collectState(st);
-
-      // persist completion after successful state collection
-      progress.completed.push(st);
-      await saveProgress(progress.completed);
+      
+      // Show progress every 50 requests
+      if (REQUESTS % 50 === 0) {
+        const cost = (REQUESTS * 0.032).toFixed(2);
+        console.log(`  💰 Progress: ${REQUESTS} requests | ~$${cost}`);
+      }
     } catch (e: any) {
       const msg = e?.message || String(e);
       console.error(`  ❌ ${st}: ${msg}`);
@@ -369,12 +318,11 @@ async function main() {
     }
   }
 
-  console.log(`\n✨ Done. Total API calls: ${REQUESTS}  |  Total clinics: ${GLOBAL_CLINICS}\n`);
+  const totalCost = (REQUESTS * 0.032).toFixed(2);
+  console.log(`\n✨ Done. Total API calls: ${REQUESTS}  |  Total clinics: ${GLOBAL_CLINICS}  |  Cost: ~$${totalCost}\n`);
 }
-
 
 main().catch(err => {
   console.error('Fatal:', err);
   process.exit(1);
 });
-

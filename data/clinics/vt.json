@@ -1,0 +1,3393 @@
+{
+  "state": "VT",
+  "state_code": "VT",
+  "total": 53,
+  "last_updated": "2025-10-20T09:23:11.149Z",
+  "clinics": [
+    {
+      "place_id": "ChIJ-_IbRdJ7ykwRYcmG61ExuBo",
+      "display_name": "Four Seasons Dermatology",
+      "formatted_address": "354 Mountain View Dr Ste 300, Colchester, VT 05446",
+      "location": {
+        "lat": 44.508994099999995,
+        "lng": -73.1836926
+      },
+      "primary_type": "skin_care_clinic",
+      "types": [
+        "skin_care_clinic",
+        "doctor",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 4.9,
+      "user_rating_count": 3612,
+      "current_open_now": false,
+      "phone": "(802) 864-0192",
+      "international_phone_number": "+1 802-864-0192",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 8:00 AM – 4:15 PM",
+          "Tuesday: 8:00 AM – 4:15 PM",
+          "Wednesday: 8:00 AM – 4:15 PM",
+          "Thursday: 8:00 AM – 4:15 PM",
+          "Friday: 8:00 AM – 3:30 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "https://www.skinvt.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=1925343068614478177&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "Colchester",
+      "state_code": "VT",
+      "postal_code": "05446",
+      "photos": [
+        {
+          "name": "places/ChIJ-_IbRdJ7ykwRYcmG61ExuBo/photos/AciIO2eluijxgOxYOzx7seRZd33-NWetjM89uRfpG8sVZqBbl_ngTEDQKvUO9wR1vjBLCAcYVgilLzYlXAtxS9aVMyAJW0RdyEXBfpNFr4iWWKvRkSjbXsqos9UEstSMnZvQX0JwFxXwH7GpukX4H8v1Ae_YhZtTxqA5az85HNTwp8eUp5ka78i8BIOm4vEdlupNFPL8nAm-NdtcC-Wg6Hm0nZ4grgRbCsBpNqubEH5dASNJ0aBl-5g9sNpsY0CvKIClqOKXcVBbhwjeSLvT4j1X6BZFJlcUXpMOEG-meISGnW8K2A",
+          "widthPx": 1800,
+          "heightPx": 1200
+        },
+        {
+          "name": "places/ChIJ-_IbRdJ7ykwRYcmG61ExuBo/photos/AciIO2eH2gzs-rNUPJLN7SZoRQhaw9IRAUSkXfL8CksYu9zTt74L0d5JI_8wVOxa7KauCsALhBpKLjcmhv1mgt5761xbadVwMBOxPKMeBEJkBHY_xSpjKBdI0N0bL27txM9KnbVtHyDphf4fQHRPtrPLEHug9cdJFxgiQGRutwkjScQv49ry7biZKhmJ6NBq76AZ-y1kTRwEZuYQuK5Z042I0xzb-2xyit7yhvUJYL6Sgd_9CS_nsHI7cIdSbRDxP8V_8GFb8qIe33li0VbfIfFjxa7WkMFAu6gMR4YdBbz7Hf2FoA",
+          "widthPx": 1800,
+          "heightPx": 1200
+        },
+        {
+          "name": "places/ChIJ-_IbRdJ7ykwRYcmG61ExuBo/photos/AciIO2dYIQCmTwFh8V7gu_EHOqfcYyBK5pk5CE9elslo2dOzjlmzNwayR1LGzip4nQtXzuYkX1yxGW1IPMfg8lNYmK57p46z6B38GU97OmcaUXgkxdqojhLhjY8EL6SOadl6TkELJ-25wtWhaeFDkJsEuBP0OIn0FOcVF03d_5azw7CU7hnnvKinSKIH2309XCBHOiPug40-AK4flm_tKEz-cT_37-iz2yeKe7NO-VFC28dC2uHj8HyOIEAxw0BH0QMLxx8W_Vj-6W-nUNk_K1U3E1yEY-IqByrqqxNkGVh8KiFGug",
+          "widthPx": 1800,
+          "heightPx": 1200
+        },
+        {
+          "name": "places/ChIJ-_IbRdJ7ykwRYcmG61ExuBo/photos/AciIO2fDOqRCo-nwOO0bF9JmFSbUatC9mMgWQKo-LWCtboNqmOgu5C1ZjTq_Z6c-1LDEyuoK1BWIbmV5SmRjQfzNfom3uGd0VwwDM-Vvmpd6f-im94Aft3isriAR1UzfrNe6p7O8QsPxsdnwVoSuaRv8c5s0YBxRX9ZmPc416rekYE2pQTovTZkYWi3W1NCNBQR91FPjRthEgREHj4iXYTxNh7lzPaNMbQhupSDQMYOYiCwASd9gIBb3vroDpZl4iq-hXjE3Hg3B9zjSbga4WWfXmGSbo_smAirhf8JqTt-_D1MsmA",
+          "widthPx": 2937,
+          "heightPx": 1427
+        },
+        {
+          "name": "places/ChIJ-_IbRdJ7ykwRYcmG61ExuBo/photos/AciIO2fMdxEYCZUx-MHrVmZSqFVc0xXKObWDAQpIemmVqmWxj4qxu28ZZ9DzEpNo6CxgcTy7DaGi09n9nykhvVVL84j3iLlGFZlXHPaGYaflDpguP19DK6kTifRzjkJn0sgPUywyZsqKiWVax27mLXhBTXE5nZD6zVsV1HH6XSeTNlvQe3O2YxUEpcWA_YmnpT5GyDdmF6P_CCJZ0ka95SqRbCyq45D6mcAcjOf0Vd7iqKyEmeSUKodCR5MiLumh89TBBkJaq3eicsI0NKfZk3p6vxQIehrFrHjhesBKuH0mOX6E2w",
+          "widthPx": 1800,
+          "heightPx": 1200
+        },
+        {
+          "name": "places/ChIJ-_IbRdJ7ykwRYcmG61ExuBo/photos/AciIO2chf2D88zUY07bmNWzMibyDksrLewdYxHi-JIKxeyFkvZP0hnm4tPyFhxdEChv2_1AVal3x6qGPtAMLndbyd1bZ0V_RZr8_q0TkeYMVGa0xiRWHGanXmf0rmYGsXD6WnoCNAvfyMLfEEMznSX-gSFtaCjHERcEpJZ_g8BkjcCwIEppEkrQhd5I3GA66c2tIzwA49V-RWEKi-yUFRySA40vBIgUQv1rwIQKE0Uidgj2pvDY5G17oToKGN3Yg8tBVEYsrtrVvEFd8pQCqH-LqfaWq6WBH_D4WlHHPchSv5WG5sQ",
+          "widthPx": 1800,
+          "heightPx": 1200
+        },
+        {
+          "name": "places/ChIJ-_IbRdJ7ykwRYcmG61ExuBo/photos/AciIO2fSvFJrrwa0LQlDtdK3hxuX6GsfDIHBc46sBio3kSgscgvtllg1wh9hx9OrqyOGvAPWtUwzl-O4GcaOq5OZiKJyY1QYVOPZKpoOq_eCiu3Vobj8mkyXuqh6uUvCcKcSAefyQY6-mMIKbqiDmuysq-TNXpUQXjvHkD6nBEOCT85FiNmG4MHGLO1JBYHxwSQ2FnGHTu8p6OrKtH1Uo6ih5Sy9n5lVkH1NFRO2jpDuXIPjVUOuOgfSkych_RJNCAFIK1f6VBhGUsTfmh5htwE6Eq7cj7YqVE0wq0Jz_Kw6pj2pJQ",
+          "widthPx": 1800,
+          "heightPx": 1200
+        },
+        {
+          "name": "places/ChIJ-_IbRdJ7ykwRYcmG61ExuBo/photos/AciIO2dz0aHVTgk27OZ7ZGHzccWnIuD5ARMahHVCGhJ1-VbHK0-cEBhnhlMGearUeXpaEphkXeCYhcoSWbTbSftZ6BlvZ9VTn5NXJar2s_3OFUYnS6FFT21jaCPUQr6ldklO2XWhh6dFZnvcZw87X5kWBg9TADwDLBISbmyQ_17o7EwagDgr7I5DLsKAuTt5j-Qig8lKgYh2CTzb-1ppdG2UPvZ_Pgf4AVZSIf3wxKSTFU4uE7ofu_IeKPKdHisOvla2MUuThF3stc3DhcMvjvFGDg9mAai_pFEx6m-6t8szvM1fFw",
+          "widthPx": 1800,
+          "heightPx": 1200
+        },
+        {
+          "name": "places/ChIJ-_IbRdJ7ykwRYcmG61ExuBo/photos/AciIO2eW3zVk7P4CQn-7_Zw24ooz5l1EVVQZWla5hFMC6sBMOid1UvbXZ1PU7WwhJAFVa3mXzoZOPgm9gVrh4vWYvcN3a3pdfF7_PB4DbuMdGDJp4onyPb2H61-Qh-epJqwWbVOi7fCjRfHK_9ew47W-9sCSHHeWoJdTZzzo1LGFd3vDtyVqUoW082C1AVyXn51F3QWAOfGMMs90fR--SKTbKQfP__45cdBxu7Ds8xEIulKbTkxyH6UWOEgGsIgKoMN73l1HQsjz8uoXXG4rngt4rVpw1EJn7QDsxj1oH8cq4uOYPQ",
+          "widthPx": 1800,
+          "heightPx": 1200
+        },
+        {
+          "name": "places/ChIJ-_IbRdJ7ykwRYcmG61ExuBo/photos/AciIO2dCjGOQrPDiT6O7o32NfKbl8X6bCVfYW23wcuF_yMYymirZnJ0x8F8v15iPz3SYvCFzz0P8R9peGLHOa6vNjtVAyw4mD3lwnBhGVcCmVJdw75FgmFcShDNB-nF2JLDd9nSZ5U6ZdWFdrEQCXtr9CF7mbMtDlkB-65t__v85o4cIBahGBOF2EQ-iCan5RJ7Dcy4vHS3h12dDAKuOg69VRIARaBXOJ0bDioGV_0XWppjwP37IItsIeMQyLrJLMbD741mp51sR9aIMvI381LVqC9EurE4URTsgQPl6k5wKvFHRaQ",
+          "widthPx": 2937,
+          "heightPx": 1427
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJk3V4Ts17ykwRsoWlVRvzCGw",
+      "display_name": "Dorset Street Dermatology",
+      "formatted_address": "321 Dorset St, South Burlington, VT 05403",
+      "location": {
+        "lat": 44.4620852,
+        "lng": -73.1807591
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 4.3,
+      "user_rating_count": 162,
+      "current_open_now": false,
+      "phone": "(802) 660-8808",
+      "international_phone_number": "+1 802-660-8808",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 8:00 AM – 4:30 PM",
+          "Tuesday: 8:00 AM – 4:30 PM",
+          "Wednesday: 8:00 AM – 4:30 PM",
+          "Thursday: 8:00 AM – 4:30 PM",
+          "Friday: 8:00 AM – 4:00 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "https://www.dorsetstreetdermatology.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=7784739254636479922&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "South Burlington",
+      "state_code": "VT",
+      "postal_code": "05403",
+      "photos": [
+        {
+          "name": "places/ChIJk3V4Ts17ykwRsoWlVRvzCGw/photos/AciIO2dvfvkAyfAPhoPPlrEs3l_YXzHVaAvtptVm84uk-ThTkiwlArYMV5BYSX7OsZCyKhy78ede74554ZpXu68UIrxp2oOtyMNDOfXErkYacdHpzRXJANZYjGQBUpmFtjiQQPp-qUBv9L6TIPGC4l-xV4G6raN_ifjGqZTBhtCaSquVH8BxeHmKntQlrH4uu--Lng3uvIY-WcRbZf3PLloY8FkCb_DKvlRo0IBO7XappTa1ryImwJJU_WmjfzT_MZkugkuI7u799GpSqnPOMu8zcP6ZtnQON0_RbTuMQV9Gd7aLLw",
+          "widthPx": 2048,
+          "heightPx": 1360
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJc28ObG6ftUwRLcaS_D6po9A",
+      "display_name": "Four Seasons Dermatology",
+      "formatted_address": "28 Stowe St, Waterbury, VT 05676",
+      "location": {
+        "lat": 44.338417799999995,
+        "lng": -72.755571
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 4.9,
+      "user_rating_count": 452,
+      "current_open_now": false,
+      "phone": "(802) 864-0192",
+      "international_phone_number": "+1 802-864-0192",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 8:00 AM – 4:15 PM",
+          "Tuesday: 8:00 AM – 4:15 PM",
+          "Wednesday: 8:00 AM – 4:15 PM",
+          "Thursday: 8:00 AM – 4:15 PM",
+          "Friday: 8:00 AM – 3:30 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "http://skinvt.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=15034046069083391533&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "Waterbury",
+      "state_code": "VT",
+      "postal_code": "05676",
+      "photos": [
+        {
+          "name": "places/ChIJc28ObG6ftUwRLcaS_D6po9A/photos/AciIO2cAp43dlcfYyrhctbgHZ5-9Kar0tXmlHIk92IaYACCrk4Uu2Yz5auiqlsmM4eJhp_OYGkuf8PnTQAaMy9QZA-dj--DYROe1zVaBtUjiHJ6mp__rxcIT1BCreAegOrFFB6p4z_ex2DX5-wAsWXV0S-gg3gOzzSesn3epxdeMxHcn7ZnjcXZrrrZrQDXLO4aji-TJr-_ST-tK78Il77wLYW3CaBotVGMl1X-TM3G985HhE8xnwzy3-Ti4kk7Grej9TUruqej_M5aotd_gAY6r_ry5XPm2FKq3Y5ZDugQWTxdjf86CoO61ugH7Gdk1Pq5ypOaACu15Qt-kbzazLZ1jKGnc7sg67ePuzZzcLkfHnuiRXq3HZUGarnXP5ti-cbWUimJlDST7idRWuRLBv5cu9BJrBHERjMHynYmhuUiVZovAEnw",
+          "widthPx": 2016,
+          "heightPx": 1512
+        },
+        {
+          "name": "places/ChIJc28ObG6ftUwRLcaS_D6po9A/photos/AciIO2e3tZ3NFMu4Qqx39Sa6ty8ldvok05k_FavIbp3QFwhtWsIUZHiJyNLXofUIb7owTChSHcf_wvMSWhhVj0W_Zc2PVpsTLIKZyRku7tWt9Z-nsEZrZPfDlUAZvIxgoJdTpOhfDjgaik9dSSjJ9QdetlbF4BsxSZdDCA2BsOOMBSdC5wc4yvpt6qvKWSyA473PU2oVoUaGkaRaU3PLa9KdiAznnUsLSLpvrHzQk44d5_KioYFvw-tki79BEm63CI7lLfPcc1v81Yq_ZtxP2rjISVf-mxUtgRIMEqG7nywKC9HQExmkeiQbhCV-unNqj7dPgr9P0olSt4LBPSWaNMXW9ISlgAlf4wEzKcYQrLoXxWOUEeFIZrprtjQEMtQ-a0jtILtZpKgzjhqbxhXQMn98ucB0Tw3QnIvmVUO9BG7OZX91McST",
+          "widthPx": 4080,
+          "heightPx": 3072
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJg9x5OkN6ykwRbVdUc5nM3MI",
+      "display_name": "Dermatology, University of Vermont Medical Center",
+      "formatted_address": "350 Tilley Dr Suite 201, South Burlington, VT 05403",
+      "location": {
+        "lat": 44.4479255,
+        "lng": -73.1493327
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 3.4,
+      "user_rating_count": 30,
+      "current_open_now": false,
+      "phone": "(802) 847-4570",
+      "international_phone_number": "+1 802-847-4570",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 8:00 AM – 5:00 PM",
+          "Tuesday: 8:00 AM – 5:00 PM",
+          "Wednesday: 8:00 AM – 5:00 PM",
+          "Thursday: 8:00 AM – 5:00 PM",
+          "Friday: 8:00 AM – 5:00 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "https://www.uvmhealth.org/locations/dermatology-university-of-vermont-medical-center",
+      "google_maps_uri": "https://maps.google.com/?cid=14041322697671333741&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "South Burlington",
+      "state_code": "VT",
+      "postal_code": "05403",
+      "photos": [
+        {
+          "name": "places/ChIJg9x5OkN6ykwRbVdUc5nM3MI/photos/AciIO2cljomrNZISCRy6yQjFeoyHgbCZ2IVsMSQubqzygjvy4lAewcBsUtwF7Ism3ZQhW2bgPqAHF11qnwdr6Sj0h1GnpXdtB2m3xQlebZFmqm4-IFplf8_wZ3495YvlVa5laeKw_oLki2iHahryAQJBL3rlc-M3TPfxXHD3Rt1YHnVS9f5RtjXC123L4DFGZ9QF67y8Ughn2vvhhPEsJBf-dCfM-bel1SxOn8qrcmYBuA7zXcFaOmJDx2rON42UkXZMwloZ1yocPG7bO8DdMpLmUBzKutppqbsfi2S6ZVudI_szeA",
+          "widthPx": 450,
+          "heightPx": 300
+        },
+        {
+          "name": "places/ChIJg9x5OkN6ykwRbVdUc5nM3MI/photos/AciIO2c_JqU8EtA215EwryKucFtWhBHIgwVWGMYHwX2AZwhS2R2UBXnfHvJLhksNu8neSBfYWpfLJFzgqNdIMV9LGxBhVrieOgdC8oQN-3zv-D55ug-SVgeX0IumfdLKKVLgZvnD0m-931bNVehzuVI0KRPp1ao3TDmM6c1Q4WWYyBNbL9t6v8RhO4Ihcgq0uuGUTGHz_PMDI3VH90WFbAI1trV9xMsDe__7FsOjfNkjv75z0gqCmnAcSLNixUvNiBa4hnyTsNwu9_l6GR2tf3sL4-iPqtQ5CGwjul_L4iftbn1MQg",
+          "widthPx": 640,
+          "heightPx": 640
+        },
+        {
+          "name": "places/ChIJg9x5OkN6ykwRbVdUc5nM3MI/photos/AciIO2eFL3gwi3BXIGnp9kWcAh2arPbjunZYzsBa01peJw3M5e-iK-vJJX4K-MGpAz-sgzxHC8bZGRmZxqtpyTh_brT9ZysgZpgR4QfTUC--DsrRF1tqg0qILP2c93Sv2tQcvgbM3v6CRfdpmJhpSGBCqdFVxIfsMgl6SvteSk6scliTXhMxNLZZgT4AVdO2VJmSjfxB9gd6ZpWItbvzaZJo2Y4_pDuntxlv_jneCnjTxEAtjIuMoCb6bxzORdfD3ejss_tWczRkntXaypBtuBGxF7sswsE9S5MH_syrX3L67X2yg5HqlRqqguzZmcPBmkfrBIaPJQUUjzVinnm7Fn5vzCUTbb4pCN5EuDDhQddOLwUIorvjhLjZw4ITmLBvvvDDMiiVJvfr8QlQSdFGIFpTJ32aemjvK4GxwM2x1EXSEjAzKNIavIsP2F8i8POmCtJ0",
+          "widthPx": 3000,
+          "heightPx": 4000
+        },
+        {
+          "name": "places/ChIJg9x5OkN6ykwRbVdUc5nM3MI/photos/AciIO2fCCYHxitZCNnUVWtOiDYbItCNTAVjHNsaBJyIwbTw9HvFY_8O8zGf4CV7cYbozsB9-qqBucZPRfYEQargaq-VGW5jKKuW-6K1AWaz3WlqlZQ1KbA5DEqcv95R6Q_NAQh0Q0NUueygvXIuFGb_xdyRuDtr3BYwTPh8VmY4G8BSXgn6KntAjqzG1svHRVgg8WUs2UBS7G5ap40i-kPxtm6icg2wqaImwFgxGREpe04JKJRtn0oMQlpTk9fU6vR-7wWzwA5V225LDbuKMfUdYfWHt3OYTgel-7zsE0vAsXcbufg",
+          "widthPx": 1500,
+          "heightPx": 1500
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJ__-_4oVwykwRlOLaAStMLY4",
+      "display_name": "Laura Mcgevna",
+      "formatted_address": "30 Farrell St, Burlington, VT 05401",
+      "location": {
+        "lat": 44.4474482,
+        "lng": -73.2037996
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 5,
+      "user_rating_count": 18,
+      "current_open_now": null,
+      "phone": "(802) 864-9522",
+      "international_phone_number": "+1 802-864-9522",
+      "opening_hours": null,
+      "website": "https://www.swaeskin.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=10244928474936173204&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "Burlington",
+      "state_code": "VT",
+      "postal_code": "05401",
+      "photos": [
+        {
+          "name": "places/ChIJ__-_4oVwykwRlOLaAStMLY4/photos/AciIO2cpIA11_Nj84te5Wyh2qEkKm1JU3SJW6-lreg_kG4gKXw5KsJmowy610wp40nDFzJpXQ_-advdQ4TTBMVDEs0BE4usoawF5-CW1bDQA1abuK32XBuRl-sqI7IdDqO4jtEGpnccyYzsu1whUu9NKCJ7uFyACCbgYmbv8h8EOn2eF6S48RuH0nb-aSSAy8OIi5_PrKXz8NhkPQMr1zFHoPsJzc-vjf0jodKWxLcdTTN-YACaGkQXEicG6-QzNsoe82p4slsG3V2Ap1WY78Ota4Bng1EBfec6maEijlCR4i92CqCAiSPsjqucx2zlTXkL_YHIiTbEXsJglsZ758qYWQ5XbIrOOqWGEPPmyXAoIFhVhd30CuIJRageWIR9fAL2veuFIF-Pb3v2lZL7halh5dDKjMcUJFxFyX_Kg4CG7DUe33w",
+          "widthPx": 3088,
+          "heightPx": 3088
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJS8DikQYbykwRSFOW4ZrG8Nw",
+      "display_name": "Northern Vermont Dermatology",
+      "formatted_address": "53 Fairfax Rd #2, St Albans City, VT 05478",
+      "location": {
+        "lat": 44.8040352,
+        "lng": -73.06873709999999
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 3.5,
+      "user_rating_count": 16,
+      "current_open_now": null,
+      "phone": "(802) 582-4900",
+      "international_phone_number": "+1 802-582-4900",
+      "opening_hours": null,
+      "website": "https://northernvermontdermatology.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=15920443051266691912&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": null,
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "Saint Albans City",
+      "state_code": "VT",
+      "postal_code": "05478",
+      "photos": [],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJlfEf1_Ak4IkRAjvmAPGoQNY",
+      "display_name": "Rutland Skin Center",
+      "formatted_address": "3 Mahoney Ave, Rutland, VT 05701",
+      "location": {
+        "lat": 43.597415,
+        "lng": -72.9605459
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 5,
+      "user_rating_count": 4,
+      "current_open_now": false,
+      "phone": "(802) 773-3553",
+      "international_phone_number": "+1 802-773-3553",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 7:30 AM – 7:00 PM",
+          "Tuesday: 8:30 AM – 5:00 PM",
+          "Wednesday: 7:30 AM – 7:00 PM",
+          "Thursday: 8:30 AM – 5:00 PM",
+          "Friday: 8:00 AM – 5:00 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "http://www.rutlandskin.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=15438525275681733378&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "Rutland",
+      "state_code": "VT",
+      "postal_code": "05701",
+      "photos": [
+        {
+          "name": "places/ChIJlfEf1_Ak4IkRAjvmAPGoQNY/photos/AciIO2ew6F87256Wwf5mZTiPhzO3IMkFnHilR2CcQ1Qk3HPFcf1mFHYA8YdoACLc-KLql-31NrZqkBbPkga_QOt_ACMcm5Zritcs42FdHru6OI3d_-uyOGkLwvzi2fkI6ySQqRmcr2ph2FkjxOVh3pfLfeOFyqN77OJf1wm2DIUeJe_7O8p-UzhCxGphnY2oIZ-txS42FRbDQpd7y1FkQcsStRcid19JPwaJ2oYxZe4Jod2-htzED8yRvmgsRoFoeTYJKEOSFIrFi5w-_dLqEF_ltoLVOVfw6B0yZk2ad3wCPPFAZQ",
+          "widthPx": 4800,
+          "heightPx": 3200
+        },
+        {
+          "name": "places/ChIJlfEf1_Ak4IkRAjvmAPGoQNY/photos/AciIO2faji-4qSmIZWPbqW28npSRItmtBBOAc7u8jdHfc9_c9PhxEMeEO8eDoledTzSI74RLIbFKpGaji2hnw6Dil0potPSV11W74toYrqCaUSjaJU2y-K31_ustF2vcAFyaTdJHdQ53UFdeAHKBGhyH_GnsQLBD2meYLwG4KNjcwtXLplTuUIZyuiCHpYnGp8x-xu6kpQe6AzpwGAKmDs4OARfqzkgwLdx5BbLfb70wKzZNGfBT4JspeKvTppWHM77z-9TJt6RYbW16gtKvjrnFtgJGCTJv_0KLsqWUBW9BEeiy5Q",
+          "widthPx": 2592,
+          "heightPx": 1944
+        },
+        {
+          "name": "places/ChIJlfEf1_Ak4IkRAjvmAPGoQNY/photos/AciIO2eT8Lpqj-5ekFMCTtdJraHpgIjUidmzXSa2VYyly_76R2XMTDQuA7GKOCWGH6tNDYPmZl24gdz6DWPi8dlATFH0LtWQWDOs2naItjKXOJoQ9qA1dPcOLBY5U1QZjEfp61EIAwcpECUh-ZFNqiwiwUkx_L4-d93biBj2PmQXfr5a_Stc-qFodd7AYB7iuyywykOr14MJg4KHf9K1LW_boRywOPsSaXamgqLKrNudn8XKgDKiVcMkTEIBxjKzb1WK2xwN0UyOX_2OMxclkvOHN2SwcqAcPSJGLJbstTtUTIOLBw",
+          "widthPx": 3648,
+          "heightPx": 2736
+        },
+        {
+          "name": "places/ChIJlfEf1_Ak4IkRAjvmAPGoQNY/photos/AciIO2dNl5V4tLP7i4JTPD37olfUoO2YTOUSuqZHeX9timB5tahRXB531Ef8ret22qdJUoHzy0vXXx5wJ0vyBgWoA-p1y3oUPC9cd9xfnJV8pWlg_fA9f3ElfsoF3KDy9rXtI9PcZKsDHRjghEd3WfVYcvN-nRps98XSn6osLXyVJm452yDwr0CczVdoRfqbcSZin-KTw0edVSxVRdkJ2il3kQ3zfHAbZ2gufVBAfBvFv0jED4kPfKEJ1IWeIEVKHQSjEv_XGOp9y9cMPJjRu0e_LIrKpC86QSiOCZHDGYa6e6dkJg",
+          "widthPx": 2592,
+          "heightPx": 1944
+        },
+        {
+          "name": "places/ChIJlfEf1_Ak4IkRAjvmAPGoQNY/photos/AciIO2eseyrJw5mKL_cOjBeHFvPBFSyKWjzEjFC6uPrJNKol0ww9i1JAainicvpnHOCiOUKwOZWwnMablU67pJVLuYORqKcXhnrsZNnQ6rv7bq3-HxqE2seqNuOd2m-b4pEjmXIIx7H7QDIZUSkhCKyTo2x3LOQ9JLDxz0vVbQwUVkhbXEF5Z99c5zKCcQyHPPEJEyZkI9thXn16g1HHoWjiW-2JiBPZH3yhr55znjXw2F0A-IUvXfpatLpp67rEtm83vGL3MVMDzcV0pURckXDV41jK92sw6kbvLi7-7kpWlPtOgg",
+          "widthPx": 4800,
+          "heightPx": 3600
+        },
+        {
+          "name": "places/ChIJlfEf1_Ak4IkRAjvmAPGoQNY/photos/AciIO2coforaIJsqQTtcCirFa8olGwzch9R5_U_9Krx97hUfrFolEW92VfaHLe1wVGv1StEiywUcdBY5NhcpGmpOIvSmBxdwaKmGwvCR6cHupSJIPTbW6Nw3mQyg9rIO5h-qa4vLM7U6Kg1URLSX7yMhsZLh9ljvedu79EEuwumLyHTZthlmCYoeVZXLvvczLYJtmZZAqlOEyV7ATVpjSuNObi7NTd30dQ4fIqMptDouhuKMoJwtKFWi6uKQ6g3X0j47XOmtqxtdulDFPjxkfA8twSnScBJpvQXUG9HGV6DBz5leog",
+          "widthPx": 4800,
+          "heightPx": 3600
+        },
+        {
+          "name": "places/ChIJlfEf1_Ak4IkRAjvmAPGoQNY/photos/AciIO2exqKF5vJ0bgFsna7BQTOiAr6sOzjQAqclPujXvMzmJY-ihNTl1F3DZxt5_BubIeKsQ7LyvUP-ZbpKOtLwyaVuZJcejmo9Kqup3i-334NZjSqRZjBwvtg5x6f3GsXZzpmOU1tP6I2QeUMBrs4G8u2fekHjv3XXrpN88CMyYK__7SluXtg-A02OBcityaudaQu0ZkzA4bodTTLzMhRKSOOtwikQyE-IUxcs2_EfoYtIPrbcFl_7TWhk-_Xx4LwxnN2JUe00hKsEneemUCZWc7qrFCpgOuvOGwooyE7gTqBCrBA",
+          "widthPx": 2592,
+          "heightPx": 1944
+        },
+        {
+          "name": "places/ChIJlfEf1_Ak4IkRAjvmAPGoQNY/photos/AciIO2du7Qt1-n5kqpqjw-SgezAHHue6I-dc0WJsO7mAId7lomUcTIFpgLC9g93fOuckbwTs29SuSU8oYsh4aaDRo1FP0UmwCh20GLCb8MiDjXUMFQOCcOj6hfqPCbdq_goyEWZ2UDh9wEHhBhQVtIXImCwb3iuPxLvzsmF4F9wXQ34sSEwDmU_85HbgS3b2vhEF1ISVX3FTfwaJh6hBvW7felCxcZlRIU2qYZJzxD6mYcUXuuTPVxe7iXqDJHT-y9yVQhLZzmWlNWQW61Xanf8Rta3PeenD7E8odCxda3sm3JJz1A",
+          "widthPx": 4800,
+          "heightPx": 3600
+        },
+        {
+          "name": "places/ChIJlfEf1_Ak4IkRAjvmAPGoQNY/photos/AciIO2d-3OxH9KYs1RiY-TMOa56FLTY0weyNGSAmmG5JIkoBpVFAd_olh-RgTpfaiwuaQs0qiQmwT9-KTPqSbvMHeZVnnYRe9Cm7a537vDFs9XdZedVaEVSoLkPyzTHdAdPtGsKVGhbkeKGtzUV1rDJidHp6BNo8Fa3C-iF2TCa8tnqUnKMd46PhPhItY9aco7I9MI1jUmazpPdGmIYT5-jueu8hqP3Xj1vqm_IpvALEA1QZ9qRxgyoSl4jwlMHgwMYDGo22DelObveZR7tRn3KDg_PJ5Q0yuTSEeuYXH5ac3tyrZA",
+          "widthPx": 2816,
+          "heightPx": 2112
+        },
+        {
+          "name": "places/ChIJlfEf1_Ak4IkRAjvmAPGoQNY/photos/AciIO2e5VX4FJnzuATSVbWIgmN_Eui2jZT_wYhx7m0ybJGMty1sv4O2hN29baaFv_ilSv78nvsOMGwA37EEYY3ECensQFgHVjcNhOPAtIIBb362l_VKIoTvUmoLz1lWyP9UsGOPiPFyPN79B5g1mYqWtjw_CfcTTF89ifqZyQlNSjqXB2pxtv-Wslbq5GYIyw7TEPSRzxbaP6SmFUdfpnXsTn-1U0Y8doJZ-EE1kmAtbQu7td3sD19cm7sqJNha3eSU_U0Vf6YLXApZSZZqNvLIrBci3a5ocF-eNm1PU_ALMlzgjoQ",
+          "widthPx": 2592,
+          "heightPx": 1944
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJuUCOy9QHtUwRRNHQIsvka3Q",
+      "display_name": "Dermatology, UVM Health - Central Vermont Medical Center",
+      "formatted_address": "130 Fisher Rd Mob C, Berlin, VT 05602",
+      "location": {
+        "lat": 44.220237399999995,
+        "lng": -72.56087029999999
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 3,
+      "user_rating_count": 2,
+      "current_open_now": false,
+      "phone": "(802) 371-4280",
+      "international_phone_number": "+1 802-371-4280",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 8:00 AM – 5:00 PM",
+          "Tuesday: 8:00 AM – 5:00 PM",
+          "Wednesday: 8:00 AM – 5:00 PM",
+          "Thursday: 8:00 AM – 5:00 PM",
+          "Friday: 8:00 AM – 5:00 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "https://www.uvmhealth.org/locations/dermatology-uvm-health-central-vermont-medical-center",
+      "google_maps_uri": "https://maps.google.com/?cid=8389050292021285188&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "Berlin",
+      "state_code": "VT",
+      "postal_code": "05602",
+      "photos": [
+        {
+          "name": "places/ChIJuUCOy9QHtUwRRNHQIsvka3Q/photos/AciIO2ehVAM9UThSdeYFVEEMZIJGv1x7jKM1w3YKbqRxFtlQhNUnST51s9iBitvc19s-XALYubBfDtG2iu9uKEeQtsbqgSKud1YqmW1Im-68CYX0kNmVBEuShdAUJuzl8hLg2VplhCESvmNG9xdm4LZpGcF_EixaEPIVSKxVFbe8xWVc5Ry-meE8huv3lISD2kQuRMftDwlTi6DcIHvPRUGOZ9VlKtkjcFFlSHN2HB-sDNPzMrZ5PAfGuemciTF125PRvNgYlBGsLgqvtBKawXUuQvkg8n5qE4I6i4Q78jvQK3-FAw",
+          "widthPx": 640,
+          "heightPx": 640
+        },
+        {
+          "name": "places/ChIJuUCOy9QHtUwRRNHQIsvka3Q/photos/AciIO2cfwUOBVTjKGqRIK4yeWtK658jNyqbn-0dCwbgWdQJYEuGQ1K9Udr5cvoyyeZVSrIUHSdZFy5ug8H0-4XyYSwkSZ6jueCiipjUJleqh4v_KS9S8Z7Os8eM5ce7Bd2si-ot0KnRFS8jyAsDbf90-VYt6OcH6GMoODU1cKePXQQ7Zb13J7Nb2XlIBs9G6ERdjSuPVtnk4LUzQ3hLjZ9llyBBW6c2DU_FI0EW49YGReikRVp25inAj9yJoUfkBeD3oc_cpLYpLoTJ6ogZQaBAw0Jet0f3IG4H6-c60R12yKx-GuQ",
+          "widthPx": 1500,
+          "heightPx": 1500
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJ-9EbK0KW4IkRdPC_22jeQyI",
+      "display_name": "SVMC Dermatology",
+      "formatted_address": "140 Hospital Dr #205, Bennington, VT 05201",
+      "location": {
+        "lat": 42.873199299999996,
+        "lng": -73.2087343
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 3.8,
+      "user_rating_count": 12,
+      "current_open_now": false,
+      "phone": "(802) 447-5544",
+      "international_phone_number": "+1 802-447-5544",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 8:00 AM – 5:00 PM",
+          "Tuesday: 8:00 AM – 5:00 PM",
+          "Wednesday: 8:00 AM – 3:00 PM",
+          "Thursday: 8:00 AM – 5:00 PM",
+          "Friday: 8:00 AM – 5:00 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "https://svmc.org/health-services/dermatology",
+      "google_maps_uri": "https://maps.google.com/?cid=2469061562673918068&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "Bennington",
+      "state_code": "VT",
+      "postal_code": "05201",
+      "photos": [
+        {
+          "name": "places/ChIJ-9EbK0KW4IkRdPC_22jeQyI/photos/AciIO2eucsuzQlqthU_rO1jPKH-Khr-81hCdaaQRLMynJ3G5JgD6eQkfEje7nRziK3thPQTooWm5ThddoErmPgdQOXCt7HBxfc8rkCgupiH7fNb_RyBaOA2UcE7VWca-n0BN77jpx_JMEkyNJyVUKN1M6kQWfyAdyEtyLGG3wbD5nv7oVkSj1mSco5jgg7aTTLKo40bTZjpRKCBSIXwlG_rsxJNKt_2DR7HljZifuBN5zH6hKmLrQfnzxd472Z5a3cYyuBuS81TG_bJvQw4OTrKySwD7t2h1SZ2_XQa2UOV1pBG8Gg",
+          "widthPx": 1000,
+          "heightPx": 1000
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJlfEf1_Ak4IkRujU_1LsTJMw",
+      "display_name": "Rutland Skin Center: Dr. Daniel McCauliffe",
+      "formatted_address": "3 Mahoney Ave, Rutland, VT 05701",
+      "location": {
+        "lat": 43.597415,
+        "lng": -72.960546
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 4.9,
+      "user_rating_count": 7,
+      "current_open_now": false,
+      "phone": "(802) 773-3553",
+      "international_phone_number": "+1 802-773-3553",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 9:00 AM – 4:00 PM",
+          "Tuesday: 9:00 AM – 4:00 PM",
+          "Wednesday: 9:00 AM – 4:00 PM",
+          "Thursday: 9:00 AM – 5:00 PM",
+          "Friday: 9:00 AM – 6:00 PM",
+          "Saturday: 10:00 AM – 2:00 PM",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "http://www.rutlandskin.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=14709903980339606970&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false
+      },
+      "price_level": null,
+      "city": "Rutland",
+      "state_code": "VT",
+      "postal_code": "05701",
+      "photos": [
+        {
+          "name": "places/ChIJlfEf1_Ak4IkRujU_1LsTJMw/photos/AciIO2eERPfahb9e3KgKYnP9skEBPmqpicVQnqikg_cfFeW6T6dZOczhwhOU7qUVSLoVJtUk-kgb2lRZCDy7EPqG3plMUl0zCk3v7mMWbaoa5M_bhZi0mD92W2Nnt5QwNZENBjBnoBLUWeeMb3Enu5_DxP-Lsuq3tg1rDlm6_zZ1RrJgoCKQecMddwrjk7drikLU47UzdAbEXfNMIOfEj-0ZZjONw-GrPpj22l_JVMTx9a_zgn8UsJDKUM_sXXvO0jk2yvrGXE5DKT7BDhiljoPRBXFJgnWMLh0-jEwCQS7VLprtEQ",
+          "widthPx": 2540,
+          "heightPx": 1836
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJd06RzuR7ykwRUrJXfTevT5E",
+      "display_name": "Kara Rozendaal, PA-C",
+      "formatted_address": "321 Dorset St, South Burlington, VT 05403",
+      "location": {
+        "lat": 44.4620852,
+        "lng": -73.1807591
+      },
+      "primary_type": "health",
+      "types": [
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 5,
+      "user_rating_count": 71,
+      "current_open_now": false,
+      "phone": "(802) 660-8808",
+      "international_phone_number": "+1 802-660-8808",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 8:00 AM – 5:00 PM",
+          "Tuesday: 8:00 AM – 6:00 PM",
+          "Wednesday: 8:00 AM – 6:00 PM",
+          "Thursday: 8:00 AM – 5:00 PM",
+          "Friday: 8:00 AM – 4:00 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "https://www.dorsetstreetdermatology.com/?utm_source=gmb_auth",
+      "google_maps_uri": "https://maps.google.com/?cid=10470780311520653906&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false
+      },
+      "price_level": null,
+      "city": "South Burlington",
+      "state_code": "VT",
+      "postal_code": "05403",
+      "photos": [],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJr16vtDJ6ykwRsD-1K6uEiPg",
+      "display_name": "Mitchell Schwartz, MD",
+      "formatted_address": "321 Dorset St, South Burlington, VT 05403",
+      "location": {
+        "lat": 44.462086799999994,
+        "lng": -73.1807608
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 4.5,
+      "user_rating_count": 2,
+      "current_open_now": false,
+      "phone": "(802) 660-8808",
+      "international_phone_number": "+1 802-660-8808",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 8:00 AM – 5:00 PM",
+          "Tuesday: 8:00 AM – 6:00 PM",
+          "Wednesday: 8:00 AM – 6:00 PM",
+          "Thursday: 8:00 AM – 5:00 PM",
+          "Friday: 8:00 AM – 4:00 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "https://www.dorsetstreetdermatology.com/?utm_source=gmb_auth",
+      "google_maps_uri": "https://maps.google.com/?cid=17908709788946350000&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "South Burlington",
+      "state_code": "VT",
+      "postal_code": "05403",
+      "photos": [],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJ36HfZWVHykwRhKWVwJsqc4E",
+      "display_name": "Four Seasons Dermatology",
+      "formatted_address": "2 Healey Ave, Plattsburgh, NY 12901",
+      "location": {
+        "lat": 44.696412099999996,
+        "lng": -73.4834765
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 4.8,
+      "user_rating_count": 319,
+      "current_open_now": false,
+      "phone": "(802) 864-0192",
+      "international_phone_number": "+1 802-864-0192",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 8:00 AM – 4:15 PM",
+          "Tuesday: 8:00 AM – 4:15 PM",
+          "Wednesday: 8:00 AM – 4:15 PM",
+          "Thursday: 8:00 AM – 4:15 PM",
+          "Friday: 8:00 AM – 3:30 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "https://rymap.org/business/four-seasons-dermatology-cx0gw8",
+      "google_maps_uri": "https://maps.google.com/?cid=9327846101653759364&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "Plattsburgh",
+      "state_code": "NY",
+      "postal_code": "12901",
+      "photos": [],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJ-_IbRdJ7ykwRmqZBSvrjQXU",
+      "display_name": "Dr. Anita L. Licata, MD",
+      "formatted_address": "354 Mountain View Dr Ste 300, Colchester, VT 05446",
+      "location": {
+        "lat": 44.508994099999995,
+        "lng": -73.1836926
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 4,
+      "user_rating_count": 4,
+      "current_open_now": null,
+      "phone": "(802) 864-0192",
+      "international_phone_number": "+1 802-864-0192",
+      "opening_hours": null,
+      "website": "http://www.skinvt.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=8449285040050906778&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false
+      },
+      "price_level": null,
+      "city": "Colchester",
+      "state_code": "VT",
+      "postal_code": "05446",
+      "photos": [],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJv_ixOEm0tEwRTVQAjrIB4p4",
+      "display_name": "Dartmouth Hitchcock Clinics Heater Road | Dermatology",
+      "formatted_address": "18 Old Etna Rd, Lebanon, NH 03766",
+      "location": {
+        "lat": 43.655677999999995,
+        "lng": -72.24725149999999
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "point_of_interest",
+        "health",
+        "establishment"
+      ],
+      "rating": 3.5,
+      "user_rating_count": 26,
+      "current_open_now": null,
+      "phone": "(603) 650-3100",
+      "international_phone_number": "+1 603-650-3100",
+      "opening_hours": null,
+      "website": "http://www.dartmouth-hitchcock.org/dermatology.html",
+      "google_maps_uri": "https://maps.google.com/?cid=11448715069127414861&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "Lebanon",
+      "state_code": "NH",
+      "postal_code": "03766",
+      "photos": [
+        {
+          "name": "places/ChIJv_ixOEm0tEwRTVQAjrIB4p4/photos/AciIO2dxflw8-K-1z_w2a66ZxopookrxrkeeUsC21Gku-iOf9bU75seZF4TokuvCVOTyt0LekWOlrqpMAdEjoroy9AtbsmsvGGdrqhnqZjWe_PU_UKadMVGlBVlDDPbu8TD1DujqJtcCFni1I8rzPYcN3MAzunjQ2tbPjCwhqeLiv29_Oi81f-TDza5i8weGIwi7xOlioZZzDnr5i7nJJ9i7wuauq1jEl4jm4Rvs4qQ3HOQV3zk1tJkussOB5SNh1-G4l6lNRrMNObocmgTry7WLF_ooC-wV8gRivHWQxGrkF0IM7Q",
+          "widthPx": 495,
+          "heightPx": 278
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJVU_1_XV7ykwR71kYdej2aOA",
+      "display_name": "Alyssa Fischer, MD, Dermatologist",
+      "formatted_address": "350 Tilley Dr Suite 201, South Burlington, VT 05403",
+      "location": {
+        "lat": 44.447915699999996,
+        "lng": -73.1494307
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "point_of_interest",
+        "health",
+        "establishment"
+      ],
+      "rating": 5,
+      "user_rating_count": 1,
+      "current_open_now": false,
+      "phone": "(802) 847-4570",
+      "international_phone_number": "+1 802-847-4570",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 8:00 AM – 5:00 PM",
+          "Tuesday: 8:00 AM – 5:00 PM",
+          "Wednesday: 8:00 AM – 5:00 PM",
+          "Thursday: 8:00 AM – 5:00 PM",
+          "Friday: 8:00 AM – 5:00 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "https://www.uvmhealth.org/providers/alyssa-fischer-md",
+      "google_maps_uri": "https://maps.google.com/?cid=16170445940331141615&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "South Burlington",
+      "state_code": "VT",
+      "postal_code": "05403",
+      "photos": [
+        {
+          "name": "places/ChIJVU_1_XV7ykwR71kYdej2aOA/photos/AciIO2f9Dqbl0aBepAEZ5-tEo8WNtbE-i2m8ViEoyIwR931e1h2Hp6Hzpu_qOfyNAa5pS5P356kSDeIKcNxSbEx9CIUAOkPAjd--sVZoRojDzFJ3vBXTfiihHhwhpMbHYioSybJSIUIv04nODgjFdoCqSswju3aMnDDLQEy2BZWTLyBfteK8gvWvxODvjP8jCfiVqQ-6N5fN9Yi-jfS2d4mEbtofnb9vi3WH5zNC0l3-U0Pda4pDOzH8yaQAdaD8OpNwheCgoRzM1EPg72v47FgIv8ByaQRp2tsd-y-G79R4EK27qQ",
+          "widthPx": 1500,
+          "heightPx": 1500
+        },
+        {
+          "name": "places/ChIJVU_1_XV7ykwR71kYdej2aOA/photos/AciIO2co0B_63yksVzVU5iNrc6f6MInpB033kNHAQptkIZY6aw594Z0otODA6qgD6-X21JiP9Iy_xCNbwNrpL-kf2Oq8iLmBpZhGcfYF9gMVbU3oYiiJIIub493y9ZAoFUgDm-mmc-xma_DFfgggzO2fnrMJLTSTN7k1CvN9tw8oEKpP4AwtcG2BMZdIC_jHVgn30sT26kKcpIkAWPzksbKEQsj0jKtXSUjuLyOHjETJA5EXOpbXp52-TVwqs_a_nGsHK9juN3TlxZIhIv1jbRJLyQI_66JSc5H31pRoJLAGBwwO6Q",
+          "widthPx": 1500,
+          "heightPx": 1500
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJNcLPKzg5ykwRSxwOl2ZmHGk",
+      "display_name": "Dermatology, UVM Health - Champlain Valley Physicians Hospital",
+      "formatted_address": "214 Cornelia St Ste 103, Plattsburgh, NY 12901",
+      "location": {
+        "lat": 44.6996845,
+        "lng": -73.46997209999999
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "point_of_interest",
+        "health",
+        "establishment"
+      ],
+      "rating": 5,
+      "user_rating_count": 2,
+      "current_open_now": false,
+      "phone": "(518) 314-3070",
+      "international_phone_number": "+1 518-314-3070",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 8:00 AM – 4:30 AM",
+          "Tuesday: 8:00 AM – 4:30 AM",
+          "Wednesday: 8:00 AM – 4:30 AM",
+          "Thursday: 8:00 AM – 4:30 AM",
+          "Friday: 8:00 AM – 4:30 AM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "https://www.uvmhealth.org/locations/dermatology-uvm-health-champlain-valley-physicians-hospital",
+      "google_maps_uri": "https://maps.google.com/?cid=7574041264137313355&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "Plattsburgh",
+      "state_code": "NY",
+      "postal_code": "12901",
+      "photos": [
+        {
+          "name": "places/ChIJNcLPKzg5ykwRSxwOl2ZmHGk/photos/AciIO2fGOvAFVoqKz-XcXcuBIV4XXw07o5qZvBegvxa53OA0HuVqDeQBFvgKkqrFkkIcj9kRHJaegwCHrnTlIm7u4HmmhL2T54vB0mZyJyoGiJk4GOZtXu6pMTXn-mGjagpFbD6JtuzVDXQIklmIZ9e3D31Y8IKQTW7c-pVkbNgnP936sT_3bDRUT90IKqq2VXdKWXVof3mbG-RLSU7VdBzepv4UpGoXnD_ureGVzwvje6HL_jJAx8ZOa00QmRvuOy0U4M8W22YjvdTAVlP5ztO0nbagqg6zKZZiCrkjf4Y6qXsJ-w",
+          "widthPx": 640,
+          "heightPx": 640
+        },
+        {
+          "name": "places/ChIJNcLPKzg5ykwRSxwOl2ZmHGk/photos/AciIO2dYOwAKq_e7H5v9QpNsADmtjrWwpIMVjBXqZnO-SSjtjSl3HDTFOmr-8GHwC5FRiEL2ohc8pzxh-Y2OeX6jH_FV8soxqlv2jkMS2eNiyMVNFzlaTpXNI3hwfnDyGDDAVzG21DmyXkUZVBECujNQ6S3aaeA0sme5-4WHD367DPkxOMw0W88SS_2N55OLjHdrPjAQpdhs9XKAWxNy7JPk9jxGCDfcn6Y-_jVVQc3Pfey57c0H9OyWEdisLad7AqKTbKQeipAy09qi3AOL_KpOHGaLFQ8gaHVgQ05hEsF8cjx4Ag",
+          "widthPx": 1500,
+          "heightPx": 1500
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJg9x5OkN6ykwRvosaKmZbA4U",
+      "display_name": "Christine H. Weinberger, MD, Dermatologist",
+      "formatted_address": "350 Tilley Dr Suite 201, South Burlington, VT 05403",
+      "location": {
+        "lat": 44.447915699999996,
+        "lng": -73.1494307
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "point_of_interest",
+        "health",
+        "establishment"
+      ],
+      "rating": 5,
+      "user_rating_count": 4,
+      "current_open_now": false,
+      "phone": "(802) 847-4570",
+      "international_phone_number": "+1 802-847-4570",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 8:00 AM – 5:00 PM",
+          "Tuesday: 8:00 AM – 5:00 PM",
+          "Wednesday: 8:00 AM – 5:00 PM",
+          "Thursday: 8:00 AM – 5:00 PM",
+          "Friday: 8:00 AM – 5:00 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "https://www.uvmhealth.org/providers/christine-h-weinberger-md",
+      "google_maps_uri": "https://maps.google.com/?cid=9584604926325722046&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "South Burlington",
+      "state_code": "VT",
+      "postal_code": "05403",
+      "photos": [
+        {
+          "name": "places/ChIJg9x5OkN6ykwRvosaKmZbA4U/photos/AciIO2eEV1ASgqF2jIpmOdBsVAWnhl6MhypjBBd667jVIF60-n4qB6mvRtoK0zkp_n8rl9N-S_UEdYCjawRHxqm-oYFszbFbEdHHc1rWpNG0qZuwlDu5STYRUgPOvxBG5R08X2hARxsrTj3MwaQpO7RNA7JzKGKm-VvfxCDGnFc8AaNPHunY_wPGkcyRkyZbqeUykaFxnL1NEVIbS6q9NOQTn-HfZbCCEaur9N-CIu_yYgFeeU0E77snoLMCoDtCRoKtb4a69TadPbIuujjNHhfGj34jR31eFsziSeEXZQaGkzf2Gw",
+          "widthPx": 480,
+          "heightPx": 270
+        },
+        {
+          "name": "places/ChIJg9x5OkN6ykwRvosaKmZbA4U/photos/AciIO2cwwERVlPRS_V42KHrmL6_V3HRec45iRbWmD7N6NNM_YYyGPrP0DTYrrh57xbNUZfH2aSXoJ37g3JAt4L3vaCEC_4f3wo3undi5Jxoy7bRbqCwjftu2yMnXw8l2F5UwBQMSkFJeB2DU3AMDETwCtyhzEOpc-ZwveXLKW3nywASPdChcAdGuBtbhU0V-lvfgmOq9WmD4ZO1kVhllm9Z_-PHOt6sl-1U6YDngdyJ3Rt5_D67FcoBjOtXVmy1czDK59VtFitEqdnDwhFWDhqO76ZTFj6D8kVWNeovsHEuhjGAKiQ",
+          "widthPx": 1500,
+          "heightPx": 1500
+        },
+        {
+          "name": "places/ChIJg9x5OkN6ykwRvosaKmZbA4U/photos/AciIO2dKsQLT7vw2__kT3D61gxIC_AogxNNQqT9bbtCruNpQiEApcRLvclf-EanTjO_1gUOS5miGNN-t3vPFmUc_D6p3ArD3BCGR8v3nDU4GqQigOCCcK0VI8xK3nRgclmneeHodC-pK1l3XcKSgX1jxlVTHVBLw4ewg_XH7oqrRQTlCht2pOfl07nhoWVZrp54jdtGZ6GT_0lIXsnxzk8ic32Wl0MrI45IwbuwGkoiZmd18UvbbBf5H7W2WOr2nxUwdNYNGfKQ-Y6T25XnbPC-aG8a8fWnAj0wo60ngg0pssRin8g",
+          "widthPx": 1500,
+          "heightPx": 1500
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJLyijUsF3ykwRxNZZMmjZLEw",
+      "display_name": "Dr Stephen Nightingale Dermatology Aesthetic",
+      "formatted_address": "16 Railroad St, Essex Junction, VT 05452",
+      "location": {
+        "lat": 44.49054590000001,
+        "lng": -73.1093606
+      },
+      "primary_type": "spa",
+      "types": [
+        "doctor",
+        "spa",
+        "point_of_interest",
+        "health",
+        "establishment"
+      ],
+      "rating": 5,
+      "user_rating_count": 3,
+      "current_open_now": false,
+      "phone": "(844) 800-2919",
+      "international_phone_number": "+1 844-800-2919",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: Closed",
+          "Tuesday: Closed",
+          "Wednesday: Closed",
+          "Thursday: Closed",
+          "Friday: 8:00 AM – 5:00 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "https://www.drsnightingale.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=5489001087402366660&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false
+      },
+      "price_level": null,
+      "city": "Essex Junction",
+      "state_code": "VT",
+      "postal_code": "05452",
+      "photos": [
+        {
+          "name": "places/ChIJLyijUsF3ykwRxNZZMmjZLEw/photos/AciIO2eEKi5a62JLWQy2e5PPRME_B-Mv83Ll00mVBiPrhvR4VwNjKE5YV43HnDLedaIcuIUnnmfdzUOyzrss3v8im2zWvLJfH-nR2xGlsnzE5pJ8rssgbOMjTd8MVQXlnDQ_hT0nrxh6Vsm4hHfIlydhTeNHzGYmul95LLcEWla4SDmHOqcO83iCnqbDSI7T7lEDy0Q_J1EoLIAO6ATMAgR9rRbSkTUhalPsyxG2BaMLSbUlx_UovZHrxWfbe1I0pkRaXKy1LUEHiV2WGvZdsBhGdy_uxP29zpYFszniEfk1ZUxT1A",
+          "widthPx": 4032,
+          "heightPx": 3024
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJ9V7ZIfl7ykwR0tCK_kPfdVM",
+      "display_name": "Keith W. Morley, MD, Pediatric Dermatologist",
+      "formatted_address": "350 Tilley Dr Suite 201, South Burlington, VT 05403",
+      "location": {
+        "lat": 44.447915699999996,
+        "lng": -73.1494307
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "point_of_interest",
+        "health",
+        "establishment"
+      ],
+      "rating": 5,
+      "user_rating_count": 3,
+      "current_open_now": false,
+      "phone": "(802) 847-4570",
+      "international_phone_number": "+1 802-847-4570",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 8:00 AM – 5:00 PM",
+          "Tuesday: 8:00 AM – 5:00 PM",
+          "Wednesday: 8:00 AM – 5:00 PM",
+          "Thursday: 8:00 AM – 5:00 PM",
+          "Friday: 8:00 AM – 5:00 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "https://www.uvmhealth.org/providers/keith-w-morley-md",
+      "google_maps_uri": "https://maps.google.com/?cid=6013958360549478610&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "South Burlington",
+      "state_code": "VT",
+      "postal_code": "05403",
+      "photos": [
+        {
+          "name": "places/ChIJ9V7ZIfl7ykwR0tCK_kPfdVM/photos/AciIO2fyEDJF9d6FOgSaq44_NlZgj5q6ESk2pH5Y6-DXbbYRSmdao1oloWsBF8EpS8sjk6-iQYnacFMpj0NTj0am4rDZsiiNbr2eGRQkS_SyPUEmcXcyGRSbQ7BXbLqGAmZF6vx4i-tkq_6Bnu3A0Qct5NrG6LWvoXaXVoRteS3SFNulmckF9JFGJKO1G25XN3APIcgk_MS6dzfGzbj4tGMMPWVYmLWzqYl_URPrejNFI_73FA0_Xy8RBm01p18uGtq6LjsCGWY_wQ48Qp8mTRsom-7ZkeCStFTk-anaBHsIDntlyQ",
+          "widthPx": 1500,
+          "heightPx": 1500
+        },
+        {
+          "name": "places/ChIJ9V7ZIfl7ykwR0tCK_kPfdVM/photos/AciIO2c9TjwLSHebduks-42U5L0-9YeCOhlXt0oOc2PsZX1CnV4AOgwB5PIsMpiRHb0XLNgzIt48Svg_kjff12AR2tQMQdV4g64SNNCoabiMgrapD-ERvfunSJKu31azSawPM7m5fQrgLOe2fky4FRAB7t601HLPN-Y9B4tf2sKuWCEQ8W8cdAHtgzf9woJzPmSDnUEXbZATl8iMzPeRutoCiQC-EQkFkVjlQiEI8MpmXzUfLiWcfi7LCusZ3-dVZztRLngu4fuTyNS44BO2AZ-vZVk-bSWO-nTF40uCi223riW5lg",
+          "widthPx": 1500,
+          "heightPx": 1500
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJeSx5Q-a1tEwRRjCGWkNRrg4",
+      "display_name": "New England Dermatology: McGinley-Smith, Daniel E. MD",
+      "formatted_address": "45 Lyme Rd #304, Hanover, NH 03755",
+      "location": {
+        "lat": 43.7188801,
+        "lng": -72.2725948
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "point_of_interest",
+        "health",
+        "establishment"
+      ],
+      "rating": 4.7,
+      "user_rating_count": 7,
+      "current_open_now": null,
+      "phone": "(603) 643-9700",
+      "international_phone_number": "+1 603-643-9700",
+      "opening_hours": null,
+      "website": "http://www.newenglanddermatology.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=1057872312202047558&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "Hanover",
+      "state_code": "NH",
+      "postal_code": "03755",
+      "photos": [],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJg9x5OkN6ykwRbzPRW-Bl8ac",
+      "display_name": "Debra A. Roseman, PA-C, Dermatology Physician Assistant",
+      "formatted_address": "350 Tilley Dr Suite 201, South Burlington, VT 05403",
+      "location": {
+        "lat": 44.447915699999996,
+        "lng": -73.1494307
+      },
+      "primary_type": "health",
+      "types": [
+        "doctor",
+        "point_of_interest",
+        "health",
+        "establishment"
+      ],
+      "rating": 5,
+      "user_rating_count": 2,
+      "current_open_now": false,
+      "phone": "(802) 847-4570",
+      "international_phone_number": "+1 802-847-4570",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 8:00 AM – 5:00 PM",
+          "Tuesday: 8:00 AM – 5:00 PM",
+          "Wednesday: 8:00 AM – 5:00 PM",
+          "Thursday: 8:00 AM – 5:00 PM",
+          "Friday: 8:00 AM – 5:00 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "https://www.uvmhealth.org/providers/debra-a-roseman-pa-c",
+      "google_maps_uri": "https://maps.google.com/?cid=12101565688008749935&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "South Burlington",
+      "state_code": "VT",
+      "postal_code": "05403",
+      "photos": [
+        {
+          "name": "places/ChIJg9x5OkN6ykwRbzPRW-Bl8ac/photos/AciIO2dnuH12MlIVb3SwBfGwJrDI_28BdnO34iisup4Nq_S8FiR5ENgUn6iy6Fqy6NSJQ7M2QyJxCIpuFVIHPjJj63xOcqMmWpmB3x6mykxGqg_A942WCFtV80VpBSwMtgIHba2IqF6LF9d7VLdIi1XP5Hi0LinmxDpYJ3vll_-oBGrLwQZZixaWeOFadO_ZwEd_J1dQb2X8aAO1J3ssnyUoOoF_NYGUFQPDjNtwrM9vrampbNavhu5NDMGpDtUp-0H0vw3KfGwCu_Pr2v50AXJPid4AoBBKHMFha8hObWdb6PZz6g",
+          "widthPx": 366,
+          "heightPx": 366
+        },
+        {
+          "name": "places/ChIJg9x5OkN6ykwRbzPRW-Bl8ac/photos/AciIO2czqS76KYhAVW9YcYdMaOX70JXUwF5AqdzZhxMHkbrB6kLOlsafwBa3TvGyCItaD6bnN0gWNUmXwBMEFjx3qtThtY1wzrkiP1ExIVohdtWYrBK_OG1V-ktogegwJOugDKL8no15_mSgBFPQEWpKlSL4oNJleS9OS8t9PGBwWRWj56MefMuRR27ygLYdWl5rypI08xGjLtt9n1naAB4lWOV0c_JEnCyTJlKicqCeSr-erXWxVSUtCTPOhMubQBIOZyb8pG3ZlrJkXwEOw4-0rQjDrm-H1UiJYwzKK00FNNDxuA",
+          "widthPx": 1500,
+          "heightPx": 1500
+        },
+        {
+          "name": "places/ChIJg9x5OkN6ykwRbzPRW-Bl8ac/photos/AciIO2e7YGs3ngMGuujDiXjhjQA7z5DuqEz6wToI2uZkxj7iwYPOP1LHTUMgG_skYsvfd3ukKSIosk1-OcZ7UY734zMS3a7G-uudGcXL-qyM-tGv9mY3bTS5n_dcsk8-HB3gONAh2RysiMP8rDeBvB-j6gTVQz9OcxlX0qryFDpYZY5i5OGEWPLIMrYO6F0_rI32v8pZLf5PMjWfZfVKxElU10Sz5IfSBvswrk9zZQgXy3P9uxp-8-zxwjviFFbU9ByV7bS482aOjLADSIuERf1A_tkagHmCo2MI_O6yK2CA8Rlevg",
+          "widthPx": 480,
+          "heightPx": 270
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJ8S7kPzR5ykwRlJ_6FeaIhHU",
+      "display_name": "Ashley R. Group, MD, Dermatologist",
+      "formatted_address": "350 Tilley Dr Suite 201, South Burlington, VT 05403",
+      "location": {
+        "lat": 44.447920599999996,
+        "lng": -73.14938169999999
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "point_of_interest",
+        "health",
+        "establishment"
+      ],
+      "rating": null,
+      "user_rating_count": null,
+      "current_open_now": false,
+      "phone": "(802) 847-4570",
+      "international_phone_number": "+1 802-847-4570",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 8:00 AM – 5:00 PM",
+          "Tuesday: 8:00 AM – 5:00 PM",
+          "Wednesday: 8:00 AM – 5:00 PM",
+          "Thursday: 8:00 AM – 5:00 PM",
+          "Friday: 8:00 AM – 5:00 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "https://www.uvmhealth.org/providers/ashley-r-group-md",
+      "google_maps_uri": "https://maps.google.com/?cid=8468043721155977108&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": null,
+      "parking_options": null,
+      "payment_options": null,
+      "price_level": null,
+      "city": "South Burlington",
+      "state_code": "VT",
+      "postal_code": "05403",
+      "photos": [
+        {
+          "name": "places/ChIJ8S7kPzR5ykwRlJ_6FeaIhHU/photos/AciIO2cn4zuIjNh2stWDOALO9bHIS8BtYh-Hc8ATNV6gDxsbKHTBcapMDdxaFr_ieFhqNf8dbESTA4_cZfbkYkObMnYa2s0c0BsYOq1_dyVn-MU-o3rWVGELntVU4e09Md9eC6-epYC47pEOWvQK2Q02r_qsXDWJxPn9SFDgiu31GSgeHybip2FND4TShFXG5NjSOICG6HcTZhLJE614n_HLl44Tex1VwBVilEsYovOiKia1pG2DYRWfgIQ24Qwqvz-y1Ne00-6pE6EjZr8nwDyqOd54N0zW-DSrSWNNh2UCGHxBZA",
+          "widthPx": 1500,
+          "heightPx": 1500
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJ-_IbRdJ7ykwRU42YSD6CbuM",
+      "display_name": "Harkin Maureen MD",
+      "formatted_address": "366 Dorset St # 2, South Burlington, VT 05403",
+      "location": {
+        "lat": 44.458552600000004,
+        "lng": -73.1791736
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "point_of_interest",
+        "health",
+        "establishment"
+      ],
+      "rating": 5,
+      "user_rating_count": 1,
+      "current_open_now": null,
+      "phone": "(802) 864-0192",
+      "international_phone_number": "+1 802-864-0192",
+      "opening_hours": null,
+      "website": "http://www.skinvt.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=16388179298065354067&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false
+      },
+      "price_level": null,
+      "city": "South Burlington",
+      "state_code": "VT",
+      "postal_code": "05403",
+      "photos": [],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJq6qOs7UaykwRPVsljtLN4Rc",
+      "display_name": "Stephanie Neider",
+      "formatted_address": "53 Fairfax Rd, St Albans City, VT 05478",
+      "location": {
+        "lat": 44.804010999999996,
+        "lng": -73.06875749999999
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "point_of_interest",
+        "health",
+        "establishment"
+      ],
+      "rating": null,
+      "user_rating_count": null,
+      "current_open_now": null,
+      "phone": "(802) 582-4900",
+      "international_phone_number": "+1 802-582-4900",
+      "opening_hours": null,
+      "website": "https://www.northernvermonthdermatology.com/staff",
+      "google_maps_uri": "https://maps.google.com/?cid=1720882836843879229&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "Saint Albans City",
+      "state_code": "VT",
+      "postal_code": "05478",
+      "photos": [],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJpWC4ABp7ykwRanC9ViUgx8w",
+      "display_name": "Ankit Gor, MD, Dermatologist",
+      "formatted_address": "350 Tilley Dr Suite 201, South Burlington, VT 05403",
+      "location": {
+        "lat": 44.447915699999996,
+        "lng": -73.1494307
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "point_of_interest",
+        "health",
+        "establishment"
+      ],
+      "rating": 5,
+      "user_rating_count": 1,
+      "current_open_now": false,
+      "phone": "(802) 847-4570",
+      "international_phone_number": "+1 802-847-4570",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 8:00 AM – 5:00 PM",
+          "Tuesday: 8:00 AM – 5:00 PM",
+          "Wednesday: 8:00 AM – 5:00 PM",
+          "Thursday: 8:00 AM – 5:00 PM",
+          "Friday: 8:00 AM – 5:00 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "https://www.uvmhealth.org/providers/ankit-gor-md",
+      "google_maps_uri": "https://maps.google.com/?cid=14755798048843853930&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "South Burlington",
+      "state_code": "VT",
+      "postal_code": "05403",
+      "photos": [
+        {
+          "name": "places/ChIJpWC4ABp7ykwRanC9ViUgx8w/photos/AciIO2dZ7O-R3FSQFuUnhb0dADCM4jNcJ7B1sI-ESWP_Zyb9fARA6pecZuuBEIrhNYzN0eMyn1iF6mG4Xa6CBsLuwkOgtIqCG_LeZTUUYGOH9jwvl09wK4TQ-wv6gL8jek1FJRLlk7zBepr2YmELPvwHtc91Wgd-8lyGHO07qHUOiAMFs7LG8LvPbvy8TWlF9S7dl6dc7xLEZbmxu1bk51EuO12i1PSmJs3IwlhFJ_phlr_jDZd6FkpEXSLXUnmuCyZETlRchhSB-nBimmC6aefDhIQX5Gr2752GA2M1fra0-Kr3xQ",
+          "widthPx": 1500,
+          "heightPx": 1500
+        },
+        {
+          "name": "places/ChIJpWC4ABp7ykwRanC9ViUgx8w/photos/AciIO2fWNii-p47k_kHG4jWjrDjQc3Xx7sD4FURtKuFF26yQYz56_8h8ESkMHbHp0Z8WEEyW-ocROM2s6uxGCW7ShwFibEhOhPRSXq5kAA3xDt7V9SrzeVvqibbNodtN4UrYxjhbGQw-Ils4f6ktnlO7CA_xpJkI5EfzajId6diNJZhJfhQTndFGJZIZYqY9rbKfHpnW-lzLspDgAp-sxsiyLDLTROZujYgz39CdB6ofSx4jY-bUgS5I6jKx5QhYky3diQLxBzqvuYdjBwJyE-WC2V_1QhSHRSUQcC1_oAY_IAG0ig",
+          "widthPx": 1500,
+          "heightPx": 1500
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJmWuORkN6ykwR8EFhVtAhj4A",
+      "display_name": "Joseph C. Pierson, MD, Dermatologist",
+      "formatted_address": "350 Tilley Dr Suite 201, South Burlington, VT 05403",
+      "location": {
+        "lat": 44.447915699999996,
+        "lng": -73.1494307
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "point_of_interest",
+        "health",
+        "establishment"
+      ],
+      "rating": null,
+      "user_rating_count": null,
+      "current_open_now": false,
+      "phone": "(802) 847-4570",
+      "international_phone_number": "+1 802-847-4570",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 8:00 AM – 5:00 PM",
+          "Tuesday: 8:00 AM – 5:00 PM",
+          "Wednesday: 8:00 AM – 5:00 PM",
+          "Thursday: 8:00 AM – 5:00 PM",
+          "Friday: 8:00 AM – 5:00 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "https://www.uvmhealth.org/providers/joseph-c-pierson-md",
+      "google_maps_uri": "https://maps.google.com/?cid=9263660137210528240&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "South Burlington",
+      "state_code": "VT",
+      "postal_code": "05403",
+      "photos": [
+        {
+          "name": "places/ChIJmWuORkN6ykwR8EFhVtAhj4A/photos/AciIO2eSHhhmXi0PfJQQ1W5F25u946Ls4Q_sj6LW5_JCTVuVY-1dRX6UQvGLcB3NzC-MF29AlYbPto0Gs1ShgzNtf-AOg1OpkZKYlJ2DOPACOoGL60ve_1MY7BNFTOHroBwzAVbV1QSdBD355CSIumci8cgtTzNyxQH8s1I_I9jgjmwcNVnA_JdprDZfpkfo2tsfvmh8JjbejVOv1sSt_BQAGDXn5N1zYlli1aV_8Mq4JLrfz1VVEiYMd__71IbxAwzZkFbJg0O3C4KIOY0n2XbuPXsIzEBHr0G_fu9CXk4x8IkTOw",
+          "widthPx": 1066,
+          "heightPx": 1066
+        },
+        {
+          "name": "places/ChIJmWuORkN6ykwR8EFhVtAhj4A/photos/AciIO2ffU-IswMrhKqKnUce2qFofUYmIW85-aiTvGFtwKBIo-rl0ayigx961ph9Fg6ZL0qPxxYEfvki-Ja7LDS5jfxEsL3zG0ExqiLkMA5h58IqSGAwR8iO-wCnOjT1TgUmT6iTePeZKJAG3CfewQU2wAMcWjHS_GHqSkG0DQ8JKIuvorgrAp-Spo9nbZokKwTRTv-PN_PQAnqnhex-zHWF_MK2sEXx9QYwWwe5sx6llppADNwACo3Fv0E2ukRht4ljsyNr_kuB81KPjzEum5kAPiml3nNmAQ15-6-efs8bHKhPLwQ",
+          "widthPx": 1500,
+          "heightPx": 1500
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJUZQxxr97ykwRjDwAGPaGGU0",
+      "display_name": "Vermont Dermatopathology",
+      "formatted_address": "30 Farrell St Unit 202, South Burlington, VT 05403",
+      "location": {
+        "lat": 44.447384899999996,
+        "lng": -73.2037404
+      },
+      "primary_type": "health",
+      "types": [
+        "point_of_interest",
+        "health",
+        "establishment"
+      ],
+      "rating": null,
+      "user_rating_count": null,
+      "current_open_now": null,
+      "phone": "(802) 658-6269",
+      "international_phone_number": "+1 802-658-6269",
+      "opening_hours": null,
+      "website": "http://web.vermont.org/Medical-Health/Vermont-Dermatopathology-1689",
+      "google_maps_uri": "https://maps.google.com/?cid=5555620006860962956&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false
+      },
+      "price_level": null,
+      "city": "South Burlington",
+      "state_code": "VT",
+      "postal_code": "05403",
+      "photos": [],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJ2Q0xSUN6ykwRi1SIaTwYako",
+      "display_name": "Julie H. Lin, MD, Dermatologist",
+      "formatted_address": "350 Tilley Dr Suite 201, South Burlington, VT 05403",
+      "location": {
+        "lat": 44.447915699999996,
+        "lng": -73.1494307
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "point_of_interest",
+        "health",
+        "establishment"
+      ],
+      "rating": null,
+      "user_rating_count": null,
+      "current_open_now": false,
+      "phone": "(802) 847-4570",
+      "international_phone_number": "+1 802-847-4570",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 8:00 AM – 5:00 PM",
+          "Tuesday: 8:00 AM – 5:00 PM",
+          "Wednesday: 8:00 AM – 5:00 PM",
+          "Thursday: 8:00 AM – 5:00 PM",
+          "Friday: 8:00 AM – 5:00 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "https://www.uvmhealth.org/providers/julie-h-lin-md",
+      "google_maps_uri": "https://maps.google.com/?cid=5362124954085643403&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "South Burlington",
+      "state_code": "VT",
+      "postal_code": "05403",
+      "photos": [
+        {
+          "name": "places/ChIJ2Q0xSUN6ykwRi1SIaTwYako/photos/AciIO2eCUzK9w7Dx2mpFNxHsH42qmyLrK-Z_dSM8DO-0IsmGtY3ONPEfUAS3Bst0IcvGVTzx67Txqyl5hSW1wqwQYS-1Sqq3lfUGekTFmDqy4WrBLKRyYc0SwDjRoTEBZDwv1NIk34Ptn-ijETvC6YnWCPT7yvJiNTx1aoZ1rcfxcjGW8aUNO91pAZf91973UG3vZR1GvgbZFnlGLG9JwyzJWGlOyVBaXVgcY_FU1MET9MlswFLtOzEPxPSEgG_tPsRSsjLaAaur6TZOLoDQF8wiTehKqvoe5tjRfQ0JpNndgqOkyQ",
+          "widthPx": 1500,
+          "heightPx": 1500
+        },
+        {
+          "name": "places/ChIJ2Q0xSUN6ykwRi1SIaTwYako/photos/AciIO2e3vFNmVCovWYgiVqam04u9J7xedDLRbeZusPFfhprImd7260nhiHmUs9nVxlDGO82LPuA_sVaHkRTv_dwCkxU_fgxU_yH3fvJJQVouJETynFiXp0P9JEcYEaI2_lWNBJ_1XWSpS-shWVcajlnORe4eDhO6if1pzt5Q8BQ-xwrg8OjTPn9RuU9iarQSBt7MZzBnUFHq_yUIM2ly2hQumPZxy7Nk8bPlbJwEM5uudxHeGM3OEXmMwnRsXu02w5Ra8m9NSnake4op5wVkImD8P63ype1N7HRwQ3ilwYIuddTkXA",
+          "widthPx": 480,
+          "heightPx": 270
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJIwSqGl57ykwRrHLKGXHensk",
+      "display_name": "Santana VanDyke, MD, Dermatologist",
+      "formatted_address": "350 Tilley Dr Suite 201, South Burlington, VT 05403",
+      "location": {
+        "lat": 44.447915699999996,
+        "lng": -73.1494307
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": null,
+      "user_rating_count": null,
+      "current_open_now": false,
+      "phone": "(802) 847-4570",
+      "international_phone_number": "+1 802-847-4570",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 8:00 AM – 5:00 PM",
+          "Tuesday: 8:00 AM – 5:00 PM",
+          "Wednesday: 8:00 AM – 5:00 PM",
+          "Thursday: 8:00 AM – 5:00 PM",
+          "Friday: 8:00 AM – 5:00 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "https://www.uvmhealth.org/providers/santana-d-vandyke-md",
+      "google_maps_uri": "https://maps.google.com/?cid=14528294025289167532&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "South Burlington",
+      "state_code": "VT",
+      "postal_code": "05403",
+      "photos": [
+        {
+          "name": "places/ChIJIwSqGl57ykwRrHLKGXHensk/photos/AciIO2dnru8BjX8rDLgKL2w6FkFqyY40DUUmwQE8VnStIFY2qFJfP9PyA2X8B8iiQ1gkMiiJDJLlZmKt7CU0QKy5pRF751mL22Pvq6p51ENf05yL0U9P7R5L7LAkI-89cfiZskXlmjomZJGqhqBAyRkFRAVR1J3HccWXFjXtfr6QnOOmNPa-g5UcOmFMgbY-oGWONntdWuvksPgzN67YLuELnYm_OqVHd75N1_xE2o3qWvBg67YzCFL7B9iPUGjja-p2WGpx4LnUdIh1GG0b06BqC6YwOlekzJ5le6t1MNDgm9FJdQ",
+          "widthPx": 1500,
+          "heightPx": 1500
+        },
+        {
+          "name": "places/ChIJIwSqGl57ykwRrHLKGXHensk/photos/AciIO2fS-Xi5gQPBIIEqSQ0cg-kgPcjHvo3LfcFo0hyL4XviCgSMEKp9V9NJ6-zU0AfPsQZAaCUVxJf74s9u5KzqQ1JipDoKa74ad5voVUJc2LwFj7yROr2jQg2HPm2Q6MPtfqDHp-uHgwW95rjMAtHGB64NrnZDC-lp4VjfYa-VhQiuPuAKB63BqifYmyr_TpZNAmptY3-LkcouPzBMPqcp6qSUlbqsf9Jq9AfakzGy5mqajYgBsHDh_QLt2YRGCIu8FNTIBB7wGIPtS58oX_wKkPbG8tI5DqRx4Egb-CbOo3Gm1w",
+          "widthPx": 1500,
+          "heightPx": 1500
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJeSx5Q-a1tEwRYzOUh0HOszs",
+      "display_name": "New England Dermatology",
+      "formatted_address": "45 Lyme Rd #304, Hanover, NH 03755",
+      "location": {
+        "lat": 43.7188801,
+        "lng": -72.2725948
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 4.3,
+      "user_rating_count": 4,
+      "current_open_now": null,
+      "phone": "(603) 643-9700",
+      "international_phone_number": "+1 603-643-9700",
+      "opening_hours": null,
+      "website": "http://www.newenglanddermatology.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=4302008849911788387&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "Hanover",
+      "state_code": "NH",
+      "postal_code": "03755",
+      "photos": [],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJu6ldYLd5ykwR6FISgdsXeZg",
+      "display_name": "Cura Skin Therapeutics",
+      "formatted_address": "28 Park Ave Suite 101, Williston, VT 05495",
+      "location": {
+        "lat": 44.4758425,
+        "lng": -73.1151876
+      },
+      "primary_type": "skin_care_clinic",
+      "types": [
+        "skin_care_clinic",
+        "spa",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 5,
+      "user_rating_count": 23,
+      "current_open_now": false,
+      "phone": "(802) 540-1360",
+      "international_phone_number": "+1 802-540-1360",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: Closed",
+          "Tuesday: 9:00 AM – 5:00 PM",
+          "Wednesday: 9:00 AM – 5:00 PM",
+          "Thursday: 9:00 AM – 5:00 PM",
+          "Friday: 9:00 AM – 5:00 PM",
+          "Saturday: 8:00 AM – 3:00 PM",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "http://www.curaskinvt.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=10986838997477774056&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": {
+        "freeParkingLot": true
+      },
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false
+      },
+      "price_level": null,
+      "city": "Williston",
+      "state_code": "VT",
+      "postal_code": "05495",
+      "photos": [
+        {
+          "name": "places/ChIJu6ldYLd5ykwR6FISgdsXeZg/photos/AciIO2dZ14V8Ixgc97Kgt4fs37bI6mS1OFiw26Q9gZGEOGF7Q5Dcspp9dUDPqtNhli_CaeEx8HDZ2rik58tAIQBlukw-iparis_zzzF0raazrr7abADy_kSr0LuZt4ReJ_Gd5zh6ZnNYMUWt6-9wK8tBe3BNQzdW1zNlsF8Xsj-9_i862OXtJm5-Hz3Fa2ZbtKCXzmcb9Dp3XkL9Ca9JlhQ_YbIe7Pby5mr-brQ_9GzwLJGhs84XY23BABH2_7Rt-NxhbQSSVkgWeNLqMYlVaxcVGGggNW4VqyEzTUC3PKa7rFg",
+          "widthPx": 4800,
+          "heightPx": 3201
+        },
+        {
+          "name": "places/ChIJu6ldYLd5ykwR6FISgdsXeZg/photos/AciIO2et-Z6bUbZJe_iu5cffBjxoIjwGpEESepj2myNCtjKlDRxYC23W1baMvmL10prLD9vFGqybPbRwWZQ4RipQIWUQnDpTFnkyBk0MNzhHLW1AJu0tBBMAAVu4DmbsC-zSd2o5qYrJLqtA_mOAQt1LqxTIh5CbfLRxk9uy1qC-LVDiDw0mHzXAsPUsJX2U1QWe4-NfBBuO0O8EcJTTOmxvhS8Btwae7XZkwzbR4aqQoiCWWsnqXWu43kiTB5FGMYXt_CBSLo5Vo49v4grctk9pIH9VYrozmoQFt3tjmu_F8gw",
+          "widthPx": 4800,
+          "heightPx": 3201
+        },
+        {
+          "name": "places/ChIJu6ldYLd5ykwR6FISgdsXeZg/photos/AciIO2eLnndM3EEiAzyiSPQ0z0rZowq6pyNDv2xPdfVQf4Dl6hpuYjhpwuwo7isnoYN6Bhmi_Wbi4qIB6QGsNOzvdki57xmEEQvW01-wsFMHg_aDT_XaOAQD2Vf78c7PLb5p2-1bkDUj_bz7bc9X9RYBI7HexKQ5n1QMraDCl0FMGBLJiJ9iVCOEga0s6zVbyKUa5w_JAyWhwB5n0Fp8hchEcaroz67qsVWGR-5XVIbxix6wdkJVifGf7SI2fAiBbCsl4VaDJodzlIzeLktiRsU8H6bce0-akwt1HTHFBhHZnF4",
+          "widthPx": 4800,
+          "heightPx": 3201
+        },
+        {
+          "name": "places/ChIJu6ldYLd5ykwR6FISgdsXeZg/photos/AciIO2fSUnL08ZFlRaKwD5KuBYOgwWdeHIAnrxOfWT15GXo_5CAPwPuf5Q1Lc6TcnqbHElez2nMLgRlOBkDjl5R12RhtUgJ7bt9HcvihYiNQvbyrd2VBnNeEMeEHNU4JCWPpqd5gl6bTiRAoeUhsmo9_IONJjViAOIt8z5VJMujDugN2HKCFn-UnEFoxxfNpcybtsxc8ATeNPaKJd-G6ipqxQKnONlwzR-DfOLbMGbv1oAC10zGQGO3qvDFwXy7zPW6bO_6ld6HuqevPM13A14lx4ExCKv5HsUw8oqQOca21rQw",
+          "widthPx": 4800,
+          "heightPx": 3201
+        },
+        {
+          "name": "places/ChIJu6ldYLd5ykwR6FISgdsXeZg/photos/AciIO2eDLSABqmKmp7d0xVKyzfkpNh-J0B8bW-erL9xkXdKkOryX_FSG1vrmbHnda497NGHe6Z_ZCunlRx69vCUaODstDROQmjt_zA6L6YVTmnOBwE12GdhvWNZzST1PqjF0kP-joS6cADW77YVYCTHfSpE_0g19tBlt6an1Ju9mwMUyM6Y4ScuGeftfY_WbAkSpWMP4IHKTTsJFlX3gyv_tiFKHSTEF4jsRTc2DBCJz-jAWtng2knYNfZwjD2vCvIkxGcjsanlBklU1V1Aj6YxGD5eHvTMLAXQF3Tb-CduYTNM",
+          "widthPx": 1080,
+          "heightPx": 1080
+        },
+        {
+          "name": "places/ChIJu6ldYLd5ykwR6FISgdsXeZg/photos/AciIO2dXtogd7oAG5vRL2jYkiVHphpJmKTaB3vWuCqQNfWqKcgmvnvtoSPw3pfCNquU36ps3uOZCRcrOLrMTGtWH4vBkjrlpqDn9a35TxxxHV6BUR0oloZYvzw_GrAmgO_NxInrtFMgrzHmxuhFDTEAcIM1ld-PeUbqPLIStr-eHToGPm6K-vW8Hzxx6umkluZukWVPuQBykcexxcY2a3DwjJOME7j9o1EJ8_8_gP5ddlfgDTCodxeUfzd_aTJn3yUIRYWt6kGQT3oVa5ivbwLOzhcKiHYumwnVsTt8tK9j9NwU",
+          "widthPx": 4800,
+          "heightPx": 3201
+        },
+        {
+          "name": "places/ChIJu6ldYLd5ykwR6FISgdsXeZg/photos/AciIO2eSB8gH4aHvshoubUxmVecwdnnAjrfGFV7ns0HsLGsHHEAeiRamFDed5Rz7HBu8gGLkyBcVQG46LVNokFamcU5T2Qa4KMyBjk7ZetB6QWw9cdTfADXgvVCknsPTOCnoBCXaD0poEjmWqsyzsg_UUkS8CvD-H-n0JDNgElplireYWwJhEmEJs-BgctnEfq-SBVJre2Zip_GAP9X-sZJt39VCuIVuDYL6S435qzKUPxlsg1Z0BtRZMOjyECZZfo2G7GxOCgPfqE3tyczTrGBZN6yWdbce23oI4VOgosbY2VE",
+          "widthPx": 700,
+          "heightPx": 583
+        },
+        {
+          "name": "places/ChIJu6ldYLd5ykwR6FISgdsXeZg/photos/AciIO2cm2d5gBAHhtgrT2f_PRiIULzSCgm_Fuk97BJxm7AtWTxoKxCm6c_fglx8u8YjJHSIVlMKVG-_kwuHbpCDI6217CtAG0R3t9XIL0JfSzicOpVZ2Rx3ue-O7z7BFF2RqHH60l64tVcCP8YyLIt3BQwcuxUqOnqE9uHohUslFkzYmO1bHedtDxwNx85Ocw_QZZ3TrbMubMtkS8wkxxQGHBPX1yr3yQ5Yr91k_nx_cDyTzXJRYMb68HAPOL7N2nxNKMuNqLaN0GCKRxLIzD6NC7XWTH001Be5zGuYuCKGe0JM",
+          "widthPx": 1650,
+          "heightPx": 1275
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJGdVXN097ykwR1QYGZgkw3SE",
+      "display_name": "Mary Maloney, MD, Dermatologist",
+      "formatted_address": "350 Tilley Dr Suite 201, South Burlington, VT 05403",
+      "location": {
+        "lat": 44.447915699999996,
+        "lng": -73.1494307
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": null,
+      "user_rating_count": null,
+      "current_open_now": false,
+      "phone": "(802) 847-4570",
+      "international_phone_number": "+1 802-847-4570",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 8:00 AM – 5:00 PM",
+          "Tuesday: 8:00 AM – 5:00 PM",
+          "Wednesday: 8:00 AM – 5:00 PM",
+          "Thursday: 8:00 AM – 5:00 PM",
+          "Friday: 8:00 AM – 5:00 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "https://www.uvmhealth.org/providers/mary-maloney-md",
+      "google_maps_uri": "https://maps.google.com/?cid=2440159390029186773&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false
+      },
+      "price_level": null,
+      "city": "South Burlington",
+      "state_code": "VT",
+      "postal_code": "05403",
+      "photos": [
+        {
+          "name": "places/ChIJGdVXN097ykwR1QYGZgkw3SE/photos/AciIO2cfDg2iiCMRnRzgec6KxJvZWdEIZ7mbsGEcbE8BEaIZIldfTl3XFATZDAsyCOM0b-68lYC7ggDY6AWUMko5SNUoVuGqWMxqo1FWnBtiFn8jc5lsVKW-HkmnbJYiCID7oDWWKMLFNbaOX97pj4v-g4b3dFqgnQhVnGy7tmja3OlsJWonzSKRTaqAJRN68aBA3fIz8ZsFaGSqyFsWMyTGZ_XfP4kI_G9qbesQQF1ei67KKiB1yCjXhUh2adfEmBWhnExXSWm1Kjl738RmlBogJr3WwNc55rUgizZq9-Y7lE3s8A",
+          "widthPx": 1500,
+          "heightPx": 1500
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJ79yqDgq2tEwROpjp_8AbQYk",
+      "display_name": "Peraza Dermatology Group",
+      "formatted_address": "367 NH-120 UNIT A1, Lebanon, NH 03766",
+      "location": {
+        "lat": 43.6811465,
+        "lng": -72.2688087
+      },
+      "primary_type": "skin_care_clinic",
+      "types": [
+        "skin_care_clinic",
+        "hair_care",
+        "beauty_salon",
+        "body_art_service",
+        "doctor",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 3.3,
+      "user_rating_count": 9,
+      "current_open_now": false,
+      "phone": "(603) 542-6455",
+      "international_phone_number": "+1 603-542-6455",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 7:00 AM – 5:00 PM",
+          "Tuesday: 7:00 AM – 5:00 PM",
+          "Wednesday: 7:00 AM – 5:00 PM",
+          "Thursday: 7:00 AM – 5:00 PM",
+          "Friday: 7:00 AM – 5:00 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "http://www.perazaderm.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=9890216772423489594&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "Lebanon",
+      "state_code": "NH",
+      "postal_code": "03766",
+      "photos": [
+        {
+          "name": "places/ChIJ79yqDgq2tEwROpjp_8AbQYk/photos/AciIO2euwlsUZ-JUOwT3ElZdf5leEXNqAQkjiPz3t9oYbVpv4iQHDN-YiH18T3eCTumwpMoGUgh5Yu8CfXHt-IBAtdYgAccaR_oTsyoj3fPfP3yYFq-IKB0CS_hCRDAkxnb8-IZmKCNB70qzak1t4zjQuWlvcP2GY3DAZvKcg3U4PffyqM3EUsrsn8OuqQqL0IZIIYrueXbrGkXfJU46hqLTgYLSId2iC2e38Aw2LVsaJhFhv0cr6JYRAuQXZkMT98hhINTBXsJ78FlJVCYibR9c4N2v-iFfLikMrOZ7fCgKTgvFr7RN8nndQHKyd9YKwMz8YmVLVbo1eDa6TzllDArD6tOLb3MLN2eQHwNBM3gnUt-sZV9iHybB0QoMOr-P3RSJC7pbNjqVK1x689AJ1G2htGIZyz4OnmbAX-uwwiFyHfqKDSyd1uLkTVXEteh6IkWR",
+          "widthPx": 3072,
+          "heightPx": 4080
+        },
+        {
+          "name": "places/ChIJ79yqDgq2tEwROpjp_8AbQYk/photos/AciIO2dZlY-1jZuTgyX-YvcS2SEbJA9TjZL_VSQpJPO2n06N4Dd9qbn-S4G7nwD7Lqk8nc8NtIPaOyLujBowRriOh0rUhT5sgQTJlQsejKlJ5gvvTL5W9qXh60JyVtq4yeqhBgl2uKpw3ZjhUG23uOMixKw9uqyouXJR1LJ7YdgLDpRM8nzM4Z_3sNDwSXGuSmTX8TLPgL73xtFogZknoyZB3bWSTNObyKa9HJVyihTt5tUVWWY0K8Tg1ADTkQ74X93_F3qIKo8O27Dk-GOGjfxIyXWCz-c6kmahhBL9Yt3O58-qFBkJACYbJ2Q6qbbF5DmTMjSDCqG3QPgMoJMx0JZacfzrZTy-Sm3BMuXcPjsESYPxdwfvuMYTBFkTkH9CGEnisOesg97oLswU-TaJCMHMYIKS62g4Y5P30Z4hbWHdOBS8LzwvIHGv9l4fWaS4kzKM",
+          "widthPx": 3072,
+          "heightPx": 4080
+        },
+        {
+          "name": "places/ChIJ79yqDgq2tEwROpjp_8AbQYk/photos/AciIO2eboNhdjg6uoeHrBSLVinFWrX_Hig2mesYJz611NaKMp2PEFQg6nihnJck69d92njp3XwFUCuLWci_987vkgMWx0ivRCAOkFswdG1821GSSXmFA0B40UlsS6yrq1Slh4KbGxhpS7MDOCYpkF7PjmtHJKUOSRe7FnUjnLU1d5IotxPoDhjxON_Zo7XGMozHYDTCBNt_3JJ0a1CXw450kOm8jPJxbrUyBBzJcSHZSLGw9lyPDrGyrab3V0s2jfiF4M6SrwNaA3SYN0Rh0oMszieo_o-LVCc7i2i8TqcJlAnOG28Eox5_dPfHibTS-Z8P-6nnTq1Vnn7fGOfgeO07tp1dOGSrEvxO5k8DFfRG9mVAOqY9iN1weHxmO9aJSn5y7pXrZFSJ1oEq2GSacGqXsPRE35bn0XQp3QLZvZCghjNpSSwP_Wz-Okjr_DkWZDE7R",
+          "widthPx": 4080,
+          "heightPx": 3072
+        },
+        {
+          "name": "places/ChIJ79yqDgq2tEwROpjp_8AbQYk/photos/AciIO2cjpAMFzvGBfzjoKZMklzjQWoZSYIK_bdup1c4ZcUN1bP_zCNqWemTZy8yMBlaQtRABCi1ZaTCIW1MaJBeMVUtrNHS130znkwJEO92CuejbslORuDNf5K5Qd0cg4EAWiCL9tFTdeUwYc5rayxwUDNR3sg2aQaFh8z6Y6uccjr8-1MfGChpIn0hC0isjvVebmpXrewJS-SuXtB96DRlDTJx0cZJW8mBV_ilzt8sZDBOkneYBU3sS7N28tYqsGWTEMILWzySyyF-wBrgSz4l_vOzpWyiNPHpunPaxRNiHyG00BP6m7ZIBjIschIiA7IMXsytseOCAnIAQxtwcPPNWPTPYJgqh0Uh-Fni5UIIo3YUAH3ame1SyzFn21Me-AaVt1DSlpXRMdPxHZG9xCQbCjKrrQ75_vBUXXaLAAMVvF1fX0NPiw3wdmQQX8FeX_jXT",
+          "widthPx": 3072,
+          "heightPx": 4080
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJV8RSclh3ykwRgIK2lr3r8A0",
+      "display_name": "Julia H. Barker, MD, Medical Dermatologist",
+      "formatted_address": "350 Tilley Dr Suite 201, South Burlington, VT 05403",
+      "location": {
+        "lat": 44.447915699999996,
+        "lng": -73.1494307
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": null,
+      "user_rating_count": null,
+      "current_open_now": false,
+      "phone": "(802) 847-4570",
+      "international_phone_number": "+1 802-847-4570",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 8:00 AM – 5:00 PM",
+          "Tuesday: 8:00 AM – 5:00 PM",
+          "Wednesday: 8:00 AM – 5:00 PM",
+          "Thursday: 8:00 AM – 5:00 PM",
+          "Friday: 8:00 AM – 5:00 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "https://www.uvmhealth.org/providers/julia-h-barker-md",
+      "google_maps_uri": "https://maps.google.com/?cid=1004561916413510272&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "South Burlington",
+      "state_code": "VT",
+      "postal_code": "05403",
+      "photos": [
+        {
+          "name": "places/ChIJV8RSclh3ykwRgIK2lr3r8A0/photos/AciIO2ewLOB4-Y9kDjvKBjI7MYO0spBAC06lV62f0nvlasuhzsnob_1lYI7QGcTrJFNMjS4WqArLaXPYcSBCMthKAXCYs6-7hiSB_KQJ971zJ-Sw2-MjkWP4MwpFFpnZI0Pi3ivojVDoqGTF8ebTTfmHk7zF4xbmz3QtmNpqSu-pSGiSi1EIDz8w7XgIluH-bWEBRDLQ1dCbCmigAzp1E-ko7IAG4vTN6TkWms2O21V4S4CYNALvmgp3Sm51EHABrfAuSUR3NdMJ9p-_wyHoI2WMdSRcr_ChMV-k73ZKGD1d5qomiQ",
+          "widthPx": 1200,
+          "heightPx": 1200
+        },
+        {
+          "name": "places/ChIJV8RSclh3ykwRgIK2lr3r8A0/photos/AciIO2cDnbwP3c9NKEH-yFxb7SJsYanE9T3m7xMQKi_6SBxThvLnsVVbHTbDbyErMTyi6Pm_1JocDJu8Tg2S8Wxg85nz3s7thcGyNx-bq1E9VWRhtDexWxlx4X9K75xMeZqBGwc3sCoAkpDVcAVQ5D-ZyenKn98ZvkDmKdjG6CLgoNVFWjrYFqPVnfeooEbwlCSdM5BcS6VEMhbeZc5DQUlm89CPK_aCABfWaauV3oXkenjkTgfwbtoXqgz47PwI5U5ut9k5bADKj8eM3_u2gMCk_2NF5hnyGNnLbSt5aCom7n6vWQ",
+          "widthPx": 1500,
+          "heightPx": 1500
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJ-_IbRdJ7ykwROfJFKlwz97k",
+      "display_name": "Dr. Steven R. Partilo, MD",
+      "formatted_address": "354 Mountain View Dr Ste 300, Colchester, VT 05446",
+      "location": {
+        "lat": 44.508994099999995,
+        "lng": -73.1836926
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": null,
+      "user_rating_count": null,
+      "current_open_now": null,
+      "phone": "(802) 864-0192",
+      "international_phone_number": "+1 802-864-0192",
+      "opening_hours": null,
+      "website": "http://www.skinvt.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=13400235687203435065&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false
+      },
+      "price_level": null,
+      "city": "Colchester",
+      "state_code": "VT",
+      "postal_code": "05446",
+      "photos": [],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJoQgBXYwl4IkR34u8kV4dAqU",
+      "display_name": "Skin Vermont",
+      "formatted_address": "73 Center St, Rutland, VT 05701",
+      "location": {
+        "lat": 43.6070894,
+        "lng": -72.9769537
+      },
+      "primary_type": "spa",
+      "types": [
+        "spa",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 4.3,
+      "user_rating_count": 3,
+      "current_open_now": false,
+      "phone": "(802) 282-5486",
+      "international_phone_number": "+1 802-282-5486",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: Closed",
+          "Tuesday: Closed",
+          "Wednesday: 9:00 AM – 6:00 PM",
+          "Thursday: 9:00 AM – 6:00 PM",
+          "Friday: 9:00 AM – 6:00 PM",
+          "Saturday: 9:00 AM – 3:00 PM",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "https://www.skinvermont.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=11890098258220714975&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "Rutland",
+      "state_code": "VT",
+      "postal_code": "05701",
+      "photos": [
+        {
+          "name": "places/ChIJoQgBXYwl4IkR34u8kV4dAqU/photos/AciIO2eLNunzc9O78suzJMLOdP2yuXoSSfUp8-e8UrrUHpyalBMlbvcUaK7q7wFWmvxzWsGB9D8UtgBmXzcizXohmwhRq11yK4OXHwTz2_5ZbCs1Qqa-h8ikOUqMASNnnX0d51YhszX5qGbxN1MxKChU1RtL8bpsrVwO9NIsXoOQUv3enGy-u2BDB20orFGDgDGpBJ2FdizDTToYvasB_5iNhFk5YzWgPu9zhVj8h7OYJ7J5zyqyVZB6bGrY3t_mG1gSMvDgUlN_s1RtB0RiegZE5a0JIeTDk7IVxTpKTJjGMuc8dg",
+          "widthPx": 1736,
+          "heightPx": 871
+        },
+        {
+          "name": "places/ChIJoQgBXYwl4IkR34u8kV4dAqU/photos/AciIO2cLf7E1rlXhP0lsVI3v8P0kM5nP4oWlAsd6wyIzuo-_zaFFzv0Hdn-qS-Jh4hD580cYWXDSNd-E3gYXVAORObW6Lyzl_2SXfNQ3rj0EA8ob64OUvonUWx29OblnztiHgreaL9k4rqYUzsFTmgyCseHX9XkurbGk7QH29F98YcvoI6TIZN4Q7o5EgiVJl9xMX5_Zw7BdwcbzXrNswzGmxxz5zFtGjtc7bHEIosL3EgP_9mJ8YQWThi5SM6bc2ev6an3vOMX1NV9wQqKT9lU9mzSpwXtA7VJFvoF_GTjPguyPig",
+          "widthPx": 3373,
+          "heightPx": 2530
+        },
+        {
+          "name": "places/ChIJoQgBXYwl4IkR34u8kV4dAqU/photos/AciIO2cF5LiZEPrqxBlQN1R8YusplMP7i2eB4ttqtLqy4NVxDXS9poBFFnujB9HHuA9S0ety9M6GQlTELTJZ6uPgwq5MFDBYOidVotdV9huHNKG-OHHQK3IL0f3hglVm1SV4eKxGcS9JZEtTuI-yLPYwqoHV1QyM0Srj2pjDkDH5XpF_yvSNALOlNqxASJzRZgbQcyIig1rjoYWPiV9IJvzEJbxbMy85V2NhGd5CE8rMLglLH-kXJEr2WO-XmFeLVc8BazTZnRasdo5vzWqZ6YuRCOTocUtkKgYaZ9SUdi75jyZ6kg",
+          "widthPx": 540,
+          "heightPx": 540
+        },
+        {
+          "name": "places/ChIJoQgBXYwl4IkR34u8kV4dAqU/photos/AciIO2e11G1hIkysNNkoOUdxXv502_F0ZEVrbohA6hlAZZI6_ZYNDO97xbxemmxV5QWMnDbctiWbHdrpvd4u4G4Vj6PYJnl1lDCHXpNsHZdk9bnsTI7ONYFDfJ5KZEmN6KrE0DKuSdX8aC5OYynFjqfRfFQM6bYfg1rjNmmtZeEEtCgVDjt9sG_8Wnfnn57Z_UjO32HjxmHiXj2aOrD-zAAoVSj9epjymwj2p8pLtBeYUUKK9crax1eO2xIBohHTdK5-JJ56g5IXpScwUEiUAaD1-5ao2yz15AEgFDnU4IUP1XY-xg",
+          "widthPx": 2095,
+          "heightPx": 3143
+        },
+        {
+          "name": "places/ChIJoQgBXYwl4IkR34u8kV4dAqU/photos/AciIO2cO0OB3UXQaYr7vvT30l-4KBEHQ98L84xm1VHxWih0sY_-Gmu7Cdjst2510LZt7s5USi5NVqcHWVfy1tidxJvUjLXrCCWfndEthGTtbNpqkaihn-R4o07eP8pf-xPUPkXU28nID3d-Ni8ymr1mJxJklcfHAu66KSaIdWwFVK_Oa4bgvohdCw0d2oZr_LsDY-wjGtBzGkitkzQLzk3idpxFgLLW47euyIuHuBkZ29Ox4Xm4nWLtq4tN_Jy2hmiRoQI9Bi4uanq1b9Q5r9uLBGlkZKJ1R03oLKm5JY1Duxy4Q9g",
+          "widthPx": 1080,
+          "heightPx": 1080
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJiRsFMEN6ykwRyvlT9G0gaI4",
+      "display_name": "Melanie R. Bui, MD, PhD, Dermatologist",
+      "formatted_address": "350 Tilley Dr Suite 201, South Burlington, VT 05403",
+      "location": {
+        "lat": 44.447915699999996,
+        "lng": -73.1494307
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": null,
+      "user_rating_count": null,
+      "current_open_now": false,
+      "phone": "(802) 847-4570",
+      "international_phone_number": "+1 802-847-4570",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 8:00 AM – 5:00 PM",
+          "Tuesday: 8:00 AM – 5:00 PM",
+          "Wednesday: 8:00 AM – 5:00 PM",
+          "Thursday: 8:00 AM – 5:00 PM",
+          "Friday: 8:00 AM – 5:00 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "https://www.uvmhealth.org/providers/melanie-r-bui-md-phd",
+      "google_maps_uri": "https://maps.google.com/?cid=10261487407586343370&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "South Burlington",
+      "state_code": "VT",
+      "postal_code": "05403",
+      "photos": [
+        {
+          "name": "places/ChIJiRsFMEN6ykwRyvlT9G0gaI4/photos/AciIO2d08ZXP9x4rQ-DaprT_aeS8KYY-rqOBgU4jBS7KTYb5zkLUQELd828THBTKdK-pW1nHpoDpHMXS0EBWOPQKZSbcW3HWwyz4kYue5VN7ROBoIQldQcpwpDgRHGMd_XJvw3a1cKN6Rj1ReaACjBBMDhj0x1t9RVb1qZY-BhI-2clvBcgA-n47SmCm4yVyW6aOImhIoD53yoVGO2rI5pMCweXE5tcLD2Hp9fb2-uO1AoDDUv_GS3lXdrWEScSyEZL1Om-cTRa1C83loOB7bmbcm_tM5vZhapgp1ELHeA1oZzCJxA",
+          "widthPx": 1500,
+          "heightPx": 1500
+        },
+        {
+          "name": "places/ChIJiRsFMEN6ykwRyvlT9G0gaI4/photos/AciIO2fNp6ep5-sH3aSYyh6ZCysosoRYuNfuL3YFoLloS3Vz9353t6zc5qXx9gOgZfSJvhmzWlcSx68nEgcwCelziBAxfgHxef5re085zx9KSD7MXntJ1MMD9AOOZy9GUu2zktmhVBQhFi7KJ8D53E4-bu-n-BXTv0OKzqB9jpfQx_K7bAfv5NYD0aHi6zjQc19Qh6OZ6NYEHmxpBuLrKd9OOvY4rTNZQ378ueuZiDtsIy-cXagd6y8KWlWn4O0Jqi0SKVGEKBslX_YwOi7IFvDiCLVgzt4PKYSBwCHDHOiikqdxWQ",
+          "widthPx": 1500,
+          "heightPx": 1500
+        },
+        {
+          "name": "places/ChIJiRsFMEN6ykwRyvlT9G0gaI4/photos/AciIO2fApoL_HpqZshUFEXArwsdH_HFCdDYzht-spZ2ZQ63bHJA-qafGOL-tFvg8803NekTuKr37tqazPlHqD6AQYDARJC2U-Lqv_LcAjAo_6VMoeHO6aVNtbQ_94XmqICAGFh-6--eP_ehcWTu6cgWYW_JEDIWi1ZTsRp30igTxxTFN9Y4eRC-6y4sXovxOdpXBz6gpVeW-zS3RoHAw3vJSfAi1Y2K-XVBjS-BJdBY4vE0gXbuC3DmF4bQapOsmzStUM8QvqYkbRwNZjsW7Ga3VKR_zKrteL0Lf-LVa5BwUy61tww",
+          "widthPx": 480,
+          "heightPx": 270
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJw7-d2dNJykwRx5onp5w_R5o",
+      "display_name": "Adirondack Dermatology PC",
+      "formatted_address": "1753 State Rte 3, Morrisonville, NY 12962",
+      "location": {
+        "lat": 44.7083751,
+        "lng": -73.6028603
+      },
+      "primary_type": "skin_care_clinic",
+      "types": [
+        "skin_care_clinic",
+        "doctor",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 2.9,
+      "user_rating_count": 19,
+      "current_open_now": null,
+      "phone": "(518) 563-7546",
+      "international_phone_number": "+1 518-563-7546",
+      "opening_hours": null,
+      "website": "https://www.cvph.org/Locations-and-Directions/Detail/45",
+      "google_maps_uri": "https://maps.google.com/?cid=11116924147239197383&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "Morrisonville",
+      "state_code": "NY",
+      "postal_code": "12962",
+      "photos": [],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJg9x5OkN6ykwRA5WIzot6PmU",
+      "display_name": "Anne E. Klein, PA-C, Dermatology Physician Assistant",
+      "formatted_address": "350 Tilley Dr Suite 201, South Burlington, VT 05403",
+      "location": {
+        "lat": 44.447915699999996,
+        "lng": -73.1494307
+      },
+      "primary_type": "health",
+      "types": [
+        "doctor",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": null,
+      "user_rating_count": null,
+      "current_open_now": false,
+      "phone": "(802) 847-4570",
+      "international_phone_number": "+1 802-847-4570",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 8:00 AM – 5:00 PM",
+          "Tuesday: 8:00 AM – 5:00 PM",
+          "Wednesday: 8:00 AM – 5:00 PM",
+          "Thursday: 8:00 AM – 5:00 PM",
+          "Friday: 8:00 AM – 5:00 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "https://www.uvmhealth.org/providers/anne-klein-pa-c",
+      "google_maps_uri": "https://maps.google.com/?cid=7295403187270882563&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "South Burlington",
+      "state_code": "VT",
+      "postal_code": "05403",
+      "photos": [
+        {
+          "name": "places/ChIJg9x5OkN6ykwRA5WIzot6PmU/photos/AciIO2dW7p5FBEwCzreKOdZI16ddNoA4jtfK6s-NVsNiY4bnbZ8sHAgQjvEFo-8Nuz-DD33_7BFz8WY3zSt8Zx5MdFg7L5nsCYnwkiSqP2WjK0fLU4e6wgH0b-lsPmeqwK9Z9YF7i4G6p6F2GXmadjOtCLlepdOZ2wNeJMKSd1noYPo0Kl2jjvVmMzTLN2B__-IRrgDGpVP3MvSj94ryy-xAU8gPHqVUhtAQSrqy2_EwaZ4h1zNoUKWY8v2FMHB-a-x5WsSsubxq7fK0Ifvn4Gtd0j2F9brcNEs2FThKgVZBoJDv9Q",
+          "widthPx": 532,
+          "heightPx": 532
+        },
+        {
+          "name": "places/ChIJg9x5OkN6ykwRA5WIzot6PmU/photos/AciIO2fUToqDhwYgB7rdGGqGNQ90Q3xXedj3bMTcfXUrFbiiO3E03608HHReNnmjChFriaI6FBrPDVYQyHEUh64qgi5Q0eG81F7lYoGN6QffjQiq9T1Mm7ZQB8FTwpbPExf4prXhqTc_tVY4URApPDtHjrYTstidCLrpc-X0VzHvF4rn1AQpSrg8aoOTHzWBqQgM8-uPqXI3t_8GvpDpFe6uLx0a8h8wJRsGy7uQTMWbX1ZN40QS9ZAf95WOppJmz4jGglEBqLx_w0JTMleG4QZbSrmQ6qLFQNMA9x4WNWWtjV2CHQ",
+          "widthPx": 1500,
+          "heightPx": 1500
+        },
+        {
+          "name": "places/ChIJg9x5OkN6ykwRA5WIzot6PmU/photos/AciIO2fX2O1NBSzWtXJOPo9OY_1rEdsAg4hPMNoHuLv9DfhVN8_o0g9Xs14UU_7Vqv78A_rNPbChjxhzHRIhA0fy57fibyqaHjMgCLUO0nW528NunbU0Y4efVxrlpRNp5V-IsFhkwDtcbhtDdGVs9p-RADKlmXCzmF_JVxIlofpPyQJonZxQe_pk3WwsNvwgKLipIJfld8LbYHw8Wz-6JBmbwakNLT8r7ndHrIRfbwFRHTKel13Bz1xqPzChQC8nfOCS6ymK--r2tqeVikrFKf6EWYBTrPfKf3ctwns3VWxkWYjJVA",
+          "widthPx": 480,
+          "heightPx": 270
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJNV43oE4a4YkRQ66ucgnKohI",
+      "display_name": "Jones Rebecca M MD",
+      "formatted_address": "138 Elliot St, Brattleboro, VT 05301",
+      "location": {
+        "lat": 42.85093,
+        "lng": -72.56175
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "point_of_interest",
+        "health",
+        "establishment"
+      ],
+      "rating": 3.7,
+      "user_rating_count": 15,
+      "current_open_now": false,
+      "phone": "(802) 251-0958",
+      "international_phone_number": "+1 802-251-0958",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 8:30 AM – 5:00 PM",
+          "Tuesday: 8:30 AM – 5:00 PM",
+          "Wednesday: 8:30 AM – 5:00 PM",
+          "Thursday: 8:30 AM – 5:00 PM",
+          "Friday: 8:30 AM – 12:00 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "http://www.drjonesdermatology.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=1342857780837396035&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "Brattleboro",
+      "state_code": "VT",
+      "postal_code": "05301",
+      "photos": [],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJd_Gwb3Ld4YkR5EaYVm7ZUt4",
+      "display_name": "Mt Ascutney Hospital and Health Center: Dermatology",
+      "formatted_address": "289 County Rd, Windsor, VT 05089",
+      "location": {
+        "lat": 43.487438,
+        "lng": -72.4028699
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": null,
+      "user_rating_count": null,
+      "current_open_now": null,
+      "phone": "(603) 542-6455",
+      "international_phone_number": "+1 603-542-6455",
+      "opening_hours": null,
+      "website": null,
+      "google_maps_uri": "https://maps.google.com/?cid=16020105892432725732&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false
+      },
+      "price_level": null,
+      "city": "Windsor",
+      "state_code": "VT",
+      "postal_code": "05089",
+      "photos": [
+        {
+          "name": "places/ChIJd_Gwb3Ld4YkR5EaYVm7ZUt4/photos/AciIO2dldeTkhnAwdvQadwDaaNS1WSoFLTzk8k8mxJOpLRhHtDajDYZnhM-d-vdttuILUeOozWabnItG61TUIsu2OY659WYqtCSI2NVHq3nLO5jJkrPa5kJUC__C5qv1IkQtZt8CpuSUnNx7Bl8a4GcCLPurMvJpUSpIwXVd2TbkFxhDbidsH-6LSJTYsSpDkI83usspmVnyQvif_TIPHajpwmlLYhtRaH4kCiLQMWZ6KDK4lxVYoDEvrgVeBzb4K4fkWtJqO8zB5U1EcEbuKgo7JByBhonic_EPMYVdHpmWhl9a5g",
+          "widthPx": 2016,
+          "heightPx": 1512
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJKy5dFkMHtUwRRzbqvTS0Vpo",
+      "display_name": "Alyssa Fischer, MD, Dermatologist",
+      "formatted_address": "130 Fisher Road MOB-C, #1, Berlin, VT 05602",
+      "location": {
+        "lat": 44.220258,
+        "lng": -72.560761
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": null,
+      "user_rating_count": null,
+      "current_open_now": null,
+      "phone": "(802) 371-4280",
+      "international_phone_number": "+1 802-371-4280",
+      "opening_hours": null,
+      "website": "https://www.uvmhealth.org/providers/alyssa-fischer-md",
+      "google_maps_uri": "https://maps.google.com/?cid=11121274468455560775&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "Berlin",
+      "state_code": "VT",
+      "postal_code": "05602",
+      "photos": [
+        {
+          "name": "places/ChIJKy5dFkMHtUwRRzbqvTS0Vpo/photos/AciIO2c3uhRDGdJgW4ZhwvYOCVZkbB0-p8Zs8Lpbkma_63Hw08GvvakzR1IP7bIEe3B49mb1nCwQUcoQtvY6zR-A4GsmbWK2js-TT_aEA_zUvDjre9_B_A-asGzaYY4bt4FWQAKGGtHKpMYsP_HaYH6Lt8RY2VwoxxET7cUsRIB_aR_hs63VKJY9IXWwmwT_F_1uYKXBmx9A9GdcOfQI9rRi8LUeX4AEmxA2pbdhqxRnqNhIHI0d2zhqDanaAASk_kFSueOS3ODRG37v-IPSTLExlPtgI_C3TopfVTCTifJZ9GBAFw",
+          "widthPx": 1500,
+          "heightPx": 1500
+        },
+        {
+          "name": "places/ChIJKy5dFkMHtUwRRzbqvTS0Vpo/photos/AciIO2fr5ChNzMG0UTL_3QKFnNiDJJcSOQFY5jzsR-uJdKWq9RAxd_-6KahGB_tqrmX5aBlVMe3_fLdpd64aI43f5DH4IVRZV3GQ9c0V9WUklLqujA5PnpOwhl2iJAkZpoRpVA3oZf3mblX1FjgKLb7EwVJtXodNzNTXbiOS7AFujirolniqZnKe4joTqZB1J8_e32iiH3sNOkb6yB2dfoBpdBn-wITBtUpeY-NNOF2hSeKmI9999FMxZC5kwIUAmzpDJJpd1lv8s7SWFXlT4VjdXS9Udw7dZMUBnnAKQwqAs2YBOQ",
+          "widthPx": 1500,
+          "heightPx": 1500
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJ2Re7yL97ykwRqRjB7KqEx3c",
+      "display_name": "Stephanie Neider",
+      "formatted_address": "30 Farrell St # 200, South Burlington, VT 05403",
+      "location": {
+        "lat": 44.4473308,
+        "lng": -73.2038893
+      },
+      "primary_type": "doctor",
+      "types": [
+        "doctor",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": null,
+      "user_rating_count": null,
+      "current_open_now": null,
+      "phone": "(802) 582-4900",
+      "international_phone_number": "+1 802-582-4900",
+      "opening_hours": null,
+      "website": "https://www.northernvermontdermatology.com/staff",
+      "google_maps_uri": "https://maps.google.com/?cid=8631013080530229417&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false
+      },
+      "price_level": null,
+      "city": "South Burlington",
+      "state_code": "VT",
+      "postal_code": "05403",
+      "photos": [],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJq8qCIM9f4IkR_3-E0VZWTVI",
+      "display_name": "Sterling Aesthetics MedSpa",
+      "formatted_address": "4686 Main St, Manchester Center, VT 05255",
+      "location": {
+        "lat": 43.174698899999996,
+        "lng": -73.0591822
+      },
+      "primary_type": "spa",
+      "types": [
+        "wellness_center",
+        "skin_care_clinic",
+        "spa",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 5,
+      "user_rating_count": 56,
+      "current_open_now": false,
+      "phone": "(802) 768-1699",
+      "international_phone_number": "+1 802-768-1699",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 9:00 AM – 4:00 PM",
+          "Tuesday: 9:00 AM – 4:00 PM",
+          "Wednesday: 9:00 AM – 4:00 PM",
+          "Thursday: 9:00 AM – 4:00 PM",
+          "Friday: 9:00 AM – 4:00 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "https://www.sterlingaesthetics.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=5930491215199109119&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleRestroom": true,
+        "wheelchairAccessibleSeating": true
+      },
+      "parking_options": {
+        "valetParking": false
+      },
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "Manchester",
+      "state_code": "VT",
+      "postal_code": "05255",
+      "photos": [
+        {
+          "name": "places/ChIJq8qCIM9f4IkR_3-E0VZWTVI/photos/AciIO2fx8F2I_EnhCtQSvhSZHga5fO0spLMdAU-bif0uJQ27GEAYDTfZ9kghomUrCa_PvqksmZibmF5yNEOpaAJ-baMQzV0U5N3XoPvIZOXqWeVy2iXPPYi_NDyGJnD9S3MMrhmtAt1EtI_zzneBmlc-ImMJd-IFk4zbm3wH-XkHgLCJrVZxwvkpU4QjtZBbGRCyoEbfUoCm3Vuy82CA9MBRDTan9mxg-s0c6VZZ1zKQ9HCSIeq9pHvyYFWW1aeaXroKW4iiXYOKstpBtK-mpp2uTLgUCtvdUHB2tULzbFgQ3Qk",
+          "widthPx": 2316,
+          "heightPx": 2842
+        },
+        {
+          "name": "places/ChIJq8qCIM9f4IkR_3-E0VZWTVI/photos/AciIO2dOoD_699rgIDnmSW8-Hanm4qzVNzTNSYPwvVsDTGoXHuhf91bjAVGfszEPs_MxpIUKnbu303ABr-m6WwfFcjmc-Te_-Id-d9Df8fYaryUpCuRLoFmdX_7BhBL3J5TAa1TNUXw76S17DzdyK_U8eVWYPm5OrqhIz7O8C-qhytMknbxYAY7BPCjPalKrUnmTZ7w_I3NRcsY3grIzshowLYTA4ANa5y5dIhwN9gu9UnmRF0zsiDFeI1B327bcvybuUVp4nC0Y0hg2fT8I88e9L8wBoeaBYph5OJdMLrSXgT8",
+          "widthPx": 3037,
+          "heightPx": 2199
+        },
+        {
+          "name": "places/ChIJq8qCIM9f4IkR_3-E0VZWTVI/photos/AciIO2ffCvNw2Y11ZuAHLpKyXoYLidZ7t4KCxUs3qSExPpAGD6p7djcyZ7a6L-v40XLjI9VDrct6qPZnRGqD6lLqAGvy5W7ujrb0PRhXPysEN5iq7sp2Ao2kh7FiwahVx2r_PH8U0IcpvmLP4HySwBdeyREtEXbqxX2j-0GDWZaRCp24UWkIJO8rbQ0TCuR1i8LkI7fdqEp-4KnIO7sc2Z9qCPoBZdVUSJVP5LpH9yb7vSCx4QZt15CTfVL0hpzjJEbnIfDjJ8A6i847kTeXWjkW5DAiLIdg4wLYCupenPGDz8k",
+          "widthPx": 4800,
+          "heightPx": 2353
+        },
+        {
+          "name": "places/ChIJq8qCIM9f4IkR_3-E0VZWTVI/photos/AciIO2f3N4KGZn9n8clfwxHgcKSUubF9oD_B6LOtMgIb1wiFX0OMDXw978epQQWeW20LmPqEuIuakaZcAfJnfuzbsTtPzQ3WCXtAsU-9bM3i54UNbfh_7AppkMB4mV2ZutM5WmYinnrtYIpU9PBjONccQY_SCxmha3LZXb5IX3p_tD_NHJjPY-dzSu6NNXBVXZozurmR9WCoDVj_SJoDXRzmseBWii3IU6FT1llG-Zxa1NtQZMI1VAvDRX9k9qjRbH6aNoIumgg3097QxnzuQreypRaEAwyM4oszR93bJ-_kdYM",
+          "widthPx": 3438,
+          "heightPx": 2490
+        },
+        {
+          "name": "places/ChIJq8qCIM9f4IkR_3-E0VZWTVI/photos/AciIO2cvB5Xmy-jFGhE8Xa44jmVZ23DFh7CRkSMjlAzKpSafRo_BCAd8kuK6SbRD1OblfALrJO_e09EmbN1Kd19WsAtvOMC6ggcER479ujWyY0MGowJZH4TDVPjK55l_EPRmn8cFODc1dkLGAJEwC0USc-VDJ58oceoOdVJ4w-ddhuGbUgW1CWvGXxdHeQpW75QhITCJ26Xk8yHp5ofSvDNvpb2QwH3Nb0c1p_9ihs6Yf4YEtFHHtWn__m5oefOkY3pQyH_X1tNRA1NX1KdwBWkH6W6lcRBrwE-DP4jms6rM-TM",
+          "widthPx": 3960,
+          "heightPx": 2419
+        },
+        {
+          "name": "places/ChIJq8qCIM9f4IkR_3-E0VZWTVI/photos/AciIO2fU4ylR3pDpkJYWrYISklbIA4a8wFiH5AS2iGyGQSZMbmeojUFsL1yBmYsD8rnobomz25_ojTY9e5npErUXpw5B6O1XkAYRos8WPl3nF0QAe0_9DWpq3BeFa8TQHV535OVwG7ksTECV_Dks8e4_XeD90qvP1VGUIhze3vTFT-8JIua5vPP3_K-m4y1D6okESCB8DlOKOO-OE3oermT6ivb8C7jRcis0mEvguJ90OwUf7_eMDhnZynY0hXJ4pWIw4OQtYUh7pF96y7Hb_YN6oWMPzOP6W5C98hsUTUFc8LM",
+          "widthPx": 4005,
+          "heightPx": 2815
+        },
+        {
+          "name": "places/ChIJq8qCIM9f4IkR_3-E0VZWTVI/photos/AciIO2fLV-1nGknh0eQSQZleSevj2sIwT4M4K_9GGB39ZAkoIXEjEMUvWKpOeKofEwzODsIVEzalc2uY24_P3fBKyGon58PnMou4wNED0QIqhZNbNbkpiiMybK6t-xRhrzcFeB8gyj9rmk-J6KjDOE953U6q6oY_YYSYsjO_6lLUioZVUw35Jb47-nhNN5w2htJOMrELT7Xj79d7abS3l2DeM5Da3czQxXtKbiAESWwiQUO55MIDSPq3zNGFFjZzuwPLOhcgNEqFMntjLrAmkuEG8uhVQkSqSPpDNLxnxjdiZug",
+          "widthPx": 1380,
+          "heightPx": 1976
+        },
+        {
+          "name": "places/ChIJq8qCIM9f4IkR_3-E0VZWTVI/photos/AciIO2eTVlgbAmsgROai2riMQDJUYE44KPXQvhdOmi1U72IxSUimDJ1iQtxITyu35GkkQHgUgokgj8n-KBHQQ8MeaMyHXBwmmMhkTUst26AfnkrxU4gkX1aEBY90h3zt56dStbTYNuTlrA2w6dgX0_OkmU6ohwCrfXN5aKORrSm_NOwJu8lKHJ7K55ZytFQqq8Ch5soeDpTvyfqB-lPYxS-v-AgzjBLDOEdUEKP8hwxiR-xGUKN1may8H03E4DnDS1xr2USSGL39-v-NX3DkhEwQikcWS0RCVM0jH97RoBGL_SI",
+          "widthPx": 2319,
+          "heightPx": 1099
+        },
+        {
+          "name": "places/ChIJq8qCIM9f4IkR_3-E0VZWTVI/photos/AciIO2fYsxLrnnzRFzOZtl48Vjl9vx9Ic1Q4UsOF8A9XHU2XC1EhKRmg_ajPkYnnTal4Kk7bRrI4E7YhPdyr80AG5EAcff4C2ldXaRJ8swyS0jSpFXkJakNqmsvVaqotyNwtPSprXBLPtscbti29B0IlxwCmCLnVrhyCLYLYeS1JtEMDESCma1lqZsfiS460zcloN0W-NXWW96OUL11iH02Lv7K7aXXWFWgYTYSJgxPqheTJmIyhdrvqEKPG5dlV8KFWB6Xq4Zh8N5pwb3L7oB-x1IF-CEfgKc73ufSyp168ADI",
+          "widthPx": 3630,
+          "heightPx": 2661
+        },
+        {
+          "name": "places/ChIJq8qCIM9f4IkR_3-E0VZWTVI/photos/AciIO2cTM8IqWNDGHmy999Du5xX5-I3YxG4uLp2o7INjezKOsAPUGWKMohOwh5uYyru_cnOR6UFFmyGkw-ey9vMGGG8mwVid-jtWRevPOCuxzq_uCI1hkeSu3aCfoGVm6QeIJGoxSP4r4ZFQfR7YM_GpRF2wE_L04cU5v4BfEMvf_XFRIiE84QhuDfvMDF5QORY6VIEjtkFOdu-yc4oBLHD5k671jMYBH_Hc-pw82qmWasHFMc_dnyb2b84sCkjZKLE61vUUVbFIJKZx2HpDZn2b_Q5iOqZDuJ6OY7Xd_EYZbeE",
+          "widthPx": 2685,
+          "heightPx": 2699
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJq-cTiTW44YkR1-qA6X6JnGE",
+      "display_name": "Advanced Skin Care, Spa & Wellness",
+      "formatted_address": "365 River St, Springfield, VT 05156",
+      "location": {
+        "lat": 43.32157,
+        "lng": -72.50650089999999
+      },
+      "primary_type": "skin_care_clinic",
+      "types": [
+        "skin_care_clinic",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 5,
+      "user_rating_count": 1,
+      "current_open_now": null,
+      "phone": "(802) 384-2977",
+      "international_phone_number": "+1 802-384-2977",
+      "opening_hours": null,
+      "website": "https://www.advancedskincarevt.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=7033647896222296791&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false
+      },
+      "price_level": null,
+      "city": "Springfield",
+      "state_code": "VT",
+      "postal_code": "05156",
+      "photos": [],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJQzrDql97ykwRDr2btMEA-nc",
+      "display_name": "Prism Beauty",
+      "formatted_address": "Riverview Wellness Suite, 321 Main St Suite B, Winooski, VT 05404",
+      "location": {
+        "lat": 44.498364699999996,
+        "lng": -73.18396369999999
+      },
+      "primary_type": "skin_care_clinic",
+      "types": [
+        "skin_care_clinic",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 5,
+      "user_rating_count": 39,
+      "current_open_now": false,
+      "phone": "(802) 560-5655",
+      "international_phone_number": "+1 802-560-5655",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 11:00 AM – 8:00 PM",
+          "Tuesday: 11:00 AM – 8:00 PM",
+          "Wednesday: 11:00 AM – 8:00 PM",
+          "Thursday: 11:00 AM – 8:00 PM",
+          "Friday: 11:00 AM – 5:00 PM",
+          "Saturday: Closed",
+          "Sunday: 2:00 – 5:00 PM"
+        ]
+      },
+      "website": "http://prismbeautyvt.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=8645223266649881870&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "Winooski",
+      "state_code": "VT",
+      "postal_code": "05404",
+      "photos": [
+        {
+          "name": "places/ChIJQzrDql97ykwRDr2btMEA-nc/photos/AciIO2eJGwbGCXQb90OiUXTbeujHadKf5pdajPqC2PogbUiLka1qeKkRSaJPI5DXcidPscmLnrXE2Fn43uwREQRGyhagPOZVrB-lXNd4htFMI9xVGQWPlzxQWdko7H523_Ws39KfgOBWWeuOnc-EleUD4CW5PLughbJzshKynfGBLcY9-u2f6sSJjyvrvBk7vkrG9p4WeIOLTwYlJdxYrSrdQ_L36xNyDCqSolvzniS-eJqKu02JxjiaNsdt2Yc250dy9wYeHf3wwy3RJsYusH9OCEJcB9j2ugeifZU0EkE5_ae2Ag",
+          "widthPx": 1600,
+          "heightPx": 1013
+        },
+        {
+          "name": "places/ChIJQzrDql97ykwRDr2btMEA-nc/photos/AciIO2czJg_ehcH8R_qCmI3q_CnmMgrUBjO0i_gDYo3uhlWsrtC4RnQgRi4zlbA8JQmF1G29cToFvq9jLm1eNoapOMrAsjcmDYlJylPAuvNmnz9A-l1hKVGreZSTQVDRQ4XTmn05gPjACoAzSH7SUxWlUzd29RgJZ-jz0__GkYExeDJVw6lNGW7xyovJzM0HsMJsKQtdkEll8JVq9vl9d7OPjTEvkRKdBcapM7DrB1pYpFMD4POj7NAJkloswlZ2cFMgvoU9xoWyynxlxsGh7vSQzoqci2hytSC8rpmxCLQPokCUOQ",
+          "widthPx": 1067,
+          "heightPx": 1600
+        },
+        {
+          "name": "places/ChIJQzrDql97ykwRDr2btMEA-nc/photos/AciIO2dScoGrDav8eKtgZ-BdWKEsrdu0oKIzCKoZSA4YyLQWZK6sVL-Kw5IFKizWvZoqjLb-r6ItnOfuXa79o0qzBcPsjrDrZJvu33hOhiGFeM06oh0p67SkXNoXC0B1OZvED5JUdgrEdh_IBwKelnqKmRfGVasqOETsxGLZRjGTOAMeUpq-erdKuydpt_8UYWCCONS4LdaSf9PI_enFNM0l_Rapg6KbNkRMfsyRkHnrPQgZMAX7ez4Da1szAIrLXMI6saD22TPLlVcEDtuguIqKci5DTb_AE2JmxWqJQXL3Vl_PeA",
+          "widthPx": 2592,
+          "heightPx": 1944
+        },
+        {
+          "name": "places/ChIJQzrDql97ykwRDr2btMEA-nc/photos/AciIO2d4ePEupdBx0WL9390eX5k81LITkv2Urz0KwpNysHXm37f3EZZr4EPknMsxh9JVOFo8sslEn_p6081Wl1Ciq5hwHs-evrCF6CGs2Jx-_wLJd0DQ0nHgXMlBwLFhevE0hHTILPQ2wCoOKOCwvvFjhA4x1XwaacnvEGZrsnJYVv1I4pZqEiNNJ6O-DqM349TIweIbPuwr3rghgHefHhg6t7UHJuEVoWtiqiHRSBtq7WeXh0f9Cu-MWn9oAkf_3yfJqFAoQi2Amvrov9Gn6fGjoqt1jopJ-y3ueVlCXHMgwO_dPA",
+          "widthPx": 1600,
+          "heightPx": 1067
+        },
+        {
+          "name": "places/ChIJQzrDql97ykwRDr2btMEA-nc/photos/AciIO2fRgqAtpF0BVNt1wW91kljGBpBFby153QnV5TSb3qFKjF7lbgta9FdDSC90ETuLvFaPEmS7p5Lu-wkHFtQp1_y-2HRp50bmacdfs6a_KSyBp-wmnFDTbD8gzgvMr7RpHDR4tTqvmbdTHC4YD8aAg_hEuGgLoA9uGUey7-Pz3qZsvaxQKuGdtz5BJ4DxxD8-xxKOKkKlRVkdACRe2aC57fdk_5uRQIJIcK6nMIKssjpZcBTHTRLCSeyO9Sd_0sBbNoo3AexJjRhj8LiFwbhY_hDgSMiYm12qSgvXoS4bU3cuhA",
+          "widthPx": 1600,
+          "heightPx": 1067
+        },
+        {
+          "name": "places/ChIJQzrDql97ykwRDr2btMEA-nc/photos/AciIO2fV6zvLuQgJ0OTnC_C7RgyrzmomrPAjjMQvzpUaq3B5avb1hG6O2gmvNFkDfbrlVU7jmRiW98pt1K6z0jAFsMtpVWgdhsvm06ApOj4pj7BXQ9EVzM9j30SgHtfcS6zZgrHiDXxWuJ23V20YlLfbiygWjEaZeRVOqQSrT3A8WJbUI6j31i-SzgZD28A_1duS2W1NiaTLkD5664gMGxbybzgaZkpRbswlLeADySshUsJG9j0OaAbyYifUEO0Yxk5VG2KpMpK41Q4jgrb-qLq2l3BbISkhVwbMDR9ijTHOSWrkaQ",
+          "widthPx": 1600,
+          "heightPx": 1067
+        },
+        {
+          "name": "places/ChIJQzrDql97ykwRDr2btMEA-nc/photos/AciIO2dH7VLXHriWMVE-eRuTHLbwS6KCLMQqbEbP_Lr71cCsD8ZYkiy-CKwZPEarPOKGRW_tn8_JIfKqwM5uqqogJhndk0CS_NkbAJX_FioO6CvlmlPVh07QyykLthti1re2ZiDLKdoy4QrX-iLBPdQrtkB7AoQzYk_T7TGWcWbL688bIn8bUKfz2KK2SIHBXao7E8sU1Qa7H1igGN65N7kh0mA8TrjrK5NjVWtulfINhsTOFbC4i_3vc7Q1dkPlPrv6digJN4CtbxrgDiG6t7DMvregCbKphC3sRl6OBmUDFK_VwQ",
+          "widthPx": 4096,
+          "heightPx": 4096
+        },
+        {
+          "name": "places/ChIJQzrDql97ykwRDr2btMEA-nc/photos/AciIO2dYiIkKVRgpRAvEWjInTWm31PD8faInB0-mhXWTblVzWiI1jNoTEYIQqow5nirzaDkhAwfUQZKQrsFrjKQRvkejVVb0V6mwl1xX1SK4ic5sN8tkQV3UOk5T3VbWiwuteTi8146VJC4ATeElSjFcd99n71PwXmkxWy2KxDGS3WBh2elVsJHpmzsJovc_BF_OtK7Q4Pn-70Zb_UCQDFIg7_sz6uJFJZnW7eNQ1JKlT6p7r71gm34k2NXhRADhfuVp0XDSOV6Cf48l1aHWK1hCktX0eCDSFE0VgU14c01zWNZMVw",
+          "widthPx": 1600,
+          "heightPx": 1067
+        },
+        {
+          "name": "places/ChIJQzrDql97ykwRDr2btMEA-nc/photos/AciIO2dzUVj7hV_s6sWNYbL0kgAxVFakM-VdEAx-uXXjrxw2eKoZZb3P6_ehbGrFJtY7WnF-v6BkzO-3KUxIEy7rP0NNGi4W_xdxSL_TzIokwY8aYI-16cQpOAxHjgpWkE0vl9kOgVveIXLR9B95mOCZwWfAggkowQkhzjKQAY4ukZ7Lehi_46QKlWMHvt0r6s0d_VKv7veb7GP-APrIsthRExMjNHPKqGfp_0wmWlg7WtL2K6swzUzXKnCq3KQLRpb4-_-PLrzOObsKI37AXYj0kGUX_U87GEYe3_lN-II77B_FHQ",
+          "widthPx": 1658,
+          "heightPx": 2529
+        },
+        {
+          "name": "places/ChIJQzrDql97ykwRDr2btMEA-nc/photos/AciIO2fjlRmrVjtX_tknHsXT69ymJ62s1PCh9CZapdCG7AxPcEdIrAS8xjTunh6Jqzkjfd1HZuK5N_CPKfyuOKE-Ux-8KY-RBuBSYO2qyrRpvXLAQQfIF9sm14TINI5AU5Q0pu7MFGWvtINRlhNhT-iCysyqFw3hM0OqBxela1fI-ERrsByLgINnyqf7spEZZ0HVmPy-RnFjF91x6Tvb3e5hWtS1hbFA1CK9IbRy5ur6hQ72KsFboPCfHNoWVA0rWy7BM_qODlCctFmEEv-Tsr6nj25-xjFI7uDS6-HmOXdO0X5kig",
+          "widthPx": 4096,
+          "heightPx": 3276
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJBytb79nB4YkRET7z-IX3TQM",
+      "display_name": "Peraza Dermatology Group",
+      "formatted_address": "252 Broad St, Claremont, NH 03743",
+      "location": {
+        "lat": 43.3654727,
+        "lng": -72.3357628
+      },
+      "primary_type": "skin_care_clinic",
+      "types": [
+        "skin_care_clinic",
+        "beauty_salon",
+        "hair_care",
+        "doctor",
+        "body_art_service",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 4.7,
+      "user_rating_count": 189,
+      "current_open_now": false,
+      "phone": "(603) 542-6455",
+      "international_phone_number": "+1 603-542-6455",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 7:00 AM – 5:00 PM",
+          "Tuesday: 7:00 AM – 5:00 PM",
+          "Wednesday: 7:00 AM – 5:00 PM",
+          "Thursday: 7:00 AM – 5:00 PM",
+          "Friday: 7:00 AM – 5:00 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "http://www.perazaderm.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=238118510099906065&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false,
+        "acceptsNfc": true
+      },
+      "price_level": null,
+      "city": "Claremont",
+      "state_code": "NH",
+      "postal_code": "03743",
+      "photos": [
+        {
+          "name": "places/ChIJBytb79nB4YkRET7z-IX3TQM/photos/AciIO2eL4sH9PZ3-JsZiAzMiVCKp6ek74lwLqxPJ8fqGj4a23iUwBTytxevRptaUA0NukYlVEm2fOUxqeaUm6u2ICYT7LiLsjvQO8xjraD1dcynKfY5yvvzGnqTBUQhcjBovQhCpSV1RGyGOHRqyTEzmUrn-PZf2pa1a_rLu6dgA8bMeIhAQTPIY4LVIoWLePEx_a_WB7qo3jlFI-FRBcC2j9IjIuejHPNqve0ju3vWB_VqRqxB3TPQbeYzOzM63YsdIC1Rve4x2qp_barcr96mcvUcn8ieqxTAlJUW6ETvh7f4K6Q",
+          "widthPx": 1260,
+          "heightPx": 400
+        },
+        {
+          "name": "places/ChIJBytb79nB4YkRET7z-IX3TQM/photos/AciIO2fnP1MqLheHpQXGXfLEANcM85-M9eW0YfCEZV5rcthy7n7OG-vVNhI9U36Jz_nTw8sksYoG1C4SHoLsZpoTRpxq5wTdokcgeU020Eu2kZ2rVhJEhIb3mbZVg2WwRhtjYbY5lPiyh30E-KO5UzSVMWsKHCTauFnSjiZYyLYQkumhQG0ZlgQb7O7FOWxYVEfgxrB6tFmvtvNnnt3BYiMrnnQmaiWdTlMuNMBO-WZ-jdM-0YdynqXXJ7PSdkIv5CLZT3s1jfrXO8vm4o83c5HyKaXHlZYh4WPdLtMgZ6HgigxgmA3ESLic3VJ0gkYNUlM5lka9ACLitcDvdPogiWqFYddpjc-olff0gvF-7PWL46cnoPi0KTm79ZS3Mha6xQQ3dSohsZeifu8gOJ6nT0041MhEf0ivs-fuCLyAzFqjPTDEVw",
+          "widthPx": 2560,
+          "heightPx": 1792
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJk_Dovx4bykwRP9G84PwujWs",
+      "display_name": "The European Touch",
+      "formatted_address": "555 VT-78, Swanton, VT 05488",
+      "location": {
+        "lat": 44.9310907,
+        "lng": -73.0890384
+      },
+      "primary_type": "skin_care_clinic",
+      "types": [
+        "skin_care_clinic",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 4.8,
+      "user_rating_count": 17,
+      "current_open_now": null,
+      "phone": "(604) 506-7810",
+      "international_phone_number": "+1 604-506-7810",
+      "opening_hours": null,
+      "website": "https://www.theeuropeantouch.com/us_skincarefan.html",
+      "google_maps_uri": "https://maps.google.com/?cid=7749902197411598655&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false
+      },
+      "price_level": null,
+      "city": "Swanton",
+      "state_code": "VT",
+      "postal_code": "05488",
+      "photos": [],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJGWWcZdUm4IkR3tnZvcC6BI8",
+      "display_name": "The Skin Studio-Facials, Waxing, Spray Tanning by Appt.",
+      "formatted_address": "256 Thistle Hl Pl, Rutland, VT 05701",
+      "location": {
+        "lat": 43.666145799999995,
+        "lng": -72.9516407
+      },
+      "primary_type": "skin_care_clinic",
+      "types": [
+        "skin_care_clinic",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 5,
+      "user_rating_count": 22,
+      "current_open_now": false,
+      "phone": "(802) 342-0660",
+      "international_phone_number": "+1 802-342-0660",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 9:00 AM – 7:00 PM",
+          "Tuesday: 9:00 AM – 7:00 PM",
+          "Wednesday: 9:00 AM – 7:00 PM",
+          "Thursday: 9:00 AM – 5:00 PM",
+          "Friday: 9:00 AM – 5:00 PM",
+          "Saturday: 9:00 AM – 5:00 PM",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "http://www.theskinstudiovt.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=10305567184312195550&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false
+      },
+      "price_level": null,
+      "city": "Rutland",
+      "state_code": "VT",
+      "postal_code": "05701",
+      "photos": [
+        {
+          "name": "places/ChIJGWWcZdUm4IkR3tnZvcC6BI8/photos/AciIO2e-XyIFmF0r87vE1Fgnay3zJn_d79ROWC7CijanpH4YRl92feC0nNWXwYDfGAe5Zx4fXCD44ubyaH-21rd4rMf1t-VA9KvkCZdoMy2rvuL-ZrsVYeCXnKasNzpgN3Wn_nQuWYSyWMuqlEs6Eh0Ztwk0TzoPrOaeKQ_-ZU29kvvy0KBHO_uYFGw_GhbZdkxXGep8CJj-5MINbTNILEHRLKtQ94W0ulkK6e0ZlnL162-XHd__H_KkuJoMMpvpY3YvE59wFoWyDAkl-q5YmaKjwlypPmycCMHs4xfoIH1nmWUPhA",
+          "widthPx": 640,
+          "heightPx": 640
+        },
+        {
+          "name": "places/ChIJGWWcZdUm4IkR3tnZvcC6BI8/photos/AciIO2fqM0P7O3YvG-_iDRNtlk8m8J2IfuSGwQ_X_Ldwtlr6ObR5DVe06MXu2JM1Bt2IFhAS-rtpu2MRM9ihrKtaSDrt6-iQvjIP55jAkjkKtSlOegfQSiOrMSr_gsl4YgDtdGHSalkqz_ovWlafhMeRl534r0agMIJWWniq-pAkKB2Mw06Qw0hyB1G0qKLVRxaACnkglrX6f-Jtj75fFci-5Ru-AJPfkHboeJI0A9mdW9-uGCwf5IoOremOxdmvQp69qx9Z7Pm6CV_3Bme7IhvgWaqUoXI2HPSnnMwTWlgMPhu0tw",
+          "widthPx": 3024,
+          "heightPx": 4032
+        },
+        {
+          "name": "places/ChIJGWWcZdUm4IkR3tnZvcC6BI8/photos/AciIO2chCIj6ZvBzPNz4yhicJhfXnDcsQE_obhiAhCozbL2-m7PG6Jn1ahaSc-ZI80ftVPNLsB6KBTKgNAY7vJNr3woeNLj-mUbFSeQKb0wRkBvSptuaAIcBqOj3-s-vC3gwd_3teGxI6V82LfQRF99QwQEcPS0jbCBuCJosdETnZz2W45fcp9fP3XSSWo1aJ6SZef6dn2es5ixidYm7I50RjpXy5HE2RE8xJI5tTJX99MQlTNB8JoYWosclK2KDlvlWiiA0ra-54fIVnHj8ccoJnCyT-AtBiEQsYGDXh9lkRLLQGw",
+          "widthPx": 640,
+          "heightPx": 626
+        },
+        {
+          "name": "places/ChIJGWWcZdUm4IkR3tnZvcC6BI8/photos/AciIO2fH5o_JyG0XrNQqFp1tOVzEAS3eY0pk2dhZjtEWRDIw11nYI3ynHnD13Jt2977PmUEXvCu38RRsGuRA4f2LVcgruB9T2jlb0veqLLxK8TSmLUPVd25lIqYm1oyt1xhyBgw4vsggbCJgi3cZOmSJVaYi6JkwEsKpCB7o_KK-gT9c8xumhpIJq5v11k0fRm_fhj6G9IE73a4Lq1Gk4Prv7ZSGT1wfk0ezLmj2VHcr4xasnIgZPX3OyB-HaD0UMAnUdLvLxAq4jyBpqnxY78_NdXRVg0bCH3axyV6xn27mqO45oQ",
+          "widthPx": 682,
+          "heightPx": 1024
+        },
+        {
+          "name": "places/ChIJGWWcZdUm4IkR3tnZvcC6BI8/photos/AciIO2dYppHSAcdy7lTTfbeJg7yhRbtAUrzyI3fiBBSXYtcxrv4izxxAP3feiIKrb1anzhSC3y5Ea10-1VNkUYH7c-XVD0BXKECNh4x1OhzEwtZIl734B4CXX0qkGzP1wEJneR9Y47ktmvxEzjFEoiPcEO53cv5CK4M3uZNnRjGnMxshHSQOqbwhu4fLx0SaCxsxKHIZeVZ3yWyS3juLmUaJZtwHi5ghWAFoiMeSoE4IGZhZ-ByeVuYNGkQE2KTHiCjbN6cpabE_8VaQyn_x34psr_2Q8Uiag4dmoM_Mdw4Vd91AAA",
+          "widthPx": 3024,
+          "heightPx": 4032
+        },
+        {
+          "name": "places/ChIJGWWcZdUm4IkR3tnZvcC6BI8/photos/AciIO2eIy5RCljXvBbmoxtTmeKxwO1lygcMsGOrYJED7jRkILDp-s4keFFXdUMG5cSzDKKKWR8FhL-fqrbfxD6QYD9lUHnsQwxCaFrtgl0bXXjZfQaOKwEpnOCG-iKBJblLnzyzfYJnj-uP8Qhe4vZOVpyrvtYOVX9E3mDwg9MJvmhqv_v5RP2V6QvA0nBHQHPmEtazA541tHSIFCj-9SJ-luLv4AFnb8X6caPzkPiQVWg_kdKNP6oPTNpT-lsE2JjDs0UqMDmmKam0pSrXOVSIKxPRCl6RiOOQou1oWEVB8q5jKYg",
+          "widthPx": 1242,
+          "heightPx": 1518
+        },
+        {
+          "name": "places/ChIJGWWcZdUm4IkR3tnZvcC6BI8/photos/AciIO2etHUpNGLZEZ3Qy2v0aFc_DnB9H8F447nRdru46BSO5OiZUd8BwUUqQ6p398LlhjmqMN593gePMo6usC1kHJXYzfyXLUdvbsG_JbJkr8RwdFIaQ6pEgejkWZFCrBl6lBP5Akx8XQVeC-Ti97C7xZuatjD4KsqefWzHkkPFS_lLkunhDE0RzOwPs2GUgxHXN4ar6e1GCUdtR6AQHAfc-UetF-shNkVicIxO2fjdkY4SFqsecG-XWUt_zRYfzVOhrLzIaXEbt8oUiNcd0GcRDEeb9ScbFR4KIKvX4-xoqiEVAfQ",
+          "widthPx": 346,
+          "heightPx": 435
+        },
+        {
+          "name": "places/ChIJGWWcZdUm4IkR3tnZvcC6BI8/photos/AciIO2cYIS8CrcSkpYd20-_xnoBWaciL16ID9W9v2Ax9x1g7md_kxJH_aOwEcjFHXaVhYmhC6Hm_ossuRz1xkHa_EWy83Ma6r80Ou907uhPFzOXadLTOTp0Cb_wkNeijTcPfI5CDbqoDBCSgGKrA9TsatXGxBz3etv-LDyJJl9FP959zv1fxNxLxmAYKXCHSYh97JkMCUKo7B6Kl00uOccF9KfQl2RHGRfpuoJ_XWmwC66jAPx21MgeM366S9MUskeyhfzYkNVA0wAWnPhBuN_7vOoHg_gZbJeDoOJNxA4cJCTQ1ow",
+          "widthPx": 3024,
+          "heightPx": 4032
+        },
+        {
+          "name": "places/ChIJGWWcZdUm4IkR3tnZvcC6BI8/photos/AciIO2eL5R8N1t9XGzao6voW_ByO8fE0K4UdYHQggs0s4xQ4zOndw1fQerQ0meGLq8xZubQu1hb9XnIBkBTGV4ARHstn4JnCQ6xKYbqPUYUX_ZmhGYCqUzxkhIYFykW9LmerXMHX3mu_O3RpnoNWbFIZ5s87mTcjYXWlyaJcqNNW_OGKW9cE9a7SIkgjw3m_TQKGHpxmYP_rFxtuDZhBdKaL6-7nGs6m5YBwhwCXQhCUNlqh_ZAaInHDSni8wszfWofF4rcRpptSK_m5FgQnuJU_v6-dWlVNmnFwsgHrP5N9EwIN-g",
+          "widthPx": 534,
+          "heightPx": 783
+        },
+        {
+          "name": "places/ChIJGWWcZdUm4IkR3tnZvcC6BI8/photos/AciIO2dEuHpP5yVNyGvTBtK5Al5rtEA-ki_NHYUTgVTWZmq65A3cdJVsELDJMhsKvn8eVM-rckwm-FNBWAF2cUDaoCEpL9ULOJ6BZJPUaE2QIJBLD0D2ev6PQHThWZg00TC2EsWBeV3HndmCOB50u7cgLsvR4IkqYH1zgeElVF4mO_vnaH_pXVTLojzHVnUcpNkEuV5lkGKsbew5dM6jsZEOdX_1q7ilGGtnTRmO9X2NzVoL4E5OyuXNq9LqvF2nLLyE01tq3mmKB6QFnbyT3X2TygSNhbNeKPgUE9pYma8_8FAJ9Q",
+          "widthPx": 640,
+          "heightPx": 637
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJ-QsenE19ykwRnlId6ewE4QI",
+      "display_name": "Skinvigo - Finest Facials & Skinvigoration - Reiki",
+      "formatted_address": "166 Athletic Dr, Shelburne, VT 05482",
+      "location": {
+        "lat": 44.3834108,
+        "lng": -73.2282632
+      },
+      "primary_type": "spa",
+      "types": [
+        "spa",
+        "skin_care_clinic",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 5,
+      "user_rating_count": 19,
+      "current_open_now": false,
+      "phone": "(802) 488-0312",
+      "international_phone_number": "+1 802-488-0312",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 8:00 AM – 7:00 PM",
+          "Tuesday: 8:00 AM – 7:00 PM",
+          "Wednesday: 8:00 AM – 7:00 PM",
+          "Thursday: 8:00 AM – 7:00 PM",
+          "Friday: 8:00 AM – 7:00 PM",
+          "Saturday: 8:00 AM – 7:00 PM",
+          "Sunday: 8:00 AM – 7:00 PM"
+        ]
+      },
+      "website": "http://www.skinvigo.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=207452473405559454&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true
+      },
+      "parking_options": {
+        "freeParkingLot": true
+      },
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsDebitCards": true,
+        "acceptsCashOnly": false
+      },
+      "price_level": null,
+      "city": "Shelburne",
+      "state_code": "VT",
+      "postal_code": "05482",
+      "photos": [
+        {
+          "name": "places/ChIJ-QsenE19ykwRnlId6ewE4QI/photos/AciIO2dOA6hElqqbp1x05oXvz1eTHkdxfsSfrQGF3OgI5Kj3lU3JrJrqWyXjbH7wh7fs-rNHZBTXDHYwn0v0MkB9UzHpvr7WPS4DgJiod_JReHBMkEwc5VRQwv2qSxx_7k2_2XqYeCXqtn0KzOerI54L0Paob3jhiMaZXR9dD5wosgLr3SCXcnQhRBgNZ7ULjt_NvIhK5ok0sBpUREkFawOuRA-5CzVg3zSZbbt75Sx7QfHZqgWM3ggDlZntq2cGWrpyd3nA3mQdCB1ohQhwAfOQv9g-KlYTqLBoN9QJxTFbcn1CMQ",
+          "widthPx": 1080,
+          "heightPx": 1080
+        },
+        {
+          "name": "places/ChIJ-QsenE19ykwRnlId6ewE4QI/photos/AciIO2eEd7rKDHJpRn_lwaL3AL4YFnB26Fb2ABkg9sqN9Es8XM4uJ7SY0BNwZivRSQXj2aRb1-9rV3Njtm3oz7vB5V2wmP0UDACY_kZECGVbCD-cnFg8RGu2RDepat3-uDTzJCSIY7ieMdeXfPX6HMVrg31pQkZEfXE1WxbITLLJzksZ9drywi12WyzI6idz1pNvMjoVURG7ViYzZZNyy8A1Qd4l63QUIK4VKsEK09ZZOl5UguM1bt5FcYgYeCKoaZGTs5Dljg5TP_AqszDEoJN8A2KcKr9Pd9F469HZtmukWRcLbA",
+          "widthPx": 2813,
+          "heightPx": 2051
+        },
+        {
+          "name": "places/ChIJ-QsenE19ykwRnlId6ewE4QI/photos/AciIO2dDU95eP3jAEGXm4t87AL4TywcS9-z2sAUHEPO4Sisn3M6ootzyVl8CsmJaYKY87y5mV8mUjk5DRxbu-rrML1r0RhAKRCLLXDGJRK0ugsNBzmewIkFFyQpSrqa6lwyTslNDgtvdmAtr0jytjlyWDEQPPapmxoLv6LmufLCD_DA1jo6EvRBJa0k4krpXPpYulGEMmKDrLIf_S_Ifgh-GgKCWP-0GD-meu5pqEzfT7J2oEvZncKyT_fOH73-n98JnJExErfNkZmvVg7nVXjBnoVE1grTdmClObLFjagqP7HPr_w",
+          "widthPx": 2101,
+          "heightPx": 2101
+        },
+        {
+          "name": "places/ChIJ-QsenE19ykwRnlId6ewE4QI/photos/AciIO2c5G7m7sRtmMe0Hk0Y2QlK05iiDznPWdj6clx47Y4cBd90-3MMLBbiKcsQlXR6-8kUA0zhxgAIWEAkZe2KtsZai6uSEZMUcTiH4zbOKUAQiMr_h1RN0jR0peKChFvN_gbXoBVpu2t1Opwwls5zbHnZXxlqhsPlPza-DsRYeevMOs1X25Ej7jsRtAbK53aA0mbyvKDvv9If3Zzki1FcVpBsyqKeS9Rimk_r21wa8LNARXczWSmBRASFPDZHuySZsZgvoQvOfdlflOzZFU4JWJ2CoLu4X4HgYkqxQDg6Byqm7CA",
+          "widthPx": 1080,
+          "heightPx": 1080
+        },
+        {
+          "name": "places/ChIJ-QsenE19ykwRnlId6ewE4QI/photos/AciIO2dFa1kwB1uEC6Z0N_fDQ0TWdwVRNNOCIEAhrWBmdZaQGxqDmUugdS9neAQWutJ-lCha__kzEtl_tVRGnuJpFLxuoOsX0l-MJp9dMwpKamZTOqnUS26NOdgF-OIPe2Fbjls4PKY_n7RB5vYBbUYhotgR_F7HgfTIYQZV0BS0puS60L-qTBKNKhC831Fn3m1qmYoaM050bUcWs52oI3Z2e6Pm2_mgPBr-dSICSr_flMVFsrdE_sZA1XHxte6PdlsnjwQJjbLpi5P38imFu8zm9hatWzvPGe7ZSSE3UX4h5O4kDA",
+          "widthPx": 1080,
+          "heightPx": 1080
+        },
+        {
+          "name": "places/ChIJ-QsenE19ykwRnlId6ewE4QI/photos/AciIO2fvDnyrQY1tmy0S0ws-1onrPNpjGjIEXlAp_cEGoNC_WM85be8nvMm8dW8GglU-UH2c9aOYutsnmWUqoQ_9JCVGN86MHQ0MuqQqnKEfaIdagwxMHu8JkdlbEGIR_YdJLZV35PdLCHwxpiymqailngoSx3Q5NvDIQvIbdPGBIN8oA8rVaqH9nfuEAO25whS534JsC1SSVXiE1xR5HAyiTJAigObSC-6fcZ7vpfiAlEGMeHMdIoRim55EGjQ7IMdUtiMvCrKhsIKW3IPnM9-Unavb0t-2s28oVacy0YmBkUeqVg",
+          "widthPx": 4032,
+          "heightPx": 3024
+        },
+        {
+          "name": "places/ChIJ-QsenE19ykwRnlId6ewE4QI/photos/AciIO2cm8GafgEN8UG96gkUy9vwHA49gkeNo-Iys5eV9QbmI_Z4mfQVkvU27aGO_lpWs3pPEyXZih8lqOdlFEaQQHBcl_NNTnikb0sCY7za10nNLVd6ecmljpch2M5nRfH27bztijJ9WP20Ubua6CLPxw1Kv6GktaegxFPfgowXGOmpt81ST-0YcriMNXaMQo_MvQZY_pCCOwMJmmeUHp4HNcZkHfXXiTUZWbFO0ElMQyZkF-Di0zaWFfgtKR2UVbLRFVyViDJcrc7-Oewv4XaxfR0GUc9wJkNLCjdyN4EBKwyspYw",
+          "widthPx": 1545,
+          "heightPx": 2000
+        },
+        {
+          "name": "places/ChIJ-QsenE19ykwRnlId6ewE4QI/photos/AciIO2ftA3wtpnw6xw1jBb9p5oYzPxtisgH-PMvXd8bjcAy2JnPddc_BiMJFXrRX-k6mOfKLx20-q4brKvh-DxtYxBFFrwaOt5fhaUc-xaAfSWgaV4RQz23QndxwcxhjoNrcEsweCLyGodO4K5Wu5IUx_T6Bl1oxsou2ffXSe4gJQgB3Y-xxY4L4CTEjCyul38pN5eB1yW6pavaD7rNKEx12A-K4KXS_by7n8rQ6urWxmQwMjgSWfeCYPT8YU2V3Obp4H_tRGwlOSUptwcg4B2bnNFiZA1X_UuVBgaW_SUPC1ju9gQ",
+          "widthPx": 1080,
+          "heightPx": 1080
+        },
+        {
+          "name": "places/ChIJ-QsenE19ykwRnlId6ewE4QI/photos/AciIO2e98xbIbFqBtTaQq4XWTbNWZ-wmkYHr50MRL2LiwKF4f-O4o2y3HcXILOs35yMAgddRBOecqB0qcxq5n0OxtdLVDciptmvWAJ7WUSiDOyMcEQQu0_wQ6lx_ptI4RmklxrdI2i0am_rOgsheqnLQCaagIjRAwxef1O-fyxvvRNHF0yLDrfYQYhLqi92522ZMop-kExya3UdXeF0Z_Y97P50vtiij0TH359LvygzZafr4VTxRHRgflv4nPFqeWxQxJZKmPvjoI4cFBFpMl_KL7ujTotJ3gUMCUJ715nJDp1B6CQ",
+          "widthPx": 1080,
+          "heightPx": 1080
+        },
+        {
+          "name": "places/ChIJ-QsenE19ykwRnlId6ewE4QI/photos/AciIO2dlwv3WlwwUyC89DPH00xi9XLF1QCoG6jZq2ldH1AcGIctMD-OVecAcpmC-OgDbZsP-MsatZkl0uasYNWltORoKVfQgtEnfR8RJj2H0mnucsR8Yr9yKViKb_Rkmuq8RKI_1nWhsYUmTPMNzL73PspP_f1T-NK2Bv-ZX-4986V_yUJmJJ0v64BOiB9yAV5803FGvSf0WH1bQstctiQl3Uct3bGWYR7S2aJ-L4UxlZ-soK2qRPbPULFWfU8lJqHqclZ0ksOA7qN7UCvSNvv6ON9-NaJI7sKDE1i3iETawsta-Mg",
+          "widthPx": 1080,
+          "heightPx": 1080
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJ-dLCVPh6ykwRgANSWpFRfHA",
+      "display_name": "Pure Beauty",
+      "formatted_address": "39 Kilburn St, Burlington, VT 05401",
+      "location": {
+        "lat": 44.4709283,
+        "lng": -73.2138314
+      },
+      "primary_type": "skin_care_clinic",
+      "types": [
+        "skin_care_clinic",
+        "makeup_artist",
+        "beauty_salon",
+        "hair_care",
+        "spa",
+        "body_art_service",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": 4.6,
+      "user_rating_count": 20,
+      "current_open_now": false,
+      "phone": "(802) 318-7259",
+      "international_phone_number": "+1 802-318-7259",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: Closed",
+          "Tuesday: 9:00 AM – 4:30 PM",
+          "Wednesday: 10:00 AM – 3:00 PM",
+          "Thursday: 12:00 – 7:00 PM",
+          "Friday: 9:00 AM – 3:00 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": "http://www.purebeautyvt.com/",
+      "google_maps_uri": "https://maps.google.com/?cid=8105443114087482240&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": false,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": {
+        "acceptsCreditCards": true,
+        "acceptsCashOnly": false
+      },
+      "price_level": null,
+      "city": "Burlington",
+      "state_code": "VT",
+      "postal_code": "05401",
+      "photos": [
+        {
+          "name": "places/ChIJ-dLCVPh6ykwRgANSWpFRfHA/photos/AciIO2e1dmsp7NGW1Q7e4jYCJT1kDj1VCldFZlLum1xA-z8WVMTJ5rdTC2Wr9me1zHtF3vVQvSzp_aFtkD-Gz4Bqw__vbpAMOAeB8VVRVzwKwiOQd66ixAah_bRfRm17UEFK4Fxsmwdx7_7Pwzkb1mzbelZyPk0VIcSJKg6jlZkOQMp7k1ukuLA7d60N0_dyyZakDUJ3KZt_gCRBIWPLWsJxwJHbrMyCF-vEtwaGs0tAGicfRAcD-YfsIcOmHNqAB_YLn4v2qFFqOfvDFCfPR17Y4WgH-buVZZIUWVZaoNGJf83hZA",
+          "widthPx": 1179,
+          "heightPx": 650
+        },
+        {
+          "name": "places/ChIJ-dLCVPh6ykwRgANSWpFRfHA/photos/AciIO2eYosLAQDYDrDRyiGnX4a14Y-AYUs8Q8Me0nOh0J_TeGFajyZWB2bvAnCVrb9vSV8Mq5RQCN2KcmhVEH_9SHF49EUvI9bNHs30t1fXXELArZ77qO-fFvaS-OlUi_illosgx3DdHdIxmE8SN7NZIzm4rxWIqNKA8Usy8OJwl88JuXx0mF4s7gteVnE1Bb5m7FerxctLmQIUpBZ6xDCGX4Mf8L0TKXnCaP1kFfOcpDKQSKeh73pH8FEkIcqdZSsv84sadBxy6oP-tHfczTkZ69eztweIY4PptognBi31D2w__ZQ",
+          "widthPx": 3024,
+          "heightPx": 3024
+        },
+        {
+          "name": "places/ChIJ-dLCVPh6ykwRgANSWpFRfHA/photos/AciIO2dluWKYBJgoeIANRlFO8j1ft2JWqxryA4v5lE884nxnGzMTKE_5LTqMNnaG-TIT-EcLkVpWElaAj9Lw2OE9P28WOkwIms5TkYI1fk5ddfom0UNnkR-M-5O7T9sfdB6GyjXNa4cQfBECbuwbUlzqWUGdc45hERhCLAB4pwO4tx45RiN0B0NGHTOzeWCoY3_EnUbFFhhQxfe3XH7j9_jgOv--F1pf81kgWQBnjTv72q2A882lKOCLUuf7RD6eCZPaL9-Pc36TuBfoeVWVJLoxfWkQMbHIY262rhWABh_HthJkaQ",
+          "widthPx": 1440,
+          "heightPx": 1763
+        },
+        {
+          "name": "places/ChIJ-dLCVPh6ykwRgANSWpFRfHA/photos/AciIO2e5I8aJuL_BbARY-JNzGvw4bo8ld86qAoPqSydT-IufwZW7g7gsfElhXkqI5lc7IztI_RB7SXR-VJpXAi6K-ZoDZ58n3R8Dp04MWFzzQclMbeafOMGaLIKJqPG1EbUUSsKwi61ZClSkX0w34I_o0Wcsj__SdrRdOLVFVFM9UCesaX1IMIPEmxC8j1KZqfsE2bNy4t1qhB78239ClJ_7WxpTRGxBv0NO-1-THtsaCSR8nbvmOyS_DeY7Mu2MMhru1RZAPH1YlVKrjv-rcF2B6FJYKa_bvRJwBoG3wHszow7LWQ",
+          "widthPx": 3585,
+          "heightPx": 2317
+        },
+        {
+          "name": "places/ChIJ-dLCVPh6ykwRgANSWpFRfHA/photos/AciIO2fxzpJClMzO0H9Fym3N8R7x_cJ2GF7qig2_lWxZfBEGCtKw6VK2ZDTZVUp-8qzOfYdxSlh1o5Wq5l9i2-6ERGfsjs3NiZdUWke-l7UCBZKCVWxmyJIOa4f4aabHLJ20Wkiv51QzsPsknIocpNvlD86st7f5R1TtheHb2JlGbZyjSbkB_CElrsrLAn6AVii8E9j0WQMCROOnovw1cMGnOJcsAq_scLY6oahz2kAIf1BkmnXQahV9TXOGxhunU3VfwO0BiAUUsKQeX9nke3hRQILiX1vQ8DkTnOZiCNZRY9qyVQ",
+          "widthPx": 1440,
+          "heightPx": 1800
+        },
+        {
+          "name": "places/ChIJ-dLCVPh6ykwRgANSWpFRfHA/photos/AciIO2eCiWUgns3jDn7Z9Gz_o1pguMKvANCrqd5elk2ErWOvudD13_K5LCYjSbp3Vv_jfPOwX3Y5GM84q4Vwc4WFkGnuGmSkBI4rD1hOyJ28ga7UC4t7i0ntAiThQwzhzUYTbwfQS1REVDI6xavfS8wTPsxRBcyQKaAYmNa5-7kaWk9dDkr0AGRfv0F4on-NeagjtUq-WPW9o0x5esTc_jfj1bODDTMOcggBc1x_-wV7EZuEcL7lfs7AwuSE-WDvo6XbrrRzO5zkr66xRO5kdz90eGLNz7ckdv4FFmIfs8KHVEHiNQ",
+          "widthPx": 1440,
+          "heightPx": 1770
+        },
+        {
+          "name": "places/ChIJ-dLCVPh6ykwRgANSWpFRfHA/photos/AciIO2eLZ4Ol-8orWJ3RG-keUjIsmskUZdb_Ym9r98b6Cvp1SWJq_ZchpN58B2AsGh9HVf6lD1kO1hW9WRZEI2FLi_K-vH45jvOS0eTqfpgl54rufIfKxSEZBxPFVAapvm0SzYJAEUdp_a7khMZXPqrS8DIWnqRC0VgLt-qgSw1irrukWS1PN0KEzwd1X95gF6h4uwTfJBS-5IDAn_BvoH5J_Yyi_SySBUGPigr78D2P3Iyjye20Ha5Rep3OnBRT4KWoqTDAPG8v-R_v3vwxxHO3yIAVqlLJ_bmAnI6xdPcQuhqgAg",
+          "widthPx": 1440,
+          "heightPx": 1800
+        },
+        {
+          "name": "places/ChIJ-dLCVPh6ykwRgANSWpFRfHA/photos/AciIO2cC5A-KeLtn4lixf-KO8Oxz2isfKjFPTAdyFf0iRq8_fXyjUn7rDzyf7vM1EGveyakyHd705SfL67SwJJaywcu44zMptKziOCaL3m9bFV00S27AA4tHoKcLgt7BOT0fzQrwFEI9WPWTf4uqwHvDLsXEgC0ICjQxDb53zKuQiAMkqGFdcc1EAfQDIZDufygitTbY6gT-T6kBqvSJZisjTPkOvHL7yt_C0wncIscGgn6GrTh5w7Rbrr-FENfEgPf89SFKiczTUEV1APe7u7kta2571W3T688iBejZC4dWPaUUWg",
+          "widthPx": 3200,
+          "heightPx": 4800
+        },
+        {
+          "name": "places/ChIJ-dLCVPh6ykwRgANSWpFRfHA/photos/AciIO2fvRf-D-aEYjp7yuk6S1imCWUeiII_j_B_tbLSuwOXpNJCm_Y9d5SWfwuf3CyJfzb59WIRQ24dsr5Xnv_fxhe509Hp1jEDXejdHcB9R-hkx3vzFBU06gtRNJo5hurd7QkWy--pZgtMdrkPzLQLtdXJlH96dMLbmuq3kWUKOhDaJoJYGQYSFyL00Q-nb8ZvNZ8aQYXSryvPhVWgPA1xRT7jzV3PmyKluIt6O8hz8T0b4sujyWnO-Mi0ANm_Vv7MuJxnM43qLE6aKLWuyQSSGsesrtKiCpziWht7e1-aP3ryJlA",
+          "widthPx": 3570,
+          "heightPx": 2398
+        },
+        {
+          "name": "places/ChIJ-dLCVPh6ykwRgANSWpFRfHA/photos/AciIO2dMvAvu0q2n8nP7lUeEFbA7uwzIPZAlvsO3_VpH5BMDheWNtw7lcQpALGvz9dqs4EK_B65iU_D-HTliqydci2tQ0H4nqPWkbeyOLu0Whc1knuPp9spU7fcjD8iYIEhY2MSBXY9JtG3BDlwqbAU4lVpZOKnM5dIPvRcw00Tgpnbk3GeuwYT9S3sTZh5XKtIr0eT4G3AbCAIXcb9EKSkksem0iNNEUody8usn6hmKwd0zywxR4X-zgeuSd9DvQRc8lxkdl-nLcdaGuKb--SZmxNdaCne__GIITQMdmMySZ5RAfg",
+          "widthPx": 3200,
+          "heightPx": 4800
+        }
+      ],
+      "last_fetched_at": "2025-10-20"
+    },
+    {
+      "place_id": "ChIJLXCmtDJ6ykwRlTYLN6PvKic",
+      "display_name": "BCG Skin and Body LLC",
+      "formatted_address": "329 Dorset St, South Burlington, VT 05403",
+      "location": {
+        "lat": 44.461532399999996,
+        "lng": -73.1806586
+      },
+      "primary_type": "skin_care_clinic",
+      "types": [
+        "skin_care_clinic",
+        "beauty_salon",
+        "hair_care",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "rating": null,
+      "user_rating_count": null,
+      "current_open_now": false,
+      "phone": "(802) 660-8808",
+      "international_phone_number": "+1 802-660-8808",
+      "opening_hours": {
+        "open_now": false,
+        "weekday_text": [
+          "Monday: 8:00 AM – 5:00 PM",
+          "Tuesday: 8:00 AM – 5:00 PM",
+          "Wednesday: 8:00 AM – 5:00 PM",
+          "Thursday: 8:00 AM – 5:00 PM",
+          "Friday: 8:00 AM – 5:00 PM",
+          "Saturday: Closed",
+          "Sunday: Closed"
+        ]
+      },
+      "website": null,
+      "google_maps_uri": "https://maps.google.com/?cid=2822331600783226517&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "business_status": "OPERATIONAL",
+      "accessibility_options": {
+        "wheelchairAccessibleParking": true,
+        "wheelchairAccessibleEntrance": true,
+        "wheelchairAccessibleRestroom": true
+      },
+      "parking_options": null,
+      "payment_options": null,
+      "price_level": null,
+      "city": "South Burlington",
+      "state_code": "VT",
+      "postal_code": "05403",
+      "photos": [],
+      "last_fetched_at": "2025-10-20"
+    }
+  ]
+}

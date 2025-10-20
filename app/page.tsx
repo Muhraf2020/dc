@@ -26,7 +26,7 @@ export default function Home() {
   const loadClinics = async () => {
     try {
       setLoading(true);
-      const response = await fetch('/api/clinics');
+      const response = await fetch('/api/clinics?per_page=1000');
       const data = await response.json();
       setClinics(data.clinics || []);
     } catch (error) {
