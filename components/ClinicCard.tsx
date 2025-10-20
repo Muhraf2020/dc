@@ -22,7 +22,7 @@ function hashCode(str: string) {
 }
 function localFallback(placeId?: string) {
   const basis = placeId && placeId.length ? placeId : 'default';
-  const idx = (Math.abs(hashCode(basis)) % 10) + 1; // 1..10
+  const idx = (Math.abs(hashCode(basis)) % 10) + 1; // 1..50
   return `/clinic-images/clinic-${idx}.jpg`;
 }
 
