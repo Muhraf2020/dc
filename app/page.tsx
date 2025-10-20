@@ -56,36 +56,50 @@ export default function Home() {
   const applyFilters = () => {
     let filtered = [...clinics];
 
+    // Rating filter
     if (filters.rating_min) {
-      filtered = filtered.filter(c => (c.rating || 0) >= filters.rating_min!);
+      filtered = filtered.filter(c => {
+        const rating = c.rating || 0;
+        return rating >= filters.rating_min!;
+      });
     }
 
+    // Website filter
     if (filters.has_website) {
-      filtered = filtered.filter(c => !!c.website);
+      filtered = filtered.filter(c => c.website && c.website.trim() !== '');
     }
 
+    // Phone filter
     if (filters.has_phone) {
-      filtered = filtered.filter(c => !!c.phone);
+      filtered = filtered.filter(c => c.phone && c.phone.trim() !== '');
     }
 
+    // Wheelchair accessible filter
     if (filters.wheelchair_accessible) {
-      filtered = filtered.filter(
-        c => c.accessibility_options?.wheelchair_accessible_entrance
+      filtered = filtered.filter(c => 
+        c.accessibility_options?.wheelchair_accessible_entrance === true
       );
     }
 
+    // Free parking filter
     if (filters.free_parking) {
-      filtered = filtered.filter(c => c.parking_options?.free_parking_lot);
+      filtered = filtered.filter(c => 
+        c.parking_options?.free_parking_lot === true
+      );
     }
 
+    // Open now filter
     if (filters.open_now) {
-      filtered = filtered.filter(c => c.current_open_now);
+      filtered = filtered.filter(c => {
+        return c.current_open_now === true || 
+               c.opening_hours?.open_now === true;
+      });
     }
 
+    // State filter
     if (filters.states && filters.states.length > 0) {
       filtered = filtered.filter(c => {
-        const state = c.formatted_address.split(',').slice(-2)[0]?.trim();
-        return filters.states?.includes(state);
+        return filters.states?.includes(c.state_code);
       });
     }
 
@@ -104,21 +118,25 @@ export default function Home() {
             bVal = b.user_rating_count || 0;
             break;
           case 'name':
-            aVal = a.display_name.toLowerCase();
-            bVal = b.display_name.toLowerCase();
+            aVal = (a.display_name || '').toLowerCase();
+            bVal = (b.display_name || '').toLowerCase();
             break;
           default:
             return 0;
         }
 
-        if (aVal < bVal) return filters.sort_order === 'asc' ? -1 : 1;
-        if (aVal > bVal) return filters.sort_order === 'asc' ? 1 : -1;
-        return 0;
+        if (filters.sort_order === 'asc') {
+          return aVal < bVal ? -1 : aVal > bVal ? 1 : 0;
+        } else {
+          return aVal > bVal ? -1 : aVal < bVal ? 1 : 0;
+        }
       });
     }
 
     setFilteredClinics(filtered);
   };
+
+   
 
   return (
     <div className="min-h-screen bg-gray-50">
