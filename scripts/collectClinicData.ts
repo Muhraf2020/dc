@@ -333,20 +333,32 @@ async function collectState(stateCode: string) {
 }
 
 // ---- Main ----
+// ---- Main (with resume/progress support) ----
 async function main() {
   const arg = process.argv.find(a => a.startsWith('--states='));
-  const states = arg ? arg.split('=')[1].split(',').map(s => s.trim().toUpperCase()) : STATES;
+  const requestedStates = arg ? arg.split('=')[1].split(',').map(s => s.trim().toUpperCase()) : STATES;
 
-  console.log(`\n▶ Collecting dermatology clinics for ${states.length} state(s) (Text Search, paginated)`);
+  // Load progress and resume
+  const progress = await loadProgress();
+  REQUESTS = progress.lastRequest || 0;
+  GLOBAL_CLINICS = progress.lastGlobalCount || 0;
+  const statesToProcess = requestedStates.filter(s => !progress.completed.includes(s));
+
+  console.log(`\n▶ Collecting dermatology clinics for ${statesToProcess.length} state(s) (resuming)`);
+  console.log(`   Already completed: ${progress.completed.join(', ') || '(none)'}`);
   console.log(`   Rate: ~${QPS} QPS  |  nextPageDelay=${NEXT_PAGE_DELAY_MS}ms  |  max requests: ${MAX_REQUESTS}`);
   if (MAX_CLINICS_PER_STATE) console.log(`   Cap per state: ${MAX_CLINICS_PER_STATE} clinics`);
   if (MAX_CLINICS_GLOBAL)     console.log(`   Global cap:    ${MAX_CLINICS_GLOBAL} clinics`);
   console.log('');
 
-  for (const st of states) {
+  for (const st of statesToProcess) {
     process.stdout.write(`→ ${st}\n`);
     try {
       await collectState(st);
+
+      // persist completion after successful state collection
+      progress.completed.push(st);
+      await saveProgress(progress.completed);
     } catch (e: any) {
       const msg = e?.message || String(e);
       console.error(`  ❌ ${st}: ${msg}`);
@@ -359,6 +371,7 @@ async function main() {
 
   console.log(`\n✨ Done. Total API calls: ${REQUESTS}  |  Total clinics: ${GLOBAL_CLINICS}\n`);
 }
+
 
 main().catch(err => {
   console.error('Fatal:', err);
