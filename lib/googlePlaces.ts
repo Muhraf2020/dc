@@ -350,18 +350,19 @@ export async function getClinicDetails(placeId: string): Promise<Clinic | null> 
 export function getPhotoUrl(photoName: string, maxWidth = 400, maxHeight = 300): string {
   const usePlacesPhotos = process.env.NEXT_PUBLIC_USE_PLACES_PHOTOS === 'true';
 
-  // If disabled or already a full URL (Unsplash/local CDN), don't proxy via Places.
+  // Already a full URL? (e.g., Unsplash)
+  if (/^https?:\/\//i.test(photoName)) return photoName;
+
+  // Cost-safe dev fallback: never call Places Photo
   if (!usePlacesPhotos) {
-    if (/^https?:\/\//i.test(photoName)) return photoName;
-    // Fallback to a local stock image so nothing hits Google.
-    return '/clinic-images/fallback.jpg';
+    return `/clinic-images/fallback.jpg`; // ensure this file exists in public/clinic-images/
   }
 
-  // Places-Photo path (only when explicitly enabled)
-  if (/^https?:\/\//i.test(photoName)) return photoName;
+  // Places Photo proxy (only when explicitly enabled)
   const qs = new URLSearchParams({ name: photoName, w: String(maxWidth), h: String(maxHeight) });
   return `/api/photo?${qs.toString()}`;
 }
+
 
 
 /**
