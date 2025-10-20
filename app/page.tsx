@@ -28,7 +28,9 @@ export default function Home() {
       setLoading(true);
       const response = await fetch('/api/clinics?per_page=1000');
       const data = await response.json();
-      setClinics(data.clinics || []);
+      const loadedClinics = data.clinics || [];
+      setClinics(loadedClinics);
+      setFilteredClinics(loadedClinics); // Add this line
     } catch (error) {
       console.error('Error loading clinics:', error);
     } finally {
@@ -36,21 +38,27 @@ export default function Home() {
     }
   };
 
-  const handleSearch = async (query: string, location?: string) => {
-    try {
-      setLoading(true);
-      const params = new URLSearchParams();
-      if (query) params.append('q', query);
-      if (location) params.append('location', location);
-
-      const response = await fetch(`/api/search?${params}`);
-      const data = await response.json();
-      setClinics(data.clinics || []);
-    } catch (error) {
-      console.error('Error searching clinics:', error);
-    } finally {
-      setLoading(false);
+  const handleSearch = (query: string) => {
+    // Client-side search through already loaded clinics
+    if (!query || query.trim() === '') {
+      // Show all clinics
+      setFilteredClinics(clinics);
+      return;
     }
+
+    const lowerQuery = query.toLowerCase();
+    const filtered = clinics.filter(clinic => {
+      const searchableText = `
+        ${clinic.display_name} 
+        ${clinic.formatted_address} 
+        ${clinic.types?.join(' ')}
+        ${clinic.primary_type}
+      `.toLowerCase();
+      
+      return searchableText.includes(lowerQuery);
+    });
+
+    setFilteredClinics(filtered);
   };
 
   const applyFilters = () => {
