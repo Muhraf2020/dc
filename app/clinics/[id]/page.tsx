@@ -109,13 +109,15 @@ export default function ClinicDetailPage() {
                   </h1>
                   <p className="text-gray-600">{clinic.primary_type.replace(/_/g, ' ')}</p>
                 </div>
-                
+
                 {clinic.current_open_now !== undefined && (
-                  <span className={`px-4 py-2 rounded-lg text-sm font-medium ${
-                    clinic.current_open_now
-                      ? 'bg-green-100 text-green-800'
-                      : 'bg-red-100 text-red-800'
-                  }`}>
+                  <span
+                    className={`px-4 py-2 rounded-lg text-sm font-medium ${
+                      clinic.current_open_now
+                        ? 'bg-green-100 text-green-800'
+                        : 'bg-red-100 text-red-800'
+                    }`}
+                  >
                     {clinic.current_open_now ? '● Open Now' : '● Closed'}
                   </span>
                 )}
@@ -201,7 +203,7 @@ export default function ClinicDetailPage() {
             {/* Contact Card */}
             <div className="bg-white rounded-lg shadow-md p-6">
               <h2 className="text-xl font-bold text-gray-900 mb-4">Contact Information</h2>
-              
+
               {/* Address */}
               <div className="mb-4">
                 <h3 className="text-sm font-medium text-gray-500 mb-2">Address</h3>
@@ -246,7 +248,7 @@ export default function ClinicDetailPage() {
                     📞 Call Now
                   </a>
                 )}
-                
+
                 <a
                   href={clinic.google_maps_uri}
                   target="_blank"
@@ -270,19 +272,39 @@ export default function ClinicDetailPage() {
             </div>
 
             {/* Map Preview */}
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-4">Location</h2>
-              <div className="aspect-square rounded-lg overflow-hidden">
-                <iframe
-                  src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=place_id:${clinic.place_id}`}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
+            {process.env.NEXT_PUBLIC_ENABLE_MAP === 'true' ? (
+              <div className="bg-white rounded-lg shadow-md p-6">
+                <h2 className="text-xl font-bold text-gray-900 mb-4">Location</h2>
+                <div className="aspect-square rounded-lg overflow-hidden">
+                  <iframe
+                    title="Clinic location"
+                    src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=place_id:${clinic.place_id}`}
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    allowFullScreen
+                  />
+                </div>
               </div>
-            </div>
+            ) : (
+              // Free fallback when maps are disabled
+              <div className="bg-white rounded-lg shadow-md p-6">
+                <h2 className="text-xl font-bold text-gray-900 mb-2">Location</h2>
+                <p className="text-gray-600 mb-3">Map disabled in this environment.</p>
+                {clinic.google_maps_uri && (
+                  <a
+                    href={clinic.google_maps_uri}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-4 py-2 rounded-md bg-blue-50 text-blue-700 hover:bg-blue-100"
+                  >
+                    Open in Google Maps ↗
+                  </a>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </main>
