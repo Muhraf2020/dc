@@ -46,13 +46,26 @@ export default function Home() {
       return;
     }
 
-    const lowerQuery = query.toLowerCase();
+    const trimmedQuery = query.trim();
+    const lowerQuery = trimmedQuery.toLowerCase();
+    
+    // Check if query looks like a ZIP code (5 digits)
+    const isZipCode = /^\d{5}$/.test(trimmedQuery);
+    
     const filtered = clinics.filter(clinic => {
+      if (isZipCode) {
+        // Search by postal code (exact match)
+        return clinic.postal_code === trimmedQuery;
+      }
+      
+      // Regular text search across multiple fields
       const searchableText = `
-        ${clinic.display_name} 
-        ${clinic.formatted_address} 
-        ${clinic.types?.join(' ')}
-        ${clinic.primary_type}
+        ${clinic.display_name || ''} 
+        ${clinic.formatted_address || ''} 
+        ${clinic.city || ''}
+        ${clinic.state_code || ''}
+        ${clinic.types?.join(' ') || ''}
+        ${clinic.primary_type || ''}
       `.toLowerCase();
       
       return searchableText.includes(lowerQuery);

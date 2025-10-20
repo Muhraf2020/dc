@@ -43,7 +43,7 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search clinics, treatments, doctors..."
+            placeholder="Search by name, location, ZIP code, or treatment..."
             className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
         </div>
