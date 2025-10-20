@@ -2,6 +2,9 @@ import { NextResponse } from 'next/server';
 import { searchDermClinics, geocodeAddress } from '@/lib/googlePlaces';
 import { Clinic } from '@/lib/dataTypes';
 
+// Add this line:
+export const dynamic = 'force-dynamic';
+
 /**
  * GET /api/search
  * Search for dermatology clinics using Google Places API
