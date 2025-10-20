@@ -70,8 +70,15 @@ export interface Clinic {
     accepts_nfc?: boolean;
   };
   last_fetched_at: string;
+  
+  // Added from Supabase migration
+  state_code?: string;
+  city?: string;
+  postal_code?: string;
+  created_at?: string;
+  updated_at?: string;
 }
-
+  
 export interface SearchParams {
   location?: string;
   lat?: number;
