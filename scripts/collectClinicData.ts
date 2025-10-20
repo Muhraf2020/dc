@@ -13,6 +13,31 @@ if (!API_KEY) {
 const OUT_DIR = path.resolve(process.cwd(), 'data/clinics');
 await fs.mkdir(OUT_DIR, { recursive: true });
 
+// Resume/progress support
+const PROGRESS_FILE = path.join(OUT_DIR, '_progress.json');
+
+async function loadProgress() {
+  try {
+    const data = await fs.readFile(PROGRESS_FILE, 'utf-8');
+    return JSON.parse(data);
+  } catch {
+    return { completed: [], lastRequest: 0, lastGlobalCount: 0 };
+  }
+}
+
+async function saveProgress(completed: string[]) {
+  // write atomically: write temp then rename
+  const tmp = PROGRESS_FILE + '.tmp';
+  await fs.writeFile(tmp, JSON.stringify({
+    completed,
+    lastRequest: REQUESTS,
+    lastGlobalCount: GLOBAL_CLINICS,
+    timestamp: new Date().toISOString()
+  }, null, 2), 'utf-8');
+  await fs.rename(tmp, PROGRESS_FILE);
+}
+
+
 const FIELD_MASK = [
   'places.id','places.displayName','places.formattedAddress','places.addressComponents',
   'places.location','places.primaryType','places.types','places.rating','places.userRatingCount',
