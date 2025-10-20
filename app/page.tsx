@@ -6,6 +6,7 @@ import ClinicCard from '@/components/ClinicCard';
 import MapView from '@/components/MapView';
 import FilterPanel from '@/components/FilterPanel';
 import { Clinic, FilterOptions } from '@/lib/dataTypes';
+import { calculateDistance } from '@/lib/utils';
 
 export default function Home() {
   const [clinics, setClinics] = useState<Clinic[]>([]);
@@ -72,6 +73,25 @@ export default function Home() {
     });
 
     setFilteredClinics(filtered);
+  };
+
+  const handleLocationSearch = (lat: number, lng: number) => {
+    // Calculate distance for each clinic
+    const clinicsWithDistance = clinics.map(clinic => ({
+      ...clinic,
+      distance: calculateDistance(
+        { lat, lng },
+        { lat: clinic.location.lat, lng: clinic.location.lng }
+      )
+    }));
+
+    // Sort by distance (closest first)
+    const sorted = clinicsWithDistance.sort((a, b) => a.distance - b.distance);
+    
+    setFilteredClinics(sorted);
+    
+    // Show a message
+    console.log(`Found ${sorted.length} clinics sorted by distance from your location`);
   };
 
   const applyFilters = () => {
@@ -198,7 +218,10 @@ export default function Home() {
 
           {/* Search Bar */}
           <div className="mt-4">
-            <SearchBar onSearch={handleSearch} />
+            <SearchBar 
+              onSearch={handleSearch} 
+              onLocationSearch={handleLocationSearch}
+            />
           </div>
         </div>
       </header>

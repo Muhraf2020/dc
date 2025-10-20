@@ -7,7 +7,7 @@ import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
 interface ClinicCardProps {
-  clinic: Clinic;
+  clinic: Clinic & { distance?: number };
   onClick?: () => void;
 }
 
@@ -131,6 +131,11 @@ export default function ClinicCard({ clinic, onClick }: ClinicCardProps) {
           </svg>
           <p className="text-sm text-gray-600 line-clamp-2">{clinic.formatted_address}</p>
         </div>
+{clinic.distance !== undefined && (
+  <div className="text-sm text-green-600 font-medium mb-2">
+    📍 {clinic.distance.toFixed(1)} miles away
+  </div>
+)}
 
         <div className="flex flex-wrap gap-2 mb-4">
           {clinic.accessibility_options?.wheelchair_accessible_entrance && (
