@@ -7,6 +7,13 @@ import { Clinic } from '@/lib/dataTypes';
  * Search for dermatology clinics using Google Places API
  */
 export async function GET(request: Request) {
+  // ⛔ 1) Block paid search in dev/preview when READ_ONLY_MODE is enabled
+  if (process.env.READ_ONLY_MODE === 'true') {
+    return NextResponse.json(
+      { error: 'Search disabled in read-only mode' },
+      { status: 403 }
+    );
+  }
   try {
     const { searchParams } = new URL(request.url);
     const query = searchParams.get('q') || '';
