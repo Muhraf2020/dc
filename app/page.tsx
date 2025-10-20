@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import SearchBar from '@/components/SearchBar';
 import ClinicCard from '@/components/ClinicCard';
-import MapView from '@/components/MapView';
+// ✅ CHANGE 1: Replace MapView with FreeMapView
+import FreeMapView from '@/components/FreeMapView';  // ← Changed from MapView
 import FilterPanel from '@/components/FilterPanel';
 import { Clinic, FilterOptions } from '@/lib/dataTypes';
 import { calculateDistance } from '@/lib/utils';
@@ -31,7 +32,7 @@ export default function Home() {
       const data = await response.json();
       const loadedClinics = data.clinics || [];
       setClinics(loadedClinics);
-      setFilteredClinics(loadedClinics); // Add this line
+      setFilteredClinics(loadedClinics);
     } catch (error) {
       console.error('Error loading clinics:', error);
     } finally {
@@ -40,26 +41,20 @@ export default function Home() {
   };
 
   const handleSearch = (query: string) => {
-    // Client-side search through already loaded clinics
     if (!query || query.trim() === '') {
-      // Show all clinics
       setFilteredClinics(clinics);
       return;
     }
 
     const trimmedQuery = query.trim();
     const lowerQuery = trimmedQuery.toLowerCase();
-    
-    // Check if query looks like a ZIP code (5 digits)
     const isZipCode = /^\d{5}$/.test(trimmedQuery);
     
     const filtered = clinics.filter(clinic => {
       if (isZipCode) {
-        // Search by postal code (exact match)
         return clinic.postal_code === trimmedQuery;
       }
       
-      // Regular text search across multiple fields
       const searchableText = `
         ${clinic.display_name || ''} 
         ${clinic.formatted_address || ''} 
@@ -76,7 +71,6 @@ export default function Home() {
   };
 
   const handleLocationSearch = (lat: number, lng: number) => {
-    // Calculate distance for each clinic
     const clinicsWithDistance = clinics.map(clinic => ({
       ...clinic,
       distance: calculateDistance(
@@ -85,19 +79,14 @@ export default function Home() {
       )
     }));
 
-    // Sort by distance (closest first)
     const sorted = clinicsWithDistance.sort((a, b) => a.distance - b.distance);
-    
     setFilteredClinics(sorted);
-    
-    // Show a message
     console.log(`Found ${sorted.length} clinics sorted by distance from your location`);
   };
 
   const applyFilters = () => {
     let filtered = [...clinics];
 
-    // Rating filter
     if (filters.rating_min) {
       filtered = filtered.filter(c => {
         const rating = c.rating || 0;
@@ -105,31 +94,26 @@ export default function Home() {
       });
     }
 
-    // Website filter
     if (filters.has_website) {
       filtered = filtered.filter(c => c.website && c.website.trim() !== '');
     }
 
-    // Phone filter
     if (filters.has_phone) {
       filtered = filtered.filter(c => c.phone && c.phone.trim() !== '');
     }
 
-    // Wheelchair accessible filter
     if (filters.wheelchair_accessible) {
       filtered = filtered.filter(c => 
         c.accessibility_options?.wheelchair_accessible_entrance === true
       );
     }
 
-    // Free parking filter
     if (filters.free_parking) {
       filtered = filtered.filter(c => 
         c.parking_options?.free_parking_lot === true
       );
     }
 
-    // Open now filter
     if (filters.open_now) {
       filtered = filtered.filter(c => {
         return c.current_open_now === true || 
@@ -137,13 +121,12 @@ export default function Home() {
       });
     }
 
-    // State filter
     if (filters.states && filters.states.length > 0) {
       filtered = filtered.filter(c => {
-      return c.state_code && filters.states?.includes(c.state_code);
+        return c.state_code && filters.states?.includes(c.state_code);
       });
-   }
-    // Sorting
+    }
+
     if (filters.sort_by) {
       filtered.sort((a, b) => {
         let aVal, bVal;
@@ -175,8 +158,6 @@ export default function Home() {
 
     setFilteredClinics(filtered);
   };
-
-   
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -275,8 +256,9 @@ export default function Home() {
                 )}
               </div>
             ) : (
+              // ✅ CHANGE 2: Replace MapView with FreeMapView here
               <div className="h-[calc(100vh-300px)] rounded-lg overflow-hidden shadow-lg">
-                <MapView
+                <FreeMapView
                   clinics={filteredClinics}
                   selectedClinic={selectedClinic}
                   onClinicSelect={setSelectedClinic}
@@ -300,25 +282,18 @@ export default function Home() {
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li><a href="#" className="hover:text-white">All Clinics</a></li>
-                <li><a href="#" className="hover:text-white">By State</a></li>
-                <li><a href="#" className="hover:text-white">Top Rated</a></li>
-                <li><a href="#" className="hover:text-white">Open Now</a></li>
+              <ul className="space-y-2 text-gray-400 text-sm">
+                <li><a href="#" className="hover:text-white">Privacy Policy</a></li>
+                <li><a href="#" className="hover:text-white">Terms of Service</a></li>
+                <li><a href="#" className="hover:text-white">Contact Us</a></li>
               </ul>
             </div>
             <div>
-              <h3 className="text-lg font-semibold mb-4">Contact</h3>
+              <h3 className="text-lg font-semibold mb-4">Connect</h3>
               <p className="text-gray-400 text-sm">
-                Have feedback or want to add your clinic?<br />
-                <a href="mailto:contact@dermaclinicsnearme.com" className="text-blue-400 hover:text-blue-300">
-                  Get in touch
-                </a>
+                © 2025 Derm Clinics Near Me. All rights reserved.
               </p>
             </div>
-          </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
-            © {new Date().getFullYear()} Derm Clinics Near Me. All rights reserved.
           </div>
         </div>
       </footer>

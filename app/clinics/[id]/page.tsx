@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation';
 import { Clinic } from '@/lib/dataTypes';
 import { getPhotoUrl } from '@/lib/googlePlaces';
 import Link from 'next/link';
+import ClinicBanner from '@/components/ClinicBanner';
 
 export default function ClinicDetailPage() {
   const params = useParams();
@@ -78,22 +79,35 @@ export default function ClinicDetailPage() {
 
       {/* Main Content */}
       <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Photos Grid */}
+        {/* Banner Image - Always shown */}
+        <div className="mb-8 rounded-lg overflow-hidden shadow-lg">
+          <ClinicBanner
+            clinicName={clinic.display_name}
+            placeId={clinic.place_id}
+            rating={clinic.rating}
+            website={clinic.website}
+            className="w-full h-64 md:h-80 object-cover"
+          />
+        </div>
+
+        {/* Additional Photos Grid - Only if Google Photos exist */}
         {hasPhotos && (
-          <div className="grid grid-cols-2 gap-4 mb-8 rounded-lg overflow-hidden">
-            {photos.map((photo, index) => (
-              <img
-                key={index}
-                src={getPhotoUrl(photo.name, 600, 400)}
-                alt={`${clinic.display_name} photo ${index + 1}`}
-                className={`w-full object-cover ${
-                  index === 0 ? 'col-span-2 h-96' : 'h-64'
-                }`}
-                onError={(e) => {
-                  e.currentTarget.src = '/placeholder-clinic.jpg';
-                }}
-              />
-            ))}
+          <div className="mb-8">
+            <h2 className="text-xl font-bold text-gray-900 mb-4">Photos</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 rounded-lg overflow-hidden">
+              {photos.map((photo, index) => (
+                <img
+                  key={index}
+                  src={getPhotoUrl(photo.name, 400, 300)}
+                  alt={`${clinic.display_name} photo ${index + 1}`}
+                  className="w-full h-48 object-cover rounded-lg hover:scale-105 transition-transform duration-200 cursor-pointer"
+                  onError={(e) => {
+                    // Hide broken images
+                    e.currentTarget.style.display = 'none';
+                  }}
+                />
+              ))}
+            </div>
           </div>
         )}
 
@@ -169,11 +183,23 @@ export default function ClinicDetailPage() {
             {/* Features */}
             <div className="bg-white rounded-lg shadow-md p-6">
               <h2 className="text-xl font-bold text-gray-900 mb-4">Features & Amenities</h2>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {clinic.accessibility_options?.wheelchair_accessible_entrance && (
                   <div className="flex items-center gap-2">
                     <span className="text-2xl">♿</span>
                     <span className="text-gray-700">Wheelchair Accessible Entrance</span>
+                  </div>
+                )}
+                {clinic.accessibility_options?.wheelchair_accessible_parking && (
+                  <div className="flex items-center gap-2">
+                    <span className="text-2xl">♿</span>
+                    <span className="text-gray-700">Accessible Parking</span>
+                  </div>
+                )}
+                {clinic.accessibility_options?.wheelchair_accessible_restroom && (
+                  <div className="flex items-center gap-2">
+                    <span className="text-2xl">♿</span>
+                    <span className="text-gray-700">Accessible Restroom</span>
                   </div>
                 )}
                 {clinic.parking_options?.free_parking_lot && (
@@ -188,13 +214,46 @@ export default function ClinicDetailPage() {
                     <span className="text-gray-700">Paid Parking</span>
                   </div>
                 )}
+                {clinic.parking_options?.valet_parking && (
+                  <div className="flex items-center gap-2">
+                    <span className="text-2xl">🚗</span>
+                    <span className="text-gray-700">Valet Parking</span>
+                  </div>
+                )}
                 {clinic.payment_options?.accepts_credit_cards && (
                   <div className="flex items-center gap-2">
                     <span className="text-2xl">💳</span>
-                    <span className="text-gray-700">Accepts Credit Cards</span>
+                    <span className="text-gray-700">Credit Cards</span>
+                  </div>
+                )}
+                {clinic.payment_options?.accepts_debit_cards && (
+                  <div className="flex items-center gap-2">
+                    <span className="text-2xl">💳</span>
+                    <span className="text-gray-700">Debit Cards</span>
+                  </div>
+                )}
+                {clinic.payment_options?.accepts_nfc && (
+                  <div className="flex items-center gap-2">
+                    <span className="text-2xl">📱</span>
+                    <span className="text-gray-700">Contactless Payment</span>
+                  </div>
+                )}
+                {clinic.payment_options?.accepts_cash_only && (
+                  <div className="flex items-center gap-2">
+                    <span className="text-2xl">💵</span>
+                    <span className="text-gray-700">Cash Only</span>
                   </div>
                 )}
               </div>
+
+              {/* Show message if no features available */}
+              {!clinic.accessibility_options && 
+               !clinic.parking_options && 
+               !clinic.payment_options && (
+                <p className="text-gray-500 text-sm italic">
+                  No additional features information available.
+                </p>
+              )}
             </div>
           </div>
 
@@ -292,13 +351,13 @@ export default function ClinicDetailPage() {
               // Free fallback when maps are disabled
               <div className="bg-white rounded-lg shadow-md p-6">
                 <h2 className="text-xl font-bold text-gray-900 mb-2">Location</h2>
-                <p className="text-gray-600 mb-3">Map disabled in this environment.</p>
+                <p className="text-gray-600 mb-3">View on Google Maps for directions.</p>
                 {clinic.google_maps_uri && (
                   <a
                     href={clinic.google_maps_uri}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-4 py-2 rounded-md bg-blue-50 text-blue-700 hover:bg-blue-100"
+                    className="inline-flex items-center px-4 py-2 rounded-md bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors"
                   >
                     Open in Google Maps ↗
                   </a>
