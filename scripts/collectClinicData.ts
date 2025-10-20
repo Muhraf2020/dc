@@ -63,11 +63,101 @@ function fromAddressComponents(components: any[]) {
   };
 }
 
-function acceptByDermHeuristics(p: any) {
-  const name = (p.displayName?.text || '').toLowerCase();
-  const website = (p.websiteUri || '').toLowerCase();
-  const hay = `${name} ${website}`;
-  return /dermatolog|skin clinic|skin center|derma\b/.test(hay);
+/ Enhanced dermatology filtering for collectClinicData.ts
+// Replace the acceptByDermHeuristics function with this improved version:
+
+const DERM_KEYWORDS = {
+  // Core terms (high confidence)
+  core: [
+    'dermatology', 'dermatologist', 'dermatologic',
+    'skin clinic', 'skin center', 'skin care clinic',
+  ],
+  // Related terms (medium confidence)
+  related: [
+    'skin doctor', 'skin specialist', 'skin health',
+    'medical dermatology', 'cosmetic dermatology',
+    'laser dermatology', 'aesthetic dermatology',
+    'mohs surgery', 'skin cancer', 'melanoma',
+  ],
+  // Partial matches (need context)
+  partial: ['derm', 'skin'],
+  // Exclude terms (false positives)
+  exclude: [
+    'dental', 'dentist', 'orthodont', 'oral surgery',
+    'veterinary', 'animal clinic', 'pet clinic',
+    'massage', 'spa resort', 'day spa', 'nail salon',
+  ]
+};
+
+function acceptByDermHeuristics(place: any): boolean {
+  // Extract searchable text
+  const name = (place.displayName?.text || '').toLowerCase();
+  const website = (place.websiteUri || '').toLowerCase();
+  const types = (place.types || []).map((t: string) => t.toLowerCase());
+  const address = (place.formattedAddress || '').toLowerCase();
+  
+  // Combine all searchable fields
+  const searchText = `${name} ${website} ${types.join(' ')}`;
+  
+  // RULE 1: Exclude obvious non-derm places first
+  for (const excludeTerm of DERM_KEYWORDS.exclude) {
+    if (searchText.includes(excludeTerm)) {
+      return false;
+    }
+  }
+  
+  // RULE 2: Accept if Place Type is skin_care_clinic
+  if (types.includes('skin_care_clinic')) {
+    return true;
+  }
+  
+  // RULE 3: High confidence - core dermatology terms
+  for (const coreTerm of DERM_KEYWORDS.core) {
+    if (searchText.includes(coreTerm)) {
+      return true;
+    }
+  }
+  
+  // RULE 4: Medium confidence - related terms in name or website
+  for (const relatedTerm of DERM_KEYWORDS.related) {
+    if (name.includes(relatedTerm) || website.includes(relatedTerm)) {
+      return true;
+    }
+  }
+  
+  // RULE 5: Partial matches - need strong context
+  // Only accept if 'derm' or 'skin' appears with medical context
+  const hasDerm = searchText.includes('derm');
+  const hasSkin = name.includes('skin') || website.includes('skin');
+  const medicalContext = 
+    types.includes('doctor') || 
+    types.includes('health') ||
+    searchText.includes('medical') ||
+    searchText.includes('clinic') ||
+    searchText.includes('center');
+  
+  if ((hasDerm || hasSkin) && medicalContext) {
+    // Extra validation: exclude skin care product stores
+    const isStore = 
+      types.includes('store') ||
+      types.includes('beauty_supply_store') ||
+      searchText.includes('beauty supply') ||
+      searchText.includes('cosmetics store');
+    
+    return !isStore;
+  }
+  
+  // RULE 6: Reject everything else
+  return false;
+}
+
+// Optional: Add logging to track filtering stats
+function logFilteringStats(places: any[], filtered: any[]) {
+  console.log(`  📊 Filtering: ${places.length} → ${filtered.length} clinics`);
+  if (places.length > filtered.length) {
+    const rejected = places.length - filtered.length;
+    console.log(`  ⚠️  Rejected ${rejected} non-derm results`);
+  }
 }
 
 async function searchTextOnce(query: string, pageToken?: string) {
