@@ -29,19 +29,21 @@ const STATES = [
   'OR','PA','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY','DC'
 ];
 
-// ---- Throttling & safety ----
-const QPS = 3; // gentle global pace
-const NEXT_PAGE_DELAY_MS = 1200; // extra delay to let nextPageToken become valid
+// ---- Throttling & safety (env-driven) ----
+const QPS = Number(process.env.PLACES_QPS || 3);                          // calls/sec
+const NEXT_PAGE_DELAY_MS = Number(process.env.PLACES_NEXT_PAGE_DELAY_MS || 1200);
 const SLEEP = (ms: number) => new Promise(r => setTimeout(r, ms));
 
 let REQUESTS = 0;
-const MAX_REQUESTS = Number(process.env.PLACES_MAX_REQUESTS || 800);
+const MAX_REQUESTS = Number(process.env.PLACES_MAX_REQUESTS || 800);       // API call cap
+
+const MAX_CLINICS_PER_STATE = Number(process.env.PLACES_MAX_CLINICS_PER_STATE || 0); // 0 = no cap
+const MAX_CLINICS_GLOBAL = Number(process.env.PLACES_MAX_CLINICS_GLOBAL || 0);       // 0 = no cap
+let GLOBAL_CLINICS = 0;
+
 async function gate() {
   REQUESTS++;
-  if (REQUESTS > MAX_REQUESTS) {
-    throw new Error('Daily request cap hit');
-  }
-  // QPS pacing
+  if (REQUESTS > MAX_REQUESTS) throw new Error('Daily request cap hit');
   await SLEEP(Math.ceil(1000 / QPS));
 }
 
@@ -150,16 +152,30 @@ async function collectState(stateCode: string) {
         if (id && !seen.has(id)) {
           seen.add(id);
           clinics.push(toClinic(p));
+          GLOBAL_CLINICS++;
+
+          // Per-state cap
+          if (MAX_CLINICS_PER_STATE && clinics.length >= MAX_CLINICS_PER_STATE) {
+            pageToken = undefined; // stop paging this query
+            break;                 // move to next query
+          }
+
+          // Global cap
+          if (MAX_CLINICS_GLOBAL && GLOBAL_CLINICS >= MAX_CLINICS_GLOBAL) {
+            throw new Error('Global clinic cap hit');
+          }
         }
       }
 
-      pageToken = data.nextPageToken || undefined;
+      pageToken = pageToken ?? (data.nextPageToken || undefined);
 
       // Extra delay specifically between page fetches to avoid "token not ready" flakiness
       if (pageToken) {
         await SLEEP(NEXT_PAGE_DELAY_MS);
       }
     } while (pageToken);
+
+    // If per-state cap hit, we already broke out of this query; continue to next query automatically
   }
 
   const outPath = path.join(OUT_DIR, `${stateCode.toLowerCase()}.json`);
@@ -180,18 +196,26 @@ async function main() {
   const states = arg ? arg.split('=')[1].split(',').map(s => s.trim().toUpperCase()) : STATES;
 
   console.log(`\n▶ Collecting dermatology clinics for ${states.length} state(s) (Text Search, paginated)`);
-  console.log(`   Rate: ~${QPS} QPS  |  language=en  region=US  |  max requests: ${MAX_REQUESTS}\n`);
+  console.log(`   Rate: ~${QPS} QPS  |  nextPageDelay=${NEXT_PAGE_DELAY_MS}ms  |  max requests: ${MAX_REQUESTS}`);
+  if (MAX_CLINICS_PER_STATE) console.log(`   Cap per state: ${MAX_CLINICS_PER_STATE} clinics`);
+  if (MAX_CLINICS_GLOBAL)     console.log(`   Global cap:    ${MAX_CLINICS_GLOBAL} clinics`);
+  console.log('');
 
   for (const st of states) {
     process.stdout.write(`→ ${st}\n`);
     try {
       await collectState(st);
     } catch (e: any) {
-      console.error(`  ❌ ${st}: ${e.message || e}`);
+      const msg = e?.message || String(e);
+      console.error(`  ❌ ${st}: ${msg}`);
+      if (msg.includes('Global clinic cap hit') || msg.includes('Daily request cap hit')) {
+        console.log('\n⛔ Limit reached. Stopping collection.\n');
+        break;
+      }
     }
   }
 
-  console.log('\n✨ Done.\n');
+  console.log(`\n✨ Done. Total API calls: ${REQUESTS}  |  Total clinics: ${GLOBAL_CLINICS}\n`);
 }
 
 main().catch(err => {
