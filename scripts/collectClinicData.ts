@@ -2,358 +2,199 @@ import { config } from 'dotenv';
 import path from 'path';
 import { promises as fs } from 'fs';
 
-// At the top, after imports
-const MAX_DAILY_REQUESTS = 100; // Safety limit for Places
-let requestCount = 0;
-
-// Load environment variables from .env.local
 config({ path: path.resolve(process.cwd(), '.env.local') });
 
-/**
- * Data Collection Script for Dermatology Clinics
- *
- * Usage: npm run collect-data
- */
-
-// Load environment variables
-const GOOGLE_PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY || '';
-const PLACES_API_URL = 'https://places.googleapis.com/v1/places';
-
-// ---- Unsplash config (FREE) ----
-const UNSPLASH_ACCESS_KEY = process.env.UNSPLASH_ACCESS_KEY || '';
-const UNSPLASH_QUERY = 'dermatology,dermatologist,skin care,medical clinic,clinic';
-const UNSPLASH_POOL_SIZE = 20; // keep <= 50/hour free tier
-const unsplashPool: string[] = [];
-let unsplashIdx = 0;
-const PLACEHOLDER =
-  'https://via.placeholder.com/800x600/3b82f6/ffffff?text=Dermatology+Clinic';
-
-// Fetch one random Unsplash image URL
-async function getRandomDermImage(): Promise<string | null> {
-  if (!UNSPLASH_ACCESS_KEY) return null;
-  try {
-    const url =
-      `https://api.unsplash.com/photos/random?query=${encodeURIComponent(UNSPLASH_QUERY)}` +
-      `&orientation=landscape&content_filter=high&client_id=${UNSPLASH_ACCESS_KEY}`;
-    const res = await fetch(url);
-    if (!res.ok) {
-      console.warn(`Unsplash error: ${res.status} ${res.statusText}`);
-      return null;
-    }
-    const data = await res.json();
-    // Prefer a reasonably sized URL to avoid layout thrash
-    return data?.urls?.regular || data?.urls?.full || data?.urls?.small || null;
-  } catch (e) {
-    console.warn('Unsplash fetch failed:', e);
-    return null;
-  }
+const API_KEY = process.env.GOOGLE_PLACES_API_KEY || '';
+if (!API_KEY) {
+  console.error('❌ GOOGLE_PLACES_API_KEY is missing in .env.local');
+  process.exit(1);
 }
 
-// Seed a small pool so we don’t call Unsplash per clinic
-async function seedUnsplashPool(target = UNSPLASH_POOL_SIZE) {
-  if (!UNSPLASH_ACCESS_KEY) {
-    console.warn('UNSPLASH_ACCESS_KEY not set; falling back to placeholder images.');
-    return;
-  }
-  while (unsplashPool.length < target) {
-    const url = await getRandomDermImage();
-    if (url) unsplashPool.push(url);
-    // gentle pacing
-    await delay(400);
-  }
-}
+const OUT_DIR = path.resolve(process.cwd(), 'data/clinics');
+await fs.mkdir(OUT_DIR, { recursive: true });
 
-// Get an image from pool (cycles)
-function getDermImageFromPool(): string {
-  if (unsplashPool.length === 0) return PLACEHOLDER;
-  const url = unsplashPool[unsplashIdx % unsplashPool.length];
-  unsplashIdx++;
-  return url || PLACEHOLDER;
-}
+const FIELD_MASK = [
+  'places.id','places.displayName','places.formattedAddress','places.addressComponents',
+  'places.location','places.primaryType','places.types','places.rating','places.userRatingCount',
+  'places.currentOpeningHours.openNow','places.regularOpeningHours.weekdayDescriptions',
+  'places.nationalPhoneNumber','places.internationalPhoneNumber',
+  'places.websiteUri','places.googleMapsUri','places.businessStatus',
+  'places.photos.name','places.photos.widthPx','places.photos.heightPx',
+  'nextPageToken'
+].join(',');
 
-interface Location {
-  lat: number;
-  lng: number;
-}
-
-interface StateInfo {
-  name: string;
-  code: string;
-  center: Location;
-  major_cities: Array<{ name: string; location: Location }>;
-}
-
-// Major US states and their coordinates
-const US_STATES: StateInfo[] = [
-  {
-    name: 'California',
-    code: 'CA',
-    center: { lat: 36.7783, lng: -119.4179 },
-    major_cities: [
-      { name: 'Los Angeles', location: { lat: 34.0522, lng: -118.2437 } },
-      { name: 'San Francisco', location: { lat: 37.7749, lng: -122.4194 } },
-      { name: 'San Diego', location: { lat: 32.7157, lng: -117.1611 } },
-      { name: 'Sacramento', location: { lat: 38.5816, lng: -121.4944 } },
-    ],
-  },
-  {
-    name: 'New York',
-    code: 'NY',
-    center: { lat: 40.7128, lng: -74.006 },
-    major_cities: [
-      { name: 'New York City', location: { lat: 40.7128, lng: -74.006 } },
-      { name: 'Buffalo', location: { lat: 42.8864, lng: -78.8784 } },
-      { name: 'Rochester', location: { lat: 43.1566, lng: -77.6088 } },
-    ],
-  },
-  {
-    name: 'Texas',
-    code: 'TX',
-    center: { lat: 31.9686, lng: -99.9018 },
-    major_cities: [
-      { name: 'Houston', location: { lat: 29.7604, lng: -95.3698 } },
-      { name: 'Dallas', location: { lat: 32.7767, lng: -96.797 } },
-      { name: 'Austin', location: { lat: 30.2672, lng: -97.7431 } },
-      { name: 'San Antonio', location: { lat: 29.4241, lng: -98.4936 } },
-    ],
-  },
-  {
-    name: 'Florida',
-    code: 'FL',
-    center: { lat: 27.6648, lng: -81.5158 },
-    major_cities: [
-      { name: 'Miami', location: { lat: 25.7617, lng: -80.1918 } },
-      { name: 'Orlando', location: { lat: 28.5383, lng: -81.3792 } },
-      { name: 'Tampa', location: { lat: 27.9506, lng: -82.4572 } },
-      { name: 'Jacksonville', location: { lat: 30.3322, lng: -81.6557 } },
-    ],
-  },
-  {
-    name: 'Illinois',
-    code: 'IL',
-    center: { lat: 40.6331, lng: -89.3985 },
-    major_cities: [
-      { name: 'Chicago', location: { lat: 41.8781, lng: -87.6298 } },
-      { name: 'Springfield', location: { lat: 39.7817, lng: -89.6501 } },
-    ],
-  },
+const STATES = [
+  'AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA',
+  'ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK',
+  'OR','PA','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY','DC'
 ];
 
-/**
- * Search for dermatology clinics near a location
- */
-async function searchDermClinics(location: Location, radius: number = 50000) {
-  if (requestCount >= MAX_DAILY_REQUESTS) {
-    console.warn('⚠️ Daily Places request limit reached. Stop to avoid charges.');
-    return [];
-  }
-  requestCount++;
+// ---- Throttling & safety ----
+const QPS = 3; // gentle global pace
+const NEXT_PAGE_DELAY_MS = 1200; // extra delay to let nextPageToken become valid
+const SLEEP = (ms: number) => new Promise(r => setTimeout(r, ms));
 
-  const response = await fetch(`${PLACES_API_URL}:searchNearby`, {
+let REQUESTS = 0;
+const MAX_REQUESTS = Number(process.env.PLACES_MAX_REQUESTS || 800);
+async function gate() {
+  REQUESTS++;
+  if (REQUESTS > MAX_REQUESTS) {
+    throw new Error('Daily request cap hit');
+  }
+  // QPS pacing
+  await SLEEP(Math.ceil(1000 / QPS));
+}
+
+// ---- Small utils ----
+function pick(obj: any, keys: string[]) {
+  const o: any = {};
+  for (const k of keys) o[k] = obj?.[k] ?? null;
+  return o;
+}
+
+function fromAddressComponents(components: any[]) {
+  const get = (t: string) => components?.find((c: any) => c.types?.includes(t));
+  return {
+    state_code: get('administrative_area_level_1')?.shortText ?? null,
+    city: get('locality')?.longText ?? get('postal_town')?.longText ?? null,
+    postal_code: get('postal_code')?.longText ?? null,
+  };
+}
+
+function acceptByDermHeuristics(p: any) {
+  const name = (p.displayName?.text || '').toLowerCase();
+  const website = (p.websiteUri || '').toLowerCase();
+  const hay = `${name} ${website}`;
+  return /dermatolog|skin clinic|skin center|derma\b/.test(hay);
+}
+
+async function searchTextOnce(query: string, pageToken?: string) {
+  await gate(); // count + pace every API call
+
+  const body: any = { textQuery: query, pageSize: 20, languageCode: 'en', regionCode: 'US' };
+  if (pageToken) body.pageToken = pageToken;
+
+  const res = await fetch('https://places.googleapis.com/v1/places:searchText', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'X-Goog-Api-Key': GOOGLE_PLACES_API_KEY,
-      'X-Goog-FieldMask': [
-        'places.id',
-        'places.displayName',
-        'places.formattedAddress',
-        'places.location',
-        'places.types',
-        'places.primaryType',
-        'places.rating',
-        'places.userRatingCount',
-        'places.currentOpeningHours',
-        'places.nationalPhoneNumber',
-        'places.internationalPhoneNumber',
-        'places.websiteUri',
-        'places.googleMapsUri',
-        'places.businessStatus',
-        'places.accessibilityOptions',
-        'places.parkingOptions',
-        'places.priceLevel',
-        'places.paymentOptions',
-        // (we intentionally skip photos field to save Places quota)
-      ].join(','),
+      'X-Goog-Api-Key': API_KEY,
+      'X-Goog-FieldMask': FIELD_MASK
     },
-    body: JSON.stringify({
-      includedTypes: ['skin_care_clinic', 'doctor'],
-      maxResultCount: 20,
-      locationRestriction: {
-        circle: {
-          center: {
-            latitude: location.lat,
-            longitude: location.lng,
-          },
-          radius: radius,
-        },
-      },
-    }),
+    body: JSON.stringify(body)
   });
-
-  if (!response.ok) {
-    throw new Error(`Places API error: ${response.status} ${response.statusText}`);
-  }
-
-  const data = await response.json();
-  return transformPlacesResponse(data.places || []);
+  if (!res.ok) throw new Error(`searchText failed: ${res.status}`);
+  return res.json();
 }
 
-/**
- * Transform Google Places API response
- * (Adds an Unsplash image URL per clinic; no Places photo usage)
- */
-function transformPlacesResponse(places: any[]) {
-  return places
-    .map((place) => {
-      if (!place || !place.id) return null;
+// ---- Output shape (UI-friendly) ----
+function toClinic(p: any) {
+  const ac = fromAddressComponents(p.addressComponents ?? []);
+  return {
+    place_id: p.id ?? null,
+    display_name: p.displayName?.text ?? null,
+    formatted_address: p.formattedAddress ?? null,
+    location: p.location ? { lat: p.location.latitude, lng: p.location.longitude } : null,
+    primary_type: p.primaryType ?? null,
+    types: p.types ?? [],
+    rating: p.rating ?? null,
+    user_rating_count: p.userRatingCount ?? null,
 
-      const types = place.types || [];
-      const displayName = place.displayName?.text || '';
+    // 👇 Keep MapView happy:
+    phone: p.nationalPhoneNumber ?? null,
+    international_phone_number: p.internationalPhoneNumber ?? null,
+    opening_hours: p.regularOpeningHours
+      ? {
+          open_now: p.currentOpeningHours?.openNow ?? null,
+          weekday_text: p.regularOpeningHours.weekdayDescriptions ?? [],
+        }
+      : null,
 
-      // Filter for dermatology-related clinics
-      const lower = displayName.toLowerCase();
-      const isDermatology =
-        types.includes('skin_care_clinic') ||
-        lower.includes('derm') ||
-        lower.includes('skin') ||
-        lower.includes('dermatology');
+    website: p.websiteUri ?? null,
+    google_maps_uri: p.googleMapsUri ?? null,
+    business_status: p.businessStatus ?? null,
 
-      if (!isDermatology && place.primaryType !== 'skin_care_clinic') {
-        return null;
-      }
+    city: ac.city,
+    state_code: ac.state_code,
+    postal_code: ac.postal_code,
 
-      // Pull one URL from the pre-fetched Unsplash pool
-      const photoUrl = getDermImageFromPool();
+    photos: (p.photos ?? []).map((ph: any) => ({
+      name: ph.name,
+      widthPx: ph.widthPx,
+      heightPx: ph.heightPx,
+    })),
 
-      return {
-        place_id: place.id,
-        display_name: displayName,
-        formatted_address: place.formattedAddress || '',
-        location: {
-          lat: place.location?.latitude || 0,
-          lng: place.location?.longitude || 0,
-        },
-        primary_type: place.primaryType || 'skin_care_clinic',
-        types: types,
-        rating: place.rating,
-        user_rating_count: place.userRatingCount,
-        current_open_now: place.currentOpeningHours?.openNow,
-        phone: place.nationalPhoneNumber,
-        international_phone_number: place.internationalPhoneNumber,
-        website: place.websiteUri,
-        google_maps_uri: place.googleMapsUri || '',
-        business_status: place.businessStatus || 'OPERATIONAL',
-        accessibility_options: place.accessibilityOptions,
-        parking_options: place.parkingOptions,
-        // We store the Unsplash URL in 'photos[0].name' so the UI can treat it as a photo source.
-        // (With a small tweak in getPhotoUrl, absolute URLs will passthrough.)
-        photos: [{ name: photoUrl }],
-        opening_hours: place.regularOpeningHours
-          ? {
-              open_now: place.currentOpeningHours?.openNow,
-              weekday_text: place.regularOpeningHours.weekdayDescriptions,
-            }
-          : undefined,
-        price_level: place.priceLevel,
-        payment_options: place.paymentOptions,
-        last_fetched_at: new Date().toISOString().split('T')[0],
-      };
-    })
-    .filter((clinic) => clinic !== null);
+    last_fetched_at: new Date().toISOString().slice(0, 10),
+  };
 }
 
-/**
- * Delay helper for rate limiting
- */
-function delay(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+// ---- State collection ----
+async function collectState(stateCode: string) {
+  const seen = new Set<string>();
+  const clinics: any[] = [];
+  const queries = [
+    `dermatology clinic in ${stateCode}`,
+    `dermatologist in ${stateCode}`,
+    `skin clinic in ${stateCode}`
+  ];
+
+  for (const q of queries) {
+    let pageToken: string | undefined = undefined;
+    do {
+      const data = await searchTextOnce(q, pageToken);
+      const places = data.places ?? [];
+
+      for (const p of places) {
+        if (!acceptByDermHeuristics(p)) continue;
+        const id = p.id;
+        if (id && !seen.has(id)) {
+          seen.add(id);
+          clinics.push(toClinic(p));
+        }
+      }
+
+      pageToken = data.nextPageToken || undefined;
+
+      // Extra delay specifically between page fetches to avoid "token not ready" flakiness
+      if (pageToken) {
+        await SLEEP(NEXT_PAGE_DELAY_MS);
+      }
+    } while (pageToken);
+  }
+
+  const outPath = path.join(OUT_DIR, `${stateCode.toLowerCase()}.json`);
+  const payload = {
+    state: stateCode,
+    state_code: stateCode,
+    total: clinics.length,
+    last_updated: new Date().toISOString(),
+    clinics
+  };
+  await fs.writeFile(outPath, JSON.stringify(payload, null, 2), 'utf-8');
+  console.log(`  ✅ ${stateCode}: ${clinics.length} clinics → ${path.relative(process.cwd(), outPath)}`);
 }
 
-/**
- * Main data collection function
- */
-async function collectData() {
-  console.log('🏥 Starting dermatology clinic data collection...\n');
+// ---- Main ----
+async function main() {
+  const arg = process.argv.find(a => a.startsWith('--states='));
+  const states = arg ? arg.split('=')[1].split(',').map(s => s.trim().toUpperCase()) : STATES;
 
-  if (!GOOGLE_PLACES_API_KEY) {
-    console.error('❌ Error: GOOGLE_PLACES_API_KEY not found in environment variables');
-    process.exit(1);
-  }
+  console.log(`\n▶ Collecting dermatology clinics for ${states.length} state(s) (Text Search, paginated)`);
+  console.log(`   Rate: ~${QPS} QPS  |  language=en  region=US  |  max requests: ${MAX_REQUESTS}\n`);
 
-  const dataDir = path.join(process.cwd(), 'data', 'clinics');
-
-  // Ensure data directory exists
-  try {
-    await fs.mkdir(dataDir, { recursive: true });
-    console.log('✅ Data directory created/verified\n');
-  } catch (error) {
-    console.error('❌ Error creating data directory:', error);
-    process.exit(1);
-  }
-
-  // Prefetch a small Unsplash image pool (non-blocking if no key)
-  await seedUnsplashPool();
-
-  let totalClinics = 0;
-
-  // Collect data for each state
-  for (const state of US_STATES) {
-    console.log(`\n📍 Processing ${state.name} (${state.code})...`);
-    const stateClinics = new Map();
-
-    // Search in major cities
-    for (const city of state.major_cities) {
-      console.log(`  🔍 Searching in ${city.name}...`);
-
-      try {
-        const clinics = await searchDermClinics(city.location, 30000); // 30km radius
-        console.log(`    Found ${clinics.length} clinics`);
-
-        clinics.forEach((clinic: any) => {
-          stateClinics.set(clinic.place_id, clinic);
-        });
-
-        // Rate limiting: wait 2 seconds between requests
-        await delay(2000);
-      } catch (error) {
-        console.error(`    ❌ Error searching ${city.name}:`, error);
-      }
-    }
-
-    // Save state data
-    if (stateClinics.size > 0) {
-      const fileName = `${state.code.toLowerCase()}.json`;
-      const filePath = path.join(dataDir, fileName);
-
-      const clinicsArray = Array.from(stateClinics.values());
-      const fileData = {
-        state: state.name,
-        state_code: state.code,
-        clinics: clinicsArray,
-        total: clinicsArray.length,
-        last_updated: new Date().toISOString(),
-      };
-
-      try {
-        await fs.writeFile(filePath, JSON.stringify(fileData, null, 2));
-        console.log(`  ✅ Saved ${clinicsArray.length} clinics to ${fileName}`);
-        totalClinics += clinicsArray.length;
-      } catch (error) {
-        console.error(`  ❌ Error saving ${fileName}:`, error);
-      }
-    } else {
-      console.log(`  ⚠️  No clinics found for ${state.name}`);
+  for (const st of states) {
+    process.stdout.write(`→ ${st}\n`);
+    try {
+      await collectState(st);
+    } catch (e: any) {
+      console.error(`  ❌ ${st}: ${e.message || e}`);
     }
   }
 
-  console.log(`\n✨ Data collection complete!`);
-  console.log(`📊 Total clinics collected: ${totalClinics}`);
-  console.log(`📁 Data saved in: ${dataDir}\n`);
+  console.log('\n✨ Done.\n');
 }
 
-// Run the script
-collectData().catch((error) => {
-  console.error('❌ Fatal error:', error);
+main().catch(err => {
+  console.error('Fatal:', err);
   process.exit(1);
 });
