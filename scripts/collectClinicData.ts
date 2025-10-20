@@ -19,6 +19,12 @@ const FIELD_MASK = [
   'places.currentOpeningHours.openNow','places.regularOpeningHours.weekdayDescriptions',
   'places.nationalPhoneNumber','places.internationalPhoneNumber',
   'places.websiteUri','places.googleMapsUri','places.businessStatus',
+  // ✅ fields your UI uses
+  'places.accessibilityOptions',
+  'places.parkingOptions',
+  'places.priceLevel',
+  'places.paymentOptions',
+  // photos + paging
   'places.photos.name','places.photos.widthPx','places.photos.heightPx',
   'nextPageToken'
 ].join(',');
@@ -48,12 +54,6 @@ async function gate() {
 }
 
 // ---- Small utils ----
-function pick(obj: any, keys: string[]) {
-  const o: any = {};
-  for (const k of keys) o[k] = obj?.[k] ?? null;
-  return o;
-}
-
 function fromAddressComponents(components: any[]) {
   const get = (t: string) => components?.find((c: any) => c.types?.includes(t));
   return {
@@ -102,7 +102,7 @@ function toClinic(p: any) {
     rating: p.rating ?? null,
     user_rating_count: p.userRatingCount ?? null,
 
-    // 👇 Keep MapView happy:
+    // Keep MapView + Detail page happy:
     phone: p.nationalPhoneNumber ?? null,
     international_phone_number: p.internationalPhoneNumber ?? null,
     opening_hours: p.regularOpeningHours
@@ -115,6 +115,35 @@ function toClinic(p: any) {
     website: p.websiteUri ?? null,
     google_maps_uri: p.googleMapsUri ?? null,
     business_status: p.businessStatus ?? null,
+
+    // 🧩 NEW: map to snake_case keys your UI reads
+    accessibility_options: p.accessibilityOptions
+      ? {
+          wheelchair_accessible_entrance: p.accessibilityOptions.wheelchairAccessibleEntrance ?? null,
+          wheelchair_accessible_parking: p.accessibilityOptions.wheelchairAccessibleParking ?? null,
+          wheelchair_accessible_restroom: p.accessibilityOptions.wheelchairAccessibleRestroom ?? null,
+        }
+      : null,
+
+    parking_options: p.parkingOptions
+      ? {
+          free_parking_lot: p.parkingOptions.freeParkingLot ?? null,
+          paid_parking_lot: p.parkingOptions.paidParkingLot ?? null,
+          street_parking: p.parkingOptions.streetParking ?? null,
+          valet_parking: p.parkingOptions.valetParking ?? null,
+        }
+      : null,
+
+    price_level: p.priceLevel ?? null,
+
+    payment_options: p.paymentOptions
+      ? {
+          accepts_credit_cards: p.paymentOptions.acceptsCreditCards ?? null,
+          accepts_debit_cards: p.paymentOptions.acceptsDebitCards ?? null,
+          accepts_cash_only: p.paymentOptions.acceptsCashOnly ?? null,
+          accepts_nfc: p.paymentOptions.acceptsNfc ?? null,
+        }
+      : null,
 
     city: ac.city,
     state_code: ac.state_code,
@@ -169,13 +198,11 @@ async function collectState(stateCode: string) {
 
       pageToken = pageToken ?? (data.nextPageToken || undefined);
 
-      // Extra delay specifically between page fetches to avoid "token not ready" flakiness
+      // Extra delay to avoid nextPageToken flakiness
       if (pageToken) {
         await SLEEP(NEXT_PAGE_DELAY_MS);
       }
     } while (pageToken);
-
-    // If per-state cap hit, we already broke out of this query; continue to next query automatically
   }
 
   const outPath = path.join(OUT_DIR, `${stateCode.toLowerCase()}.json`);
@@ -222,3 +249,4 @@ main().catch(err => {
   console.error('Fatal:', err);
   process.exit(1);
 });
+
