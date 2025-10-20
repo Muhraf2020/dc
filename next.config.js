@@ -2,33 +2,13 @@
 const nextConfig = {
   images: {
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'places.googleapis.com',
-        pathname: '/v1/places/**/media**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'maps.googleapis.com',
-        pathname: '/maps/api/place/photo/**',
-      },
-      // ⬇️ Add this block for Unsplash passthrough images
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-        pathname: '/**',
-      },
+      // Free images (allowed in dev)
+      { protocol: 'https', hostname: 'images.unsplash.com', pathname: '/**' },
+      // Google hosts (only used when you explicitly enable in prod)
+      { protocol: 'https', hostname: 'places.googleapis.com', pathname: '/v1/places/**/media**' },
+      { protocol: 'https', hostname: 'maps.googleapis.com', pathname: '/maps/api/place/photo/**' },
     ],
   },
-  env: {
-    NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
-  },
-  reactStrictMode: true,
-
-  // Optimize for production
-  swcMinify: true,
-
-  // Add security headers
   async headers() {
     return [
       {
