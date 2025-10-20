@@ -99,10 +99,9 @@ export default function Home() {
     // State filter
     if (filters.states && filters.states.length > 0) {
       filtered = filtered.filter(c => {
-        return filters.states?.includes(c.state_code);
+      return c.state_code && filters.states?.includes(c.state_code);
       });
-    }
-
+   }
     // Sorting
     if (filters.sort_by) {
       filtered.sort((a, b) => {
