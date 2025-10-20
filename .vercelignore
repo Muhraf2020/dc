@@ -1,2 +1,6 @@
 scripts/
 test-keys.js
+check-quality.js
+public/clinic-images/
+node_modules/
+.git/

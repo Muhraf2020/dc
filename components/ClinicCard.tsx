@@ -21,9 +21,8 @@ function hashCode(str: string) {
   return hash;
 }
 function localFallback(placeId?: string) {
-  const basis = placeId && placeId.length ? placeId : 'default';
-  const idx = (Math.abs(hashCode(basis)) % 10) + 1; // 1..50
-  return `/clinic-images/clinic-${idx}.jpg`;
+  // Single stable Unsplash image for all fallbacks
+  return 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=300&fit=crop&q=80';
 }
 
 export default function ClinicCard({ clinic, onClick }: ClinicCardProps) {
