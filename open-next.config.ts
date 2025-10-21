@@ -1,9 +1,10 @@
 // open-next.config.js
 
-// This removes the TypeScript 'import' which can cause issues in the JS-only loader
-// import { OpenNextConfig } from "@opennextjs/cloudflare";
-
-// Define and export the configuration object directly
-const config = {}; // Must be initialized as an object
+// The build tool requires the 'default' server configuration to be defined,
+// even if it's an empty object. This key maps to the main Cloudflare Worker 
+// that runs your Next.js server code.
+const config = {
+  default: {}, // This line resolves the "config.default cannot be empty" error.
+};
 
 export default config;
