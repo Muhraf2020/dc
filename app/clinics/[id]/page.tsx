@@ -28,10 +28,11 @@ async function getClinic(id: string): Promise<Clinic | null> {
   return data as Clinic;
 }
 
-// FIX for Vercel TypeScript error: Use inline type for params.
-export default async function ClinicDetailPage({ params }: { params: { id: string } }) {
+// FIX for Vercel TypeScript error: Use props-type for params.
+export default async function ClinicDetailPage(props: { params: { id: string } }) {
+  const { params } = props;
   const clinic = await getClinic(params.id);
-
+  
   if (!clinic) {
     notFound();
   }
