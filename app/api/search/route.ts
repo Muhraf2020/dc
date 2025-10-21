@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { searchDermClinics, geocodeAddress } from '@/lib/googlePlaces';
 import { Clinic } from '@/lib/dataTypes';
+export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
 
 // Add this line:
 export const dynamic = 'force-dynamic';

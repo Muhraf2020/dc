@@ -7,6 +7,8 @@ import { getPhotoUrl } from '@/lib/googlePlaces';
 import Link from 'next/link';
 import ClinicBanner from '@/components/ClinicBanner';
 
+export const runtime = 'edge';
+
 export default function ClinicDetailPage() {
   const params = useParams();
   const clinicId = params.id as string;

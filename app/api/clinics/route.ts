@@ -4,6 +4,8 @@ import { createClient } from '@supabase/supabase-js';
 import { Clinic } from '@/lib/dataTypes';
 // ✅ ADD THIS LINE
 export const dynamic = 'force-dynamic';
+export const dynamic = 'force-dynamic';
+export const runtime = 'edge';  // ← ADD THIS LINE
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
