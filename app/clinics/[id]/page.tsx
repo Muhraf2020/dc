@@ -6,9 +6,6 @@ import Link from 'next/link';
 import ClinicBanner from '@/components/ClinicBanner';
 import { notFound } from 'next/navigation';
 
-export const runtime = 'edge';
-export const dynamic = 'force-dynamic';
-
 // Server-side data fetching
 async function getClinic(id: string): Promise<Clinic | null> {
   const supabase = createClient(
