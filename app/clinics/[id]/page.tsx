@@ -1,64 +1,39 @@
-'use client';
-
-import { useState, useEffect } from 'react';
-import { useParams } from 'next/navigation';
+// app/clinics/[id]/page.tsx
+import { createClient } from '@supabase/supabase-js';
 import { Clinic } from '@/lib/dataTypes';
 import { getPhotoUrl } from '@/lib/googlePlaces';
 import Link from 'next/link';
 import ClinicBanner from '@/components/ClinicBanner';
+import { notFound } from 'next/navigation';
 
+export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
 
-export default function ClinicDetailPage() {
-  const params = useParams();
-  const clinicId = params.id as string;
-  const [clinic, setClinic] = useState<Clinic | null>(null);
-  const [loading, setLoading] = useState(true);
+// Server-side data fetching
+async function getClinic(id: string): Promise<Clinic | null> {
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
 
-  useEffect(() => {
-    loadClinicDetails();
-  }, [clinicId]);
+  const { data, error } = await supabase
+    .from('clinics')
+    .select('*')
+    .eq('place_id', id)
+    .single();
 
-  const loadClinicDetails = async () => {
-    try {
-      setLoading(true);
-      // In a real app, you'd fetch from your API or Google Places API
-      const response = await fetch(`/api/clinics`);
-      const data = await response.json();
-      const foundClinic = data.clinics?.find((c: Clinic) => c.place_id === clinicId);
-      setClinic(foundClinic || null);
-    } catch (error) {
-      console.error('Error loading clinic details:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading clinic details...</p>
-        </div>
-      </div>
-    );
+  if (error || !data) {
+    return null;
   }
 
+  return data as Clinic;
+}
+
+export default async function ClinicDetailPage({ params }: { params: { id: string } }) {
+  const clinic = await getClinic(params.id);
+
   if (!clinic) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Clinic Not Found</h2>
-          <p className="text-gray-600 mb-6">The clinic you're looking for doesn't exist.</p>
-          <Link
-            href="/"
-            className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-          >
-            Back to Directory
-          </Link>
-        </div>
-      </div>
-    );
+    notFound();
   }
 
   const photos = clinic.photos?.slice(0, 4) || [];
@@ -80,7 +55,7 @@ export default function ClinicDetailPage() {
 
       {/* Main Content */}
       <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Banner Image - Always shown */}
+        {/* Banner Image */}
         <div className="mb-8 rounded-lg overflow-hidden shadow-lg">
           <ClinicBanner
             clinicName={clinic.display_name}
@@ -91,7 +66,7 @@ export default function ClinicDetailPage() {
           />
         </div>
 
-        {/* Additional Photos Grid - Only if Google Photos exist */}
+        {/* Additional Photos Grid */}
         {hasPhotos && (
           <div className="mb-8">
             <h2 className="text-xl font-bold text-gray-900 mb-4">Photos</h2>
@@ -101,11 +76,7 @@ export default function ClinicDetailPage() {
                   key={index}
                   src={getPhotoUrl(photo.name, 400, 300)}
                   alt={`${clinic.display_name} photo ${index + 1}`}
-                  className="w-full h-48 object-cover rounded-lg hover:scale-105 transition-transform duration-200 cursor-pointer"
-                  onError={(e) => {
-                    // Hide broken images
-                    e.currentTarget.style.display = 'none';
-                  }}
+                  className="w-full h-48 object-cover rounded-lg hover:scale-105 transition-transform duration-200"
                 />
               ))}
             </div>
@@ -122,7 +93,7 @@ export default function ClinicDetailPage() {
                   <h1 className="text-3xl font-bold text-gray-900 mb-2">
                     {clinic.display_name}
                   </h1>
-                  <p className="text-gray-600">{clinic.primary_type.replace(/_/g, ' ')}</p>
+                  <p className="text-gray-600">{clinic.primary_type?.replace(/_/g, ' ')}</p>
                 </div>
 
                 {clinic.current_open_now !== undefined && (
@@ -215,22 +186,10 @@ export default function ClinicDetailPage() {
                     <span className="text-gray-700">Paid Parking</span>
                   </div>
                 )}
-                {clinic.parking_options?.valet_parking && (
-                  <div className="flex items-center gap-2">
-                    <span className="text-2xl">🚗</span>
-                    <span className="text-gray-700">Valet Parking</span>
-                  </div>
-                )}
                 {clinic.payment_options?.accepts_credit_cards && (
                   <div className="flex items-center gap-2">
                     <span className="text-2xl">💳</span>
                     <span className="text-gray-700">Credit Cards</span>
-                  </div>
-                )}
-                {clinic.payment_options?.accepts_debit_cards && (
-                  <div className="flex items-center gap-2">
-                    <span className="text-2xl">💳</span>
-                    <span className="text-gray-700">Debit Cards</span>
                   </div>
                 )}
                 {clinic.payment_options?.accepts_nfc && (
@@ -239,15 +198,8 @@ export default function ClinicDetailPage() {
                     <span className="text-gray-700">Contactless Payment</span>
                   </div>
                 )}
-                {clinic.payment_options?.accepts_cash_only && (
-                  <div className="flex items-center gap-2">
-                    <span className="text-2xl">💵</span>
-                    <span className="text-gray-700">Cash Only</span>
-                  </div>
-                )}
               </div>
 
-              {/* Show message if no features available */}
               {!clinic.accessibility_options && 
                !clinic.parking_options && 
                !clinic.payment_options && (
@@ -274,7 +226,7 @@ export default function ClinicDetailPage() {
               {clinic.phone && (
                 <div className="mb-4">
                   <h3 className="text-sm font-medium text-gray-500 mb-2">Phone</h3>
-                  <a
+                  
                     href={`tel:${clinic.phone}`}
                     className="text-blue-600 hover:text-blue-700 font-medium"
                   >
@@ -287,7 +239,7 @@ export default function ClinicDetailPage() {
               {clinic.website && (
                 <div className="mb-6">
                   <h3 className="text-sm font-medium text-gray-500 mb-2">Website</h3>
-                  <a
+                  
                     href={clinic.website}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -301,7 +253,7 @@ export default function ClinicDetailPage() {
               {/* Action Buttons */}
               <div className="space-y-3">
                 {clinic.phone && (
-                  <a
+                  
                     href={`tel:${clinic.phone}`}
                     className="block w-full text-center px-4 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
                   >
@@ -309,7 +261,7 @@ export default function ClinicDetailPage() {
                   </a>
                 )}
 
-                <a
+                
                   href={clinic.google_maps_uri}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -319,7 +271,7 @@ export default function ClinicDetailPage() {
                 </a>
 
                 {clinic.website && (
-                  <a
+                  
                     href={clinic.website}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -332,39 +284,20 @@ export default function ClinicDetailPage() {
             </div>
 
             {/* Map Preview */}
-            {process.env.NEXT_PUBLIC_ENABLE_MAP === 'true' ? (
-              <div className="bg-white rounded-lg shadow-md p-6">
-                <h2 className="text-xl font-bold text-gray-900 mb-4">Location</h2>
-                <div className="aspect-square rounded-lg overflow-hidden">
-                  <iframe
-                    title="Clinic location"
-                    src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=place_id:${clinic.place_id}`}
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    allowFullScreen
-                  />
-                </div>
-              </div>
-            ) : (
-              // Free fallback when maps are disabled
-              <div className="bg-white rounded-lg shadow-md p-6">
-                <h2 className="text-xl font-bold text-gray-900 mb-2">Location</h2>
-                <p className="text-gray-600 mb-3">View on Google Maps for directions.</p>
-                {clinic.google_maps_uri && (
-                  <a
-                    href={clinic.google_maps_uri}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-4 py-2 rounded-md bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors"
-                  >
-                    Open in Google Maps ↗
-                  </a>
-                )}
-              </div>
-            )}
+            <div className="bg-white rounded-lg shadow-md p-6">
+              <h2 className="text-xl font-bold text-gray-900 mb-2">Location</h2>
+              <p className="text-gray-600 mb-3">View on Google Maps for directions.</p>
+              {clinic.google_maps_uri && (
+                
+                  href={clinic.google_maps_uri}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-4 py-2 rounded-md bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors"
+                >
+                  Open in Google Maps ↗
+                </a>
+              )}
+            </div>
           </div>
         </div>
       </main>
