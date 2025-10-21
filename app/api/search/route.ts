@@ -1,10 +1,8 @@
 import { NextResponse } from 'next/server';
 import { searchDermClinics, geocodeAddress } from '@/lib/googlePlaces';
 import { Clinic } from '@/lib/dataTypes';
-export const runtime = 'edge';
-export const dynamic = 'force-dynamic';
 
-// Add this line:
+export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
 /**
@@ -19,6 +17,7 @@ export async function GET(request: Request) {
       { status: 403 }
     );
   }
+
   try {
     const { searchParams } = new URL(request.url);
     const query = searchParams.get('q') || '';

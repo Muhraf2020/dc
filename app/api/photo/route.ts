@@ -1,10 +1,8 @@
 // app/api/photo/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-// app/api/photo/route.ts
-import { NextRequest, NextResponse } from 'next/server';
 
-export const runtime = 'edge';  // ← ADD THIS LINE
-export const dynamic = 'force-dynamic';  // ← ADD THIS LINE
+export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
 
 export async function GET(req: NextRequest) {
   // Belt-and-suspenders: refuse proxying unless explicitly enabled
@@ -35,7 +33,7 @@ export async function GET(req: NextRequest) {
 
   const res = await fetch(upstream, {
     headers: { 'X-Goog-Api-Key': apiKey },
-    // Vercel/Edge: no-cache at fetch level; we’ll cache on our response
+    // Vercel/Edge: no-cache at fetch level; we'll cache on our response
     cache: 'no-store',
   });
 
