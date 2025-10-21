@@ -1,3 +1,6 @@
+// In app/clinics/[id]/page.js or wherever your dynamic page is located
+export const runtime = 'edge'; 
+
 // app/clinics/[id]/page.tsx
 import { createClient } from '@supabase/supabase-js';
 import { Clinic } from '@/lib/dataTypes';
@@ -5,9 +8,6 @@ import { getPhotoUrl } from '@/lib/googlePlaces';
 import Link from 'next/link';
 import ClinicBanner from '@/components/ClinicBanner';
 import { notFound } from 'next/navigation';
-
-// In app/clinics/[id]/page.js or wherever your dynamic page is located
-export const runtime = 'edge'; 
 
 // Server-side data fetching
 async function getClinic(id: string): Promise<Clinic | null> {
