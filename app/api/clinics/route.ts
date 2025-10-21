@@ -1,10 +1,10 @@
+export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
+
 // app/api/clinics/route.ts 
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { Clinic } from '@/lib/dataTypes';
-
-export const dynamic = 'force-dynamic';
-export const runtime = 'edge';
 
 // US State to Timezone mapping
 const STATE_TIMEZONES: Record<string, string> = {
