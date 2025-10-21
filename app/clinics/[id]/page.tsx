@@ -6,18 +6,9 @@ import Link from 'next/link';
 import ClinicBanner from '@/components/ClinicBanner';
 import { notFound } from 'next/navigation';
 
-// --- START: Deployment Fixes ---
-// 1. Runtime Fix for Cloudflare/Supabase compatibility
+// FIX #1: Forces the page to run in Node.js environment required by Supabase client
+// This is necessary for Cloudflare Pages (Next-on-Pages adapter)
 export const runtime = 'nodejs'; 
-
-// 2. TypeScript/Vercel Fix for page props constraint
-type ClinicDetailPageProps = {
-  params: {
-    id: string; // The dynamic segment [id]
-  };
-};
-// --- END: Deployment Fixes ---
-
 
 // Server-side data fetching
 async function getClinic(id: string): Promise<Clinic | null> {
@@ -39,8 +30,8 @@ async function getClinic(id: string): Promise<Clinic | null> {
   return data as Clinic;
 }
 
-// Corrected Component Signature (Single Export)
-export default async function ClinicDetailPage({ params }: ClinicDetailPageProps) {
+// FIX #2: Inlining the type for params to satisfy strict Vercel/Next.js compiler
+export default async function ClinicDetailPage({ params }: { params: { id: string } }) {
   const clinic = await getClinic(params.id);
 
   if (!clinic) {
