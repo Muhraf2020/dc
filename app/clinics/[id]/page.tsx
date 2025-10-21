@@ -6,10 +6,19 @@ import Link from 'next/link';
 import ClinicBanner from '@/components/ClinicBanner';
 import { notFound } from 'next/navigation';
 
-// ADD THIS LINE
-export const runtime = 'nodejs'; 
-// This forces the dynamic component to run in the Node.js compatible environment 
-// required by the @supabase/supabase-js client.
+// <--- START ADDED/MODIFIED CODE --->
+export const runtime = 'nodejs'; // KEEP THIS LINE: It fixes the Cloudflare deployment issue.
+
+// Define a type for the component props
+type ClinicDetailPageProps = {
+  params: {
+    id: string; // The dynamic segment [id]
+  };
+};
+
+// Apply the new type to the component function
+export default async function ClinicDetailPage({ params }: ClinicDetailPageProps) {
+// <--- END ADDED/MODIFIED CODE --->
 
 // Server-side data fetching
 async function getClinic(id: string): Promise<Clinic | null> {
