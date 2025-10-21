@@ -1,8 +1,8 @@
-// app/api/photo/route.ts
-import { NextRequest, NextResponse } from 'next/server';
-
 export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
+
+// app/api/photo/route.ts
+import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(req: NextRequest) {
   // Belt-and-suspenders: refuse proxying unless explicitly enabled
