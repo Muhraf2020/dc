@@ -6,19 +6,18 @@ import Link from 'next/link';
 import ClinicBanner from '@/components/ClinicBanner';
 import { notFound } from 'next/navigation';
 
-// <--- START ADDED/MODIFIED CODE --->
-export const runtime = 'nodejs'; // KEEP THIS LINE: It fixes the Cloudflare deployment issue.
+// --- START: Deployment Fixes ---
+// 1. Runtime Fix for Cloudflare/Supabase compatibility
+export const runtime = 'nodejs'; 
 
-// Define a type for the component props
+// 2. TypeScript/Vercel Fix for page props constraint
 type ClinicDetailPageProps = {
   params: {
     id: string; // The dynamic segment [id]
   };
 };
+// --- END: Deployment Fixes ---
 
-// Apply the new type to the component function
-export default async function ClinicDetailPage({ params }: ClinicDetailPageProps) {
-// <--- END ADDED/MODIFIED CODE --->
 
 // Server-side data fetching
 async function getClinic(id: string): Promise<Clinic | null> {
@@ -40,7 +39,8 @@ async function getClinic(id: string): Promise<Clinic | null> {
   return data as Clinic;
 }
 
-export default async function ClinicDetailPage({ params }: { params: { id: string } }) {
+// Corrected Component Signature (Single Export)
+export default async function ClinicDetailPage({ params }: ClinicDetailPageProps) {
   const clinic = await getClinic(params.id);
 
   if (!clinic) {
