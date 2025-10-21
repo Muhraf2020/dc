@@ -1,13 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Important: Cloudflare uses edge runtime
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'images.unsplash.com', pathname: '/**' },
       { protocol: 'https', hostname: 'places.googleapis.com', pathname: '/v1/places/**/media**' },
       { protocol: 'https', hostname: 'maps.googleapis.com', pathname: '/maps/api/place/photo/**' },
     ],
-    // Cloudflare needs this for image optimization
     unoptimized: false,
   },
   async headers() {
@@ -22,10 +20,6 @@ const nextConfig = {
         ],
       },
     ];
-  },
-  // Cloudflare edge compatibility
-  experimental: {
-    runtime: 'experimental-edge',
   },
 };
 
