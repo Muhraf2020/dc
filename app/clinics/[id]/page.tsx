@@ -6,6 +6,11 @@ import Link from 'next/link';
 import ClinicBanner from '@/components/ClinicBanner';
 import { notFound } from 'next/navigation';
 
+// ADD THIS LINE
+export const runtime = 'nodejs'; 
+// This forces the dynamic component to run in the Node.js compatible environment 
+// required by the @supabase/supabase-js client.
+
 // Server-side data fetching
 async function getClinic(id: string): Promise<Clinic | null> {
   const supabase = createClient(
