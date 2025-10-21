@@ -6,8 +6,8 @@ import Link from 'next/link';
 import ClinicBanner from '@/components/ClinicBanner';
 import { notFound } from 'next/navigation';
 
-// FIX for Vercel & Supabase compatibility: Set to 'nodejs' to allow Supabase client.
-export const runtime = 'nodejs'; 
+// In app/clinics/[id]/page.js or wherever your dynamic page is located
+export const runtime = 'edge'; 
 
 // Server-side data fetching
 async function getClinic(id: string): Promise<Clinic | null> {
