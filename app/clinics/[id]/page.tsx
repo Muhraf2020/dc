@@ -6,8 +6,7 @@ import Link from 'next/link';
 import ClinicBanner from '@/components/ClinicBanner';
 import { notFound } from 'next/navigation';
 
-// FIX #1: Forces the page to run in Node.js environment required by Supabase client
-// This is necessary for Cloudflare Pages (Next-on-Pages adapter)
+// FIX for Vercel & Supabase compatibility: Set to 'nodejs' to allow Supabase client.
 export const runtime = 'nodejs'; 
 
 // Server-side data fetching
@@ -30,7 +29,7 @@ async function getClinic(id: string): Promise<Clinic | null> {
   return data as Clinic;
 }
 
-// FIX #2: Inlining the type for params to satisfy strict Vercel/Next.js compiler
+// FIX for Vercel TypeScript error: Use inline type for params.
 export default async function ClinicDetailPage({ params }: { params: { id: string } }) {
   const clinic = await getClinic(params.id);
 
