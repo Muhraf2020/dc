@@ -226,7 +226,7 @@ export default async function ClinicDetailPage({ params }: { params: { id: strin
               {clinic.phone && (
                 <div className="mb-4">
                   <h3 className="text-sm font-medium text-gray-500 mb-2">Phone</h3>
-                  
+                  <a
                     href={`tel:${clinic.phone}`}
                     className="text-blue-600 hover:text-blue-700 font-medium"
                   >
@@ -239,7 +239,7 @@ export default async function ClinicDetailPage({ params }: { params: { id: strin
               {clinic.website && (
                 <div className="mb-6">
                   <h3 className="text-sm font-medium text-gray-500 mb-2">Website</h3>
-                  
+                  <a
                     href={clinic.website}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -253,7 +253,7 @@ export default async function ClinicDetailPage({ params }: { params: { id: strin
               {/* Action Buttons */}
               <div className="space-y-3">
                 {clinic.phone && (
-                  
+                  <a
                     href={`tel:${clinic.phone}`}
                     className="block w-full text-center px-4 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
                   >
@@ -261,7 +261,7 @@ export default async function ClinicDetailPage({ params }: { params: { id: strin
                   </a>
                 )}
 
-                
+                <a
                   href={clinic.google_maps_uri}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -271,7 +271,7 @@ export default async function ClinicDetailPage({ params }: { params: { id: strin
                 </a>
 
                 {clinic.website && (
-                  
+                  <a
                     href={clinic.website}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -288,7 +288,7 @@ export default async function ClinicDetailPage({ params }: { params: { id: strin
               <h2 className="text-xl font-bold text-gray-900 mb-2">Location</h2>
               <p className="text-gray-600 mb-3">View on Google Maps for directions.</p>
               {clinic.google_maps_uri && (
-                
+                <a
                   href={clinic.google_maps_uri}
                   target="_blank"
                   rel="noopener noreferrer"
