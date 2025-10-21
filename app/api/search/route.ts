@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { searchDermClinics, geocodeAddress } from '@/lib/googlePlaces';
 import { Clinic } from '@/lib/dataTypes';
 
+export const runtime = 'edge';
 
 /**
  * GET /api/search
