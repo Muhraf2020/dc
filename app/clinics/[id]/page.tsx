@@ -1,4 +1,4 @@
-export const runtime = 'edge'; 
+export const runtime = 'nodejs'; 
 
 // app/clinics/[id]/page.tsx
 import { createClient } from '@supabase/supabase-js';
