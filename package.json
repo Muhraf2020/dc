@@ -4,22 +4,26 @@
   "description": "A comprehensive directory of dermatology clinics across the USA",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "collect-data": "tsx scripts/collectClinicData.ts",
-    "fetch:unsplash": "node scripts/fetch-unsplash-images.js"
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start",
+  "lint": "next lint",
+  "collect-data": "tsx scripts/collectClinicData.ts",
+  "fetch:unsplash": "node scripts/fetch-unsplash-images.js",
+  "pages:build": "npx @cloudflare/next-on-pages",
+  "preview": "npm run pages:build && wrangler pages dev",
+  "deploy": "npm run pages:build && wrangler pages deploy"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.75.1",
     "@types/google.maps": "^3.55.0",
     "dotenv": "^17.2.3",
-    "next": "^14.2.0",
+    "next": "^15.5.2",
     "react": "^18.3.0",
     "react-dom": "^18.3.0"
   },
   "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.13.16",
     "@types/node": "^20.11.0",
     "@types/react": "^18.3.0",
     "@types/react-dom": "^18.3.0",
