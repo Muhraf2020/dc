@@ -1,7 +1,9 @@
-import { OpenNextConfig } from "@opennextjs/cloudflare";
+// open-next.config.js
 
-const config: OpenNextConfig = {
-  // Configuration can go here if needed, but for now, an empty object is fine.
-};
+// This removes the TypeScript 'import' which can cause issues in the JS-only loader
+// import { OpenNextConfig } from "@opennextjs/cloudflare";
+
+// Define and export the configuration object directly
+const config = {}; // Must be initialized as an object
 
 export default config;
