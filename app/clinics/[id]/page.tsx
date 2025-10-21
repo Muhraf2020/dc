@@ -1,4 +1,3 @@
-// In app/clinics/[id]/page.js or wherever your dynamic page is located
 export const runtime = 'edge'; 
 
 // app/clinics/[id]/page.tsx
