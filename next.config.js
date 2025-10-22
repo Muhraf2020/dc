@@ -1,26 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
   images: {
-    remotePatterns: [
-      { protocol: 'https', hostname: 'images.unsplash.com', pathname: '/**' },
-      { protocol: 'https', hostname: 'places.googleapis.com', pathname: '/v1/places/**/media**' },
-      { protocol: 'https', hostname: 'maps.googleapis.com', pathname: '/maps/api/place/photo/**' },
-    ],
-    unoptimized: false,
+    unoptimized: true,
   },
-  async headers() {
-    return [
-      {
-        source: '/:path*',
-        headers: [
-          { key: 'X-DNS-Prefetch-Control', value: 'on' },
-          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
-          { key: 'X-Content-Type-Options', value: 'nosniff' },
-          { key: 'Referrer-Policy', value: 'origin-when-cross-origin' },
-        ],
-      },
-    ];
-  },
-};
+  // If you're using basePath or assetPrefix, remove them for now
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig
