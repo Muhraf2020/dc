@@ -6,6 +6,7 @@ import ClinicCard from '@/components/ClinicCard';
 // ✅ CHANGE 1: Replace MapView with FreeMapView
 import FreeMapView from '@/components/FreeMapView';  // ← Changed from MapView
 import FilterPanel from '@/components/FilterPanel';
+import MobileFilterButton from '@/components/MobileFilterButton';
 import { Clinic, FilterOptions } from '@/lib/dataTypes';
 import { calculateDistance } from '@/lib/utils';
 
@@ -162,50 +163,53 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-3xl font-bold text-blue-600">
-                Derm Clinics Near Me
-              </h1>
-              <p className="text-sm text-gray-600 mt-1">
-                Find dermatology clinics across the USA
-              </p>
-            </div>
-            <div className="flex gap-2">
-              <button
-                onClick={() => setViewMode('grid')}
-                className={`px-4 py-2 rounded-lg transition ${
-                  viewMode === 'grid'
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                }`}
-              >
-                Grid View
-              </button>
-              <button
-                onClick={() => setViewMode('map')}
-                className={`px-4 py-2 rounded-lg transition ${
-                  viewMode === 'map'
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                }`}
-              >
-                Map View
-              </button>
-            </div>
+    <header className="bg-white shadow-md sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div>
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              Derm Clinics Near Me
+            </h1>
+            <p className="text-sm text-gray-600 mt-1">
+              Find dermatology clinics across the USA
+            </p>
           </div>
-
-          {/* Search Bar */}
-          <div className="mt-4">
-            <SearchBar 
-              onSearch={handleSearch} 
-              onLocationSearch={handleLocationSearch}
-            />
+    
+          {/* View Toggle */}
+          <div className="flex gap-2 w-full sm:w-auto">
+            <button
+              onClick={() => setViewMode('grid')}
+              className={`px-4 py-2 rounded-lg transition ${
+                viewMode === 'grid'
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              }`}
+            >
+              Grid View
+            </button>
+            <button
+              onClick={() => setViewMode('map')}
+              className={`px-4 py-2 rounded-lg transition ${
+                viewMode === 'map'
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              }`}
+            >
+              Map View
+            </button>
           </div>
         </div>
-      </header>
+    
+        {/* Search Bar */}
+        <div className="mt-4 w-full">
+          <SearchBar
+            onSearch={handleSearch}
+            onLocationSearch={handleLocationSearch}
+          />
+        </div>
+      </div>
+    </header>
+
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -214,6 +218,12 @@ export default function Home() {
           <aside className="w-64 flex-shrink-0 hidden lg:block">
             <FilterPanel filters={filters} onFilterChange={setFilters} />
           </aside>
+          {/* Mobile Filter Button */}
+          <MobileFilterButton
+            filters={filters}
+            onFilterChange={setFilters}
+            resultCount={filteredClinics.length}
+          />
 
           {/* Results */}
           <div className="flex-1">
@@ -226,7 +236,7 @@ export default function Home() {
 
             {/* Grid or Map View */}
             {viewMode === 'grid' ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4 sm:gap-6">
                 {loading ? (
                   // Loading skeletons
                   Array.from({ length: 6 }).map((_, i) => (
@@ -257,7 +267,7 @@ export default function Home() {
               </div>
             ) : (
               // ✅ CHANGE 2: Replace MapView with FreeMapView here
-              <div className="h-[calc(100vh-300px)] rounded-lg overflow-hidden shadow-lg">
+              <div className="h-[500px] sm:h-[600px] lg:h-[calc(100vh-300px)] rounded-lg overflow-hidden shadow-lg">
                 <FreeMapView
                   clinics={filteredClinics}
                   selectedClinic={selectedClinic}
