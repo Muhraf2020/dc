@@ -1,4 +1,4 @@
-export const runtime = 'nodejs'; 
+export const runtime = 'nodejs';
 
 // app/clinics/[id]/page.tsx
 import { createClient } from '@supabase/supabase-js';
@@ -7,6 +7,20 @@ import { getPhotoUrl } from '@/lib/googlePlaces';
 import Link from 'next/link';
 import ClinicBanner from '@/components/ClinicBanner';
 import { notFound } from 'next/navigation';
+
+// ----------------------
+// 1. Define the correct props interface for this page
+// This ensures the compiler knows exactly what 'params' contains, 
+// preventing conflicts with external or global 'PageProps' types.
+interface ClinicPageProps {
+  params: {
+    id: string; // The dynamic route segment [id]
+  };
+  // Add 'searchParams' if you use them, even if empty:
+  // searchParams?: { [key: string]: string | string[] | undefined }; 
+}
+// ----------------------
+
 
 // Server-side data fetching
 async function getClinic(id: string): Promise<Clinic | null> {
@@ -28,9 +42,11 @@ async function getClinic(id: string): Promise<Clinic | null> {
   return data as Clinic;
 }
 
-// FIX for Vercel TypeScript error: Use props-type for params.
-export default async function ClinicDetailPage(props: { params: { id: string } }) {
-  const { params } = props;
+// ----------------------
+// 2. Apply the local interface to the component
+export default async function ClinicDetailPage({ params }: ClinicPageProps) {
+// ----------------------
+
   const clinic = await getClinic(params.id);
   
   if (!clinic) {
@@ -202,8 +218,8 @@ export default async function ClinicDetailPage(props: { params: { id: string } }
               </div>
 
               {!clinic.accessibility_options && 
-               !clinic.parking_options && 
-               !clinic.payment_options && (
+                !clinic.parking_options && 
+                !clinic.payment_options && (
                 <p className="text-gray-500 text-sm italic">
                   No additional features information available.
                 </p>
