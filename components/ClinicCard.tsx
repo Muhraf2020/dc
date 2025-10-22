@@ -43,10 +43,10 @@ export default function ClinicCard({ clinic, onClick }: ClinicCardProps) {
     <Link href={`/clinics/${clinic.place_id}`}>
       <div
         onClick={onClick}
-        className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow cursor-pointer overflow-hidden group"
+        className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow cursor-pointer overflow-hidden group clinic-card"
       >
         {/* Banner Image */}
-        <div className="relative h-48 overflow-hidden">
+        <div className="relative h-40 sm:h-48 overflow-hidden">
           <ClinicBanner
             clinicName={clinic.display_name}
             placeId={clinic.place_id}
