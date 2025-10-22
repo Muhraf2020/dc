@@ -84,3 +84,43 @@ html {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
 }
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  /* Ensure proper spacing on mobile */
+  main {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Fix button sizes on mobile */
+  button {
+    min-height: 44px; /* Apple's recommended touch target */
+  }
+  
+  /* Improve card readability on mobile */
+  .clinic-card {
+    font-size: 0.9rem;
+  }
+}
+
+/* Fix for sticky header overlap */
+.sticky-header-spacer {
+  height: 80px;
+}
+
+@media (min-width: 640px) {
+  .sticky-header-spacer {
+    height: 100px;
+  }
+}
+
+/* Smooth transitions */
+* {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Fix overflow issues */
+body {
+  overflow-x: hidden;
+}
