@@ -9,18 +9,13 @@ import ClinicBanner from '@/components/ClinicBanner';
 import { notFound } from 'next/navigation';
 
 // ----------------------
-// 1. Define the correct props interface for this page
-// This ensures the compiler knows exactly what 'params' contains, 
-// preventing conflicts with external or global 'PageProps' types.
+// 1. Updated for Next.js 15 - params is now a Promise
 interface ClinicPageProps {
-  params: {
-    id: string; // The dynamic route segment [id]
-  };
-  // Add 'searchParams' if you use them, even if empty:
-  // searchParams?: { [key: string]: string | string[] | undefined }; 
+  params: Promise<{
+    id: string;
+  }>;
 }
 // ----------------------
-
 
 // Server-side data fetching
 async function getClinic(id: string): Promise<Clinic | null> {
@@ -43,11 +38,13 @@ async function getClinic(id: string): Promise<Clinic | null> {
 }
 
 // ----------------------
-// 2. Apply the local interface to the component
+// 2. Await the params promise before using
 export default async function ClinicDetailPage({ params }: ClinicPageProps) {
+  // CRITICAL: Await params in Next.js 15+
+  const { id } = await params;
 // ----------------------
 
-  const clinic = await getClinic(params.id);
+  const clinic = await getClinic(id);
   
   if (!clinic) {
     notFound();
@@ -175,55 +172,47 @@ export default async function ClinicDetailPage({ params }: ClinicPageProps) {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {clinic.accessibility_options?.wheelchair_accessible_entrance && (
                   <div className="flex items-center gap-2">
-                    <span className="text-2xl">♿</span>
+                    <span className="text-green-600">✓</span>
                     <span className="text-gray-700">Wheelchair Accessible Entrance</span>
                   </div>
                 )}
                 {clinic.accessibility_options?.wheelchair_accessible_parking && (
                   <div className="flex items-center gap-2">
-                    <span className="text-2xl">♿</span>
-                    <span className="text-gray-700">Accessible Parking</span>
+                    <span className="text-green-600">✓</span>
+                    <span className="text-gray-700">Wheelchair Accessible Parking</span>
                   </div>
                 )}
                 {clinic.accessibility_options?.wheelchair_accessible_restroom && (
                   <div className="flex items-center gap-2">
-                    <span className="text-2xl">♿</span>
-                    <span className="text-gray-700">Accessible Restroom</span>
+                    <span className="text-green-600">✓</span>
+                    <span className="text-gray-700">Wheelchair Accessible Restroom</span>
                   </div>
                 )}
                 {clinic.parking_options?.free_parking_lot && (
                   <div className="flex items-center gap-2">
-                    <span className="text-2xl">🅿️</span>
-                    <span className="text-gray-700">Free Parking</span>
+                    <span className="text-green-600">✓</span>
+                    <span className="text-gray-700">Free Parking Lot</span>
                   </div>
                 )}
                 {clinic.parking_options?.paid_parking_lot && (
                   <div className="flex items-center gap-2">
-                    <span className="text-2xl">🅿️</span>
-                    <span className="text-gray-700">Paid Parking</span>
+                    <span className="text-blue-600">$</span>
+                    <span className="text-gray-700">Paid Parking Lot</span>
                   </div>
                 )}
                 {clinic.payment_options?.accepts_credit_cards && (
                   <div className="flex items-center gap-2">
-                    <span className="text-2xl">💳</span>
-                    <span className="text-gray-700">Credit Cards</span>
+                    <span className="text-green-600">✓</span>
+                    <span className="text-gray-700">Accepts Credit Cards</span>
                   </div>
                 )}
-                {clinic.payment_options?.accepts_nfc && (
+                {clinic.payment_options?.accepts_cash_only && (
                   <div className="flex items-center gap-2">
-                    <span className="text-2xl">📱</span>
-                    <span className="text-gray-700">Contactless Payment</span>
+                    <span className="text-green-600">✓</span>
+                    <span className="text-gray-700">Cash Only</span>
                   </div>
                 )}
               </div>
-
-              {!clinic.accessibility_options && 
-                !clinic.parking_options && 
-                !clinic.payment_options && (
-                <p className="text-gray-500 text-sm italic">
-                  No additional features information available.
-                </p>
-              )}
             </div>
           </div>
 

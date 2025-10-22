@@ -1,9 +1,24 @@
 // open-next.config.ts
-
-// This configuration object satisfies the requirement for the @opennextjs/cloudflare adapter.
-// It defines the mandatory 'default' worker configuration as an empty object.
-const config = {
-  default: {},
+export default {
+  default: {
+    override: {
+      wrapper: "cloudflare-node",
+      converter: "edge",
+      proxyExternalRequest: "fetch",
+      incrementalCache: "dummy",
+      tagCache: "dummy",
+      queue: "dummy",
+    },
+  },
+  middleware: {
+    external: true,
+    override: {
+      wrapper: "cloudflare-edge",
+      converter: "edge",
+      proxyExternalRequest: "fetch",
+      incrementalCache: "dummy",
+      tagCache: "dummy",
+      queue: "dummy",
+    },
+  },
 };
-
-export default config;
