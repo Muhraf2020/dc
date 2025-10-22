@@ -5,12 +5,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/build.js",
+    "build:next": "node scripts/build.js --next",
     "start": "next start",
     "lint": "next lint",
     "collect-data": "tsx scripts/collectClinicData.ts",
     "fetch:unsplash": "node scripts/fetch-unsplash-images.js",
-    "pages:build": "npx @opennextjs/cloudflare@latest build && cp .open-next/worker.js .open-next/_worker.js",
+    "pages:build": "node scripts/build.js --cloudflare",
     "preview": "npm run pages:build && wrangler pages dev .open-next",
     "deploy": "npm run pages:build && wrangler pages deploy .open-next"
   },
@@ -21,17 +22,17 @@
     "dotenv": "^17.2.3",
     "next": "^15.5.2",
     "react": "^18.3.0",
-    "react-dom": "^18.3.0"
+    "react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "tailwindcss": "^3.4.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.0",
     "@types/react": "^18.3.0",
     "@types/react-dom": "^18.3.0",
-    "autoprefixer": "^10.4.0",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.0",
-    "postcss": "^8.4.0",
-    "tailwindcss": "^3.4.0",
     "tsx": "^4.7.0",
     "typescript": "^5.3.0"
   },
