@@ -1,10 +1,9 @@
-// open-next.config.js
+// open-next.config.ts
 
-// The build tool requires the 'default' server configuration to be defined,
-// even if it's an empty object. This key maps to the main Cloudflare Worker 
-// that runs your Next.js server code.
+// This configuration object satisfies the requirement for the @opennextjs/cloudflare adapter.
+// It defines the mandatory 'default' worker configuration as an empty object.
 const config = {
-  default: {}, // This line resolves the "config.default cannot be empty" error.
+  default: {},
 };
 
 export default config;
