@@ -10,7 +10,11 @@
     "lint": "next lint",
     "collect-data": "tsx scripts/collectClinicData.ts",
     "fetch:unsplash": "node scripts/fetch-unsplash-images.js",
-    "pages:build": "npx opennextjs-cloudflare build && cp .open-next/worker.js .open-next/assets/_worker.js",
+    // Use 'ln' or 'cp' to create the required _worker.js file 
+    // at the root of the .open-next directory.
+    "pages:build": "npx opennextjs-cloudflare build && cp .open-next/worker.js .open-next/_worker.js",
+    // Note: The previous assets folder is no longer in the copy command.
+    // The final output directory will be .open-next
     "preview": "npm run pages:build && wrangler pages dev",
     "deploy": "npm run pages:build && wrangler pages deploy"
   },
