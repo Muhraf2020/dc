@@ -1,5 +1,7 @@
 // open-next.config.ts
-export default {
+import { defineCloudflareConfig } from "@opennextjs/cloudflare";
+
+export default defineCloudflareConfig({
   default: {
     override: {
       wrapper: "cloudflare-node",
@@ -22,4 +24,4 @@ export default {
       queue: "dummy",
     },
   },
-};
+});
