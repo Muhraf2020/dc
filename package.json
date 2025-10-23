@@ -10,7 +10,7 @@
     "lint": "next lint",
     "collect-data": "tsx scripts/collectClinicData.ts",
     "fetch:unsplash": "node scripts/fetch-unsplash-images.js",
-    "pages:build": "npx @opennextjs/cloudflare@latest build && node scripts/patch-open-next-routes.mjs && cp .open-next/worker.js .open-next/_worker.js",
+    "pages:build": "npx @opennextjs/cloudflare@latest build && cp .open-next/worker.js .open-next/_worker.js",
     "preview": "npm run pages:build && wrangler pages dev .open-next",
     "deploy": "npm run pages:build && wrangler pages deploy .open-next"
   },
