@@ -13,15 +13,6 @@ export default defineCloudflareConfig({
     },
   },
   edgeExternals: ["node:crypto"],
-  // Critical: Configure static assets for Pages
-  staticAssets: {
-    copy: [
-      {
-        from: "public",
-        to: "assets",
-      },
-    ],
-  },
   middleware: {
     external: true,
     override: {
