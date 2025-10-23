@@ -1,20 +1,19 @@
 name = "dermaclinicsnearme"
 compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
-
-# For Cloudflare Pages - output directory only
 pages_build_output_dir = ".open-next"
+
+# Critical: Define the assets binding
+[assets]
+directory = ".open-next/assets"
+binding = "ASSETS"
 
 [vars]
 NODE_VERSION = "20.11.0"
 
-# Note: Remove [assets] section - that's for Workers, not Pages
-# Pages automatically serves static files from pages_build_output_dir
-
-# Environment variables should be set in Cloudflare Dashboard:
-# Settings > Environment Variables
-# Required vars:
-# - NEXT_PUBLIC_SUPABASE_URL
-# - NEXT_PUBLIC_SUPABASE_ANON_KEY
-# - GOOGLE_PLACES_API_KEY (if using search)
-# - SUPABASE_SERVICE_KEY (if needed)
+# Environment variables will be set via Cloudflare dashboard
+# Add the following as environment variables in Cloudflare Pages:
+# NEXT_PUBLIC_SUPABASE_URL
+# NEXT_PUBLIC_SUPABASE_ANON_KEY
+# GOOGLE_PLACES_API_KEY (if needed)
+# SUPABASE_SERVICE_KEY (if needed)
