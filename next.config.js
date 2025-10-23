@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
+const isCloudflare = process.env.CF_PAGES === '1' || process.env.CLOUDFLARE === '1';
+
 const nextConfig = {
+  assetPrefix: isCloudflare ? '/assets' : undefined,
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'images.unsplash.com', pathname: '/**' },
