@@ -1,0 +1,10 @@
+/_next/static/*
+  Cache-Control: public,max-age=31536000,immutable
+
+/clinic-images/*
+  Cache-Control: public,max-age=86400
+
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: origin-when-cross-origin
